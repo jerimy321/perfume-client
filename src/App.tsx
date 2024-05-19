@@ -1,5 +1,11 @@
+import Main from './pages/main';
+
 function App() {
-  return <div>향수</div>;
+  return (
+    <>
+      <Main />
+    </>
+  );
 }
 
 export default App;
