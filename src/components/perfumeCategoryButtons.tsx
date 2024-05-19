@@ -1,17 +1,40 @@
+import React, { useState } from 'react';
 import Button from './button';
 import { categories } from '../data/perfumeData';
 
 export default function PerfumeCategoryButtons() {
+  const [activeItems, setActiveItems] = useState<Record<string, string | null>>(
+    {
+      scent: null,
+      weather: null,
+      brand: null,
+      times: null,
+    },
+  );
+
+  const handleButtonClick = (category: string, item: string) => {
+    setActiveItems((prevItems) => ({
+      ...prevItems,
+      [category]: item,
+    }));
+    console.log(activeItems);
+  };
+
   const renderButtons = (category: string, items: string[]) => {
     return (
-      <div className="p-5" key={category}>
-        <h3 className="flex justify-center mb-5 text-xl font-semibold">
-          {category}
-        </h3>
-        <div className="flex flex-wrap justify-center gap-3 mb-4">
-          {items.map((item) => (
-            <Button key={item} text={item} />
-          ))}
+      <div key={category}>
+        <h3 className="mb-2 text-xl font-semibold">{category}</h3>
+        <div className="flex flex-wrap gap-2 mb-4">
+          {items.map((item) => {
+            return (
+              <Button
+                key={item}
+                text={item}
+                isActive={activeItems[category] === item}
+                onClick={() => handleButtonClick(category, item)}
+              />
+            );
+          })}
         </div>
       </div>
     );

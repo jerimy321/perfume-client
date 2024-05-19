@@ -14,7 +14,7 @@ export default function Main() {
         </div>
       </div>
       <div className="flex items-center justify-center flex-1 my-10">
-        <Button text="결과보러가기" type="bg-slate-200" />
+        <Button text="결과 보러가기" type="bg-slate-200" />
       </div>
     </div>
   );
