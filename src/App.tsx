@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Main from './pages/main';
 import Home from './pages/home';
+import NaverCallback from './pages/NaverCallback';
+import Login from './pages/login';
 
 function App() {
   return (
@@ -9,6 +11,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/main" element={<Main />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/callback" element={<NaverCallback />} />
       </Routes>
     </BrowserRouter>
   );
