@@ -10,3 +10,8 @@ export const selectedItemsState = atom<Record<string, string | null>>({
     times: null,
   },
 });
+
+export const naverTokenState = atom({
+  key: 'naverTokenState',
+  default: '',
+});

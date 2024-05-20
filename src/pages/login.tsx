@@ -1,4 +1,4 @@
-import NaverLogin from '../components/NaverLogin';
+import NaverLogin from '../components/naverLogin';
 
 export default function Login () {
     return (

@@ -1,7 +1,7 @@
-import {FC, useEffect} from 'react';
+import {useEffect} from 'react';
 
 const { naver } : any = window;
-const NaverLogin: FC = () => {
+const NaverLogin = () => {
     const clientId = process.env.REACT_APP_NAVER_CLIENT_ID;
     const clientURL = 'http://localhost:3000/callback'
 
@@ -20,7 +20,6 @@ const NaverLogin: FC = () => {
             loginButton: { color: 'green', type: 3, height: '48' },
         });
         naverLogin.init();
-        console.log(naverLogin)
     }, []);
 
     return (
@@ -28,6 +27,5 @@ const NaverLogin: FC = () => {
         </div>
     );
 };
-
 
 export default NaverLogin;

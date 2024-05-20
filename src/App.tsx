@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Main from './pages/main';
 import Home from './pages/home';
-import NaverCallback from './pages/NaverCallback';
+import NaverCallback from './pages/naverCallback';
 import Login from './pages/login';
 
 function App() {
