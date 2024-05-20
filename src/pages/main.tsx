@@ -1,7 +1,13 @@
 import Button from '../components/button';
+import { useRecoilValue } from 'recoil';
+import { selectedItemsState } from '../recoil/recoilState';
 import PerfumeCategoryButtons from '../components/perfumeCategoryButtons';
 
 export default function Main() {
+  const selectedItems = useRecoilValue(selectedItemsState);
+  const handleResultButtonClick = () => {
+    console.log(selectedItems);
+  };
   return (
     <div>
       <div className="flex flex-col items-center py-10 bg-gray-300 w-dvw">
@@ -14,7 +20,11 @@ export default function Main() {
         </div>
       </div>
       <div className="flex items-center justify-center flex-1 my-10">
-        <Button text="결과 보러가기" type="bg-slate-200" />
+        <Button
+          text="결과 보러가기"
+          onClick={handleResultButtonClick}
+          type="bg-slate-200"
+        />
       </div>
     </div>
   );
