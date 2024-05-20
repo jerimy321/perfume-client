@@ -8,12 +8,13 @@ export default function Home() {
     return (
         <div>
             <div>홈</div>
+            {/* 로그인 기능 구현을 위해 임시적으로 만듦 */}
             {token !== null ?
                 <div>로그인이 완료 되었습니다.</div>
                 : (
                     <Link to="/login">로그인</Link>
                 )
-            } /* 로그인 기능 확인을 위해 임시로 작성 */
+            }
         </div>
     );
 };
