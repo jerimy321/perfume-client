@@ -1,19 +1,20 @@
-import GoToMain from '../components/goToMain';
+import {Link} from 'react-router-dom';
+import {useRecoilValue} from 'recoil';
+import {naverTokenState} from '../recoil/recoilState';
 
 export default function Home() {
+    const token = useRecoilValue(naverTokenState);
+
     return (
-        <div
-            className="bg-cover bg-center bg-home-bg w-screen h-screen flex justify-center items-center"
-        >
-            <div className="w-full h-full flex justify-center items-center">
-                <div className="flex flex-col justify-between w-[972px] h-[611px] flex-shrink font-pretendard text-center">
-                    <div className='text-home-div font-normal'>
-                        <p>당신의<span className='font-semibold'> 취향을 저격할</span></p>
-                        <p><span className='font-semibold'>향수를 </span>찾아드릴게요!</p>
-                    </div>
-                <GoToMain />
-                </div>
-            </div>
+        <div>
+            <div>홈</div>
+            {/* 로그인 기능 구현을 위해 임시적으로 만듦 */}
+            {token !== null ?
+                <div>로그인이 완료 되었습니다.</div>
+                : (
+                    <Link to="/login">로그인</Link>
+                )
+            }
         </div>
     );
 };
