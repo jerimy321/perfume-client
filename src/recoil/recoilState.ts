@@ -11,7 +11,12 @@ export const selectedItemsState = atom<Record<string, string | null>>({
   },
 });
 
+const getNaverTokenFromLocalStorage = () => {
+  const naverToken = localStorage.getItem('naverToken');
+  return naverToken ? naverToken : null;
+}
+
 export const naverTokenState = atom({
   key: 'naverTokenState',
-  default: '',
+  default: getNaverTokenFromLocalStorage(),
 });
