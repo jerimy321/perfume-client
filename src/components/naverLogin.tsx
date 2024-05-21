@@ -23,7 +23,7 @@ const NaverLogin = () => {
     }, []);
 
     return (
-        <div id="naverIdLogin" className="w-1/4">
+        <div id="naverIdLogin" className="w-1/3 mx-auto mt-5">
         </div>
     );
 };
