@@ -1,4 +1,4 @@
-import MyPagePerfume from './mypagePerfume';
+import MyPagePerfume from './myPagePerfume';
 
 export default function Album() {
   const handleDeletePerfume = () => {
