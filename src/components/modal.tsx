@@ -1,7 +1,16 @@
-// src/components/Modal.tsx
-import React from 'react';
+interface ModalProps {
+  title: string;
+  content: string;
+  negativeAnswer: string;
+  positiveAnswer: string;
+}
 
-const Modal = () => {
+const Modal: React.FC<ModalProps> = ({
+  title,
+  content,
+  negativeAnswer,
+  positiveAnswer,
+}) => {
   return (
     <div
       className="modal fade"
@@ -12,31 +21,19 @@ const Modal = () => {
       aria-hidden="true"
     >
       <div className="modal-dialog" role="document">
-        <div className="bg-white rounded-lg shadow-lg modal-content">
-          <div className="flex items-center justify-between p-4 border-b border-gray-200 modal-header">
-            <h5 className="text-lg font-medium modal-title" id="modalLabel">
-              모달제목
+        <div className="gap-4 modal-content">
+          <div className="flex items-center justify-center">
+            <h5 className="pt-4 text-lg font-medium" id="modalLabel">
+              {title}
             </h5>
-            <button
-              type="button"
-              className="text-black close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
           </div>
-          <div className="p-4 modal-body">모달바디</div>
-          <div className="flex items-center justify-end p-4 border-t border-gray-200 modal-footer">
-            <button
-              type="button"
-              className="mr-2 btn btn-secondary"
-              data-dismiss="modal"
-            >
-              닫기
+          <div className="flex items-center justify-center p-2">{content}</div>
+          <div className="flex items-center justify-center gap-4 pb-4">
+            <button type="button" className="btn " data-dismiss="modal">
+              {negativeAnswer}
             </button>
-            <button type="button" className="btn btn-primary">
-              저장
+            <button type="button" className="text-white bg-black btn text-md">
+              {positiveAnswer}
             </button>
           </div>
         </div>
