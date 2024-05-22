@@ -13,7 +13,7 @@ export default function Album() {
       >
         삭제하기
       </p>
-      <div className="flex flex-row flex-wrap justify-center">
+      <div className="flex flex-row flex-wrap justify-center gap-10">
         <MyPagePerfume />
         <MyPagePerfume />
         <MyPagePerfume />
