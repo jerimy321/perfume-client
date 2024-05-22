@@ -1,12 +1,12 @@
 import {useEffect, useRef, useState} from 'react';
-import naverLoginBtn from '../assets/images/button_login_default.svg'
-import naverLoginBtnHover from '../assets/images/button_login_hover.svg'
+import naverDefault from '../assets/images/logo_green.png'
+import naverHover from '../assets/images/logo_white.png'
 
 const NaverLogin = () => {
     const [isHover, setIsHover] = useState(false);
 
     const naverRef = useRef(null);
-    const { naver } : any = window;
+    const {naver}: any = window;
 
     const clientId = process.env.REACT_APP_NAVER_CLIENT_ID;
     const clientURL = 'http://localhost:3000/callback'
@@ -23,7 +23,7 @@ const NaverLogin = () => {
             clientId: clientId,
             callbackUrl: clientURL,
             isPopup: false,
-            loginButton: { color: 'green', type: 3, height: '75' },
+            loginButton: {color: 'green', type: 3, height: '75'},
         });
         naverLogin.init();
     }, []);
@@ -40,21 +40,31 @@ const NaverLogin = () => {
     };
 
     return (
-        <div className={'flex justify-center items-center'}>
+        <div className={'flex justify-center items-center '}>
             <div id="naverIdLogin" className="hidden">
             </div>
             <div
-                onMouseEnter={()=>setIsHover(true)}
-                onMouseLeave={()=>setIsHover(false)}
+                onMouseEnter={() => setIsHover(true)}
+                onMouseLeave={() => setIsHover(false)}
             >
                 {isHover ? (
-                    <img
-                        src={naverLoginBtnHover}
+                    <div
+                        className='cursor-pointer inline-flex flex-col w-[460px] h-[94px] px-[103px] py-[27px] items-start gap-2.5 rounded-[15px] bg-naver-default border-2 border-naver-default'
                         onClick={handleNaverLogin}
-                    />
-
+                    >
+                        <div className='flex flex-row w-full h-full justify-between'>
+                            <img className='flex-shrink-0 mr-1' src={naverHover}/>
+                            <p className='ml-1 w-full h-full text-center text-naver-button text-naver-default text-white'>네이버 간편 로그인</p>
+                        </div>
+                    </div>
                 ) : (
-                    <img src={naverLoginBtn}/>
+                    <div
+                        className='cursor-pointer inline-flex flex-col w-[460px] h-[94px] px-[103px] py-[27px] items-start gap-2.5 rounded-[15px] border-2 border-naver-default'>
+                        <div className='flex flex-row w-full h-full justify-between'>
+                            <img className='flex-shrink-0 mr-1' src={naverDefault}/>
+                            <p className='ml-1 w-full h-full text-center text-naver-button text-naver-default'>네이버 간편 로그인</p>
+                        </div>
+                    </div>
                 )}
             </div>
         </div>
