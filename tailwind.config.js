@@ -16,17 +16,25 @@ module.exports = {
           '24px',
           { lineHeight: '137%', letterSpacing: '-0.48px' },
         ],
+        'login-need': ['42px', { lineHeight: '140%', letterSpacing: '-2px' }],
+        'login-simple': ['24px', { lineHeight: '140%', letterSpacing: '-2px' }],
         'mypage-tap': ['26px', { lineHeight: '32.85px' }],
         'mypage-title': ['60px', { lineHeight: '75.78px' }],
         'modal-button': ['26px', { lineHeight: '26px' }],
       },
       width: {
-        972: '972px',
-        384: '384px',
+        '972': '972px',
+        '709': '709px',
+        '464': '464px',
+        '384': '384px',
       },
       height: {
-        611: '611px',
-        90: '90px',
+        '611': '611px',
+        '433': '433px',
+        '90': '90px',
+      },
+      margin: {
+        '75': '75px',
       },
       padding: {
         67: '67px',
@@ -38,10 +46,12 @@ module.exports = {
           'linear-gradient(92deg, rgba(255, 255, 255, 0.30) 0.48%, rgba(255, 255, 255, 0.60) 99.34%)',
         'modal-bg':
           'linear-gradient(178deg, white 0%, rgba(255, 255, 255, 0.96) 100%)',
+        'login-bg': "url('./assets/images/bg_login.png')",
       },
       boxShadow: {
         'home-button': '0px 0px 30px 4px rgba(219, 212, 223, 0.50)',
         'home-button-hover': '0px 0px 30px 6px rgba(0, 0, 0, 0.50)',
+        'login-modal': '0px 0px 100px 12px rgba(0, 0, 0, 0.40)',
         'perfume-card': '0px 0px 30px 8px rgba(0, 0, 0, 0.06)',
         'album-card': '0px 0px 40px rgba(88.69, 0, 143.05, 0.10)',
         'info-card': '0px 0px 40px 1px rgba(88.69, 0, 143.05, 0.10)',
@@ -54,6 +64,9 @@ module.exports = {
         gray40: 'rgba(0, 0, 0, 0.40)',
         gray80: 'rgba(0, 0, 0, 0.80)',
         'album-card': 'rgba(255, 255, 255, 0.70)',
+      },
+      borderRadius: {
+        '30': '30px',
       },
     },
   },
