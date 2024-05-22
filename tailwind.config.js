@@ -1,7 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 
-const plugin = require('tailwindcss/plugin');
-
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
@@ -43,23 +41,16 @@ module.exports = {
         'home-button-hover': '0px 0px 30px 6px rgba(0, 0, 0, 0.50)',
         'perfume-card': '0px 0px 30px 8px rgba(0, 0, 0, 0.06)',
         'album-card': '0px 0px 40px rgba(88.69, 0, 143.05, 0.10)',
+        'info-card': '0px 0px 40px 1px rgba(88.69, 0, 143.05, 0.10)',
       },
       colors: {
         white06: 'rgba(0, 0, 0, 0.06)',
         white20: 'rgba(0, 0, 0, 0.20)',
+        gray60: 'rgba(0, 0, 0, 0.60)',
+        gray40: 'rgba(0, 0, 0, 0.40)',
         'album-card': 'rgba(255, 255, 255, 0.70)',
       },
     },
   },
-  plugins: [
-    require('tailwindcss-filters'),
-    plugin(function ({ addUtilities }) {
-      const newUtilities = {
-        '.backdrop-blur-4': {
-          'backdrop-filter': 'blur(4px)',
-        },
-      };
-      addUtilities(newUtilities, ['responsive', 'hover']);
-    }),
-  ],
+  plugins: [],
 };

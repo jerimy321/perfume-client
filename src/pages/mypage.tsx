@@ -29,7 +29,6 @@ export default function Mypage() {
         {activeTab === 'album' && <Album />}
         {activeTab === 'myinfo' && <Myinfo />}
       </div>
-      <div className="py-10">1 2 3</div>
     </div>
   );
 }
