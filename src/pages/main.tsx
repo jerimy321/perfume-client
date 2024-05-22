@@ -3,6 +3,7 @@ import { useRecoilValue } from 'recoil';
 import { selectedItemsState } from '../recoil/recoilState';
 import PerfumeCategoryButtons from '../components/perfumeCategoryButtons';
 import Modal from '../components/modal';
+import Carousel from '../components/carousel';
 
 export default function Main() {
   const selectedItems = useRecoilValue(selectedItemsState);
@@ -31,7 +32,10 @@ export default function Main() {
         negativeAnswer="아니요"
         positiveAnswer="네, 삭제할래요"
       />
-
+      <div className="container mt-5">
+        <h1 className="mb-4 text-2xl font-bold">캐러셀 시험</h1>
+        <Carousel />
+      </div>
       <div>
         <div className="flex items-center justify-center my-10">
           <PerfumeCategoryButtons />
