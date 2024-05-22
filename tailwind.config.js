@@ -39,10 +39,12 @@ module.exports = {
         'home-button': '0px 0px 30px 4px rgba(219, 212, 223, 0.50)',
         'home-button-hover': '0px 0px 30px 6px rgba(0, 0, 0, 0.50)',
         'perfume-card': '0px 0px 30px 8px rgba(0, 0, 0, 0.06)',
+        'album-card': '0px 0px 40px rgba(88.69, 0, 143.05, 0.10)',
       },
       colors: {
         white06: 'rgba(0, 0, 0, 0.06)',
         white20: 'rgba(0, 0, 0, 0.20)',
+        'album-card': 'rgba(255, 255, 255, 0.70)',
       },
     },
   },

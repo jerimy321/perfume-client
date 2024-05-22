@@ -6,7 +6,7 @@ export default function Album() {
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-album-card shadow-album-card rounded-[30px] border border-white">
       <p
         className="flex justify-end mx-5 mt-5 mb-10 cursor-pointer"
         onClick={handleDeletePerfume}
