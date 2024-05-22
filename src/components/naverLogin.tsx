@@ -1,7 +1,13 @@
-import {useEffect} from 'react';
+import {useEffect, useRef, useState} from 'react';
+import naverLoginBtn from '../assets/images/button_login_default.svg'
+import naverLoginBtnHover from '../assets/images/button_login_hover.svg'
 
-const { naver } : any = window;
 const NaverLogin = () => {
+    const [isHover, setIsHover] = useState(false);
+
+    const naverRef = useRef(null);
+    const { naver } : any = window;
+
     const clientId = process.env.REACT_APP_NAVER_CLIENT_ID;
     const clientURL = 'http://localhost:3000/callback'
 
@@ -17,13 +23,40 @@ const NaverLogin = () => {
             clientId: clientId,
             callbackUrl: clientURL,
             isPopup: false,
-            loginButton: { color: 'green', type: 3, height: '48' },
+            loginButton: { color: 'green', type: 3, height: '75' },
         });
         naverLogin.init();
     }, []);
 
+    const handleNaverLogin = () => {
+        if (
+            document &&
+            document?.querySelector("#naverIdLogin")?.firstChild &&
+            window !== undefined
+        ) {
+            const loginBtn: any = document.getElementById("naverIdLogin")?.firstChild;
+            loginBtn.click();
+        }
+    };
+
     return (
-        <div id="naverIdLogin" className="w-1/3 mx-auto mt-5">
+        <div className={'flex justify-center items-center'}>
+            <div id="naverIdLogin" className="hidden">
+            </div>
+            <div
+                onMouseEnter={()=>setIsHover(true)}
+                onMouseLeave={()=>setIsHover(false)}
+            >
+                {isHover ? (
+                    <img
+                        src={naverLoginBtnHover}
+                        onClick={handleNaverLogin}
+                    />
+
+                ) : (
+                    <img src={naverLoginBtn}/>
+                )}
+            </div>
         </div>
     );
 };
