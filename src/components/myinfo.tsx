@@ -36,7 +36,7 @@ export default function Myinfo() {
           imgSrc={LogoutIcon}
         />
       </div>
-      <div className="flex items-center justify-center mb-6">
+      <div className="flex items-center justify-center mb-3">
         <Button
           text={'탈퇴하기'}
           type={
@@ -50,10 +50,12 @@ export default function Myinfo() {
           <img src={DeleteLogo} alt="탈퇴 로고" className="w-[60px] h-[60px]" />
         }
         content={
-          <>
-            <p>정말 탈퇴할까요?</p>
-            <p>탈퇴 시 저장된 정보들은 영구 삭제 됩니다.</p>
-          </>
+          <div className="flex flex-col items-center gap-1 mb-3">
+            <div>정말 탈퇴할까요?</div>
+            <div>
+              탈퇴 시 저장된 정보들은 <strong>영구 삭제</strong> 됩니다.
+            </div>
+          </div>
         }
         negativeAnswer="아니요"
         positiveAnswer="네, 탈퇴할래요"

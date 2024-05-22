@@ -18,6 +18,7 @@ module.exports = {
         ],
         'mypage-tap': ['26px', { lineHeight: '32.85px' }],
         'mypage-title': ['60px', { lineHeight: '75.78px' }],
+        'modal-button': ['26px', { lineHeight: '26px' }],
       },
       width: {
         972: '972px',
@@ -35,6 +36,8 @@ module.exports = {
         'mypage-bg': "url('./assets/images/bg_mypage_1.png')",
         'home-button':
           'linear-gradient(92deg, rgba(255, 255, 255, 0.30) 0.48%, rgba(255, 255, 255, 0.60) 99.34%)',
+        'modal-bg':
+          'linear-gradient(178deg, white 0%, rgba(255, 255, 255, 0.96) 100%)',
       },
       boxShadow: {
         'home-button': '0px 0px 30px 4px rgba(219, 212, 223, 0.50)',
@@ -42,12 +45,14 @@ module.exports = {
         'perfume-card': '0px 0px 30px 8px rgba(0, 0, 0, 0.06)',
         'album-card': '0px 0px 40px rgba(88.69, 0, 143.05, 0.10)',
         'info-card': '0px 0px 40px 1px rgba(88.69, 0, 143.05, 0.10)',
+        'modal-border': '0px 0px 50px rgba(0, 0, 0, 0.15)',
       },
       colors: {
         white06: 'rgba(0, 0, 0, 0.06)',
         white20: 'rgba(0, 0, 0, 0.20)',
         gray60: 'rgba(0, 0, 0, 0.60)',
         gray40: 'rgba(0, 0, 0, 0.40)',
+        gray80: 'rgba(0, 0, 0, 0.80)',
         'album-card': 'rgba(255, 255, 255, 0.70)',
       },
     },
