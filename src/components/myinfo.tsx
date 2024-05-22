@@ -4,9 +4,11 @@ import LogoutIcon from '../assets/icons/icon_logout.svg';
 import Logo from '../assets/icons/naver_circle.svg';
 import Modal from './modal';
 import DeleteLogo from '../assets/icons/icon_delete.svg';
+import { useNavigate } from 'react-router-dom';
 
 export default function Myinfo() {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const navigate = useNavigate();
 
   const handleDeleteClick = () => {
     setIsModalVisible(true);
@@ -17,9 +19,14 @@ export default function Myinfo() {
   };
 
   const handleConfirmDelete = () => {
-    // 탈퇴 로직을 여기에 추가합니다.
+    // 탈퇴 로직 추가 필요
     setIsModalVisible(false);
-    console.log('탈퇴 확인');
+    navigate('/');
+  };
+
+  const handleLogoutButtonClick = () => {
+    // 로그아웃 로직 추가 필요
+    navigate('/');
   };
 
   return (
@@ -34,6 +41,7 @@ export default function Myinfo() {
             'bg-gray60 text-white w-[224px] h-[62px] rounded-[30px] font-bold text-[26px] font-medium'
           }
           imgSrc={LogoutIcon}
+          onClick={handleLogoutButtonClick}
         />
       </div>
       <div className="flex items-center justify-center mb-3">
