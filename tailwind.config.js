@@ -8,14 +8,9 @@ module.exports = {
         pretendard: ['Pretendard', 'sans-serif'],
       },
       fontSize: {
-        'home-div': [
-          '78px',
-          { lineHeight: '126.3%', letterSpacing: '-1.56px' },
-        ],
-        'home-button': [
-          '24px',
-          { lineHeight: '137%', letterSpacing: '-0.48px' },
-        ],
+        'home-div': ['78px', { lineHeight: '126.3%', letterSpacing: '-1.56px' }],
+        'home-button': ['24px', { lineHeight: '137%', letterSpacing: '-0.48px' }],
+        'naver-button': ['26px', { lineHeight: '140%', letterSpacing: '-2px' }],
         'login-need': ['42px', { lineHeight: '140%', letterSpacing: '-2px' }],
         'login-simple': ['24px', { lineHeight: '140%', letterSpacing: '-2px' }],
         'mypage-tap': ['26px', { lineHeight: '32.85px' }],
@@ -26,18 +21,30 @@ module.exports = {
         '972': '972px',
         '709': '709px',
         '464': '464px',
+        '452': '452px',
         '384': '384px',
+        '242': '242px',
+        '191': '191px',
+      },
+      maxWidth: {
+        '242': '242px',
+      },
+      maxHeight: {
+        '36': '36px',
       },
       height: {
         '611': '611px',
         '433': '433px',
-        '90': '90px',
+        '94': '94px',
+        '36': '36px',
       },
       margin: {
         '75': '75px',
       },
       padding: {
-        67: '67px',
+        '27': '27px',
+        '67': '67px',
+        '103': '103px',
       },
       backgroundImage: {
         'home-bg': "url('./assets/images/bg_main.svg')",
@@ -66,7 +73,14 @@ module.exports = {
         'album-card': 'rgba(255, 255, 255, 0.70)',
       },
       borderRadius: {
+        '15': '15px',
         '30': '30px',
+      },
+      borderColor: {
+        'naver-default': '#00C73C',
+      },
+      colors: {
+        'naver-default': '#00C73C',
       },
     },
   },
