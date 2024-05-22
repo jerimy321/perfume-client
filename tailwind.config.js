@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
@@ -12,6 +13,9 @@ module.exports = {
         'naver-button': ['26px', { lineHeight: '140%', letterSpacing: '-2px' }],
         'login-need': ['42px', { lineHeight: '140%', letterSpacing: '-2px' }],
         'login-simple': ['24px', { lineHeight: '140%', letterSpacing: '-2px' }],
+        'mypage-tap': ['26px', { lineHeight: '32.85px' }],
+        'mypage-title': ['60px', { lineHeight: '75.78px' }],
+        'modal-button': ['26px', { lineHeight: '26px' }],
       },
       width: {
         '972': '972px',
@@ -44,13 +48,29 @@ module.exports = {
       },
       backgroundImage: {
         'home-bg': "url('./assets/images/bg_main.svg')",
-        'home-button': 'linear-gradient(92deg, rgba(255, 255, 255, 0.30) 0.48%, rgba(255, 255, 255, 0.60) 99.34%)',
+        'mypage-bg': "url('./assets/images/bg_mypage_1.png')",
+        'home-button':
+          'linear-gradient(92deg, rgba(255, 255, 255, 0.30) 0.48%, rgba(255, 255, 255, 0.60) 99.34%)',
+        'modal-bg':
+          'linear-gradient(178deg, white 0%, rgba(255, 255, 255, 0.96) 100%)',
         'login-bg': "url('./assets/images/bg_login.png')",
       },
       boxShadow: {
-        'home-button':'0px 0px 30px 4px rgba(219, 212, 223, 0.50)',
-        'home-button-hover':'0px 0px 30px 6px rgba(0, 0, 0, 0.50)',
+        'home-button': '0px 0px 30px 4px rgba(219, 212, 223, 0.50)',
+        'home-button-hover': '0px 0px 30px 6px rgba(0, 0, 0, 0.50)',
         'login-modal': '0px 0px 100px 12px rgba(0, 0, 0, 0.40)',
+        'perfume-card': '0px 0px 30px 8px rgba(0, 0, 0, 0.06)',
+        'album-card': '0px 0px 40px rgba(88.69, 0, 143.05, 0.10)',
+        'info-card': '0px 0px 40px 1px rgba(88.69, 0, 143.05, 0.10)',
+        'modal-border': '0px 0px 50px rgba(0, 0, 0, 0.15)',
+      },
+      colors: {
+        white06: 'rgba(0, 0, 0, 0.06)',
+        white20: 'rgba(0, 0, 0, 0.20)',
+        gray60: 'rgba(0, 0, 0, 0.60)',
+        gray40: 'rgba(0, 0, 0, 0.40)',
+        gray80: 'rgba(0, 0, 0, 0.80)',
+        'album-card': 'rgba(255, 255, 255, 0.70)',
       },
       borderRadius: {
         '15': '15px',
