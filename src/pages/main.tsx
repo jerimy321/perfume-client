@@ -1,52 +1,22 @@
-import Button from '../components/button';
+import React from 'react';
 import { useRecoilValue } from 'recoil';
 import { selectedItemsState } from '../recoil/recoilState';
-import PerfumeCategoryButtons from '../components/perfumeCategoryButtons';
-import Modal from '../components/modal';
 import Carousel from '../components/carousel';
+import Button from '../components/button';
 
 export default function Main() {
   const selectedItems = useRecoilValue(selectedItemsState);
-  const handleResultButtonClick = () => {
-    console.log(selectedItems);
-  };
+
   return (
-    <div>
-      <div className="flex flex-col items-center py-10 bg-gray-300 w-dvw">
-        <h1>향수 추천을 위한</h1>
-        <h1>당신의 취향을 선택해주세요</h1>
-      </div>
-
-      <button
-        type="button"
-        className="btn btn-primary"
-        data-toggle="modal"
-        data-target="#modal"
-      >
-        모달시험
-      </button>
-
-      <Modal
-        title="휴지통이모티콘"
-        content="선택된 향수 앨범을 삭제할까요?"
-        negativeAnswer="아니요"
-        positiveAnswer="네, 삭제할래요"
-      />
-      <div className="container mt-5">
-        <h1 className="mb-4 text-2xl font-bold">캐러셀 시험</h1>
-        <Carousel />
-      </div>
+    <div className="flex flex-col items-center justify-center w-screen h-screen bg-center bg-cover bg-home-bg">
+      <Carousel />
       <div>
         <div className="flex items-center justify-center my-10">
-          <PerfumeCategoryButtons />
+          <Button
+            text={'샤넬'}
+            type="h-[90px] w-[300px] text-main-button font-medium border border-white border-2 rounded-[15px] shadow-main-button"
+          />
         </div>
-      </div>
-      <div className="flex items-center justify-center flex-1 my-10">
-        <Button
-          text="결과 보러가기"
-          onClick={handleResultButtonClick}
-          type="bg-slate-200"
-        />
       </div>
     </div>
   );

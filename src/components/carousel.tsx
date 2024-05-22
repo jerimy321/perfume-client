@@ -1,57 +1,48 @@
+import { perfumeCategory } from '../data/perfumeData';
+import '../index.css';
+
 const Carousel: React.FC = () => {
+  const categories = Object.keys(
+    perfumeCategory,
+  ) as (keyof typeof perfumeCategory)[];
+
   return (
     <div
       id="carouselExampleIndicators"
       className="carousel slide"
-      data-ride="carousel"
+      data-interval="false"
     >
       <ol className="carousel-indicators">
-        <li
-          data-target="#carouselExampleIndicators"
-          data-slide-to="0"
-          className="active"
-        ></li>
-        <li
-          data-target="#carouselExampleIndicators"
-          data-slide-to="1"
-          className="bg-black w-[170px]"
-        ></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        {categories.map((_, index) => (
+          <li
+            key={index}
+            data-target="#carouselExampleIndicators"
+            data-slide-to={index}
+            className={index === 0 ? 'active' : ''}
+          ></li>
+        ))}
       </ol>
       <div className="carousel-inner">
-        <div className="carousel-item active">
-          <img
-            src="https://via.placeholder.com/800x400"
-            className="d-block w-100"
-            alt="..."
-          />
-          <div className="carousel-caption d-none d-md-block">
-            <h5 className="text-2xl">First Slide</h5>
-            <p>Some representative placeholder content for the first slide.</p>
+        {categories.map((category, index) => (
+          <div
+            key={category}
+            className={`carousel-item ${index === 0 ? 'active' : ''}`}
+          >
+            <div className="d-block w-100 h-[400px] flex flex-col items-center justify-center bg-gray-100">
+              <h5 className="mb-4 text-2xl">{category}</h5>
+              <div className="flex flex-wrap justify-center gap-2">
+                {perfumeCategory[category].map((item) => (
+                  <button
+                    key={item}
+                    className="px-4 py-2 m-2 border border-gray-300 rounded shadow"
+                  >
+                    {item}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="carousel-item">
-          <img
-            src="https://via.placeholder.com/800x400"
-            className="d-block w-100"
-            alt="..."
-          />
-          <div className="carousel-caption d-none d-md-block">
-            <h5 className="text-2xl">Second Slide</h5>
-            <p>Some representative placeholder content for the second slide.</p>
-          </div>
-        </div>
-        <div className="carousel-item">
-          <img
-            src="https://via.placeholder.com/800x400"
-            className="d-block w-100"
-            alt="..."
-          />
-          <div className="carousel-caption d-none d-md-block">
-            <h5 className="text-2xl">Third Slide</h5>
-            <p>Some representative placeholder content for the third slide.</p>
-          </div>
-        </div>
+        ))}
       </div>
       <a
         className="carousel-control-prev"
@@ -59,7 +50,10 @@ const Carousel: React.FC = () => {
         role="button"
         data-slide="prev"
       >
-        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span
+          className="bg-black carousel-control-prev-icon"
+          aria-hidden="true"
+        ></span>
         <span className="sr-only">Previous</span>
       </a>
       <a
@@ -68,7 +62,10 @@ const Carousel: React.FC = () => {
         role="button"
         data-slide="next"
       >
-        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+        <span
+          className="bg-black carousel-control-next-icon"
+          aria-hidden="true"
+        ></span>
         <span className="sr-only">Next</span>
       </a>
     </div>
