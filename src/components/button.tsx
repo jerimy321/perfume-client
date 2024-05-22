@@ -3,14 +3,16 @@ export interface ButtonProps {
   type?: string;
   onClick?: () => void;
   isActive?: boolean;
+  imgSrc?: string;
 }
 
-const Button = ({ text, type, onClick, isActive }: ButtonProps) => {
+const Button = ({ text, type, onClick, isActive, imgSrc }: ButtonProps) => {
   return (
     <button
       onClick={onClick}
-      className={`cursor-pointer border-none rounded-lg px-5 py-2.5 text-lg whitespace-nowrap bg-slate-400 hover:bg-slate-300${isActive ? 'bg-blue-500 text-white' : 'bg-gray-200 text-black'} ${type}`}
+      className={`${type} flex items-center justify-center cursor-pointer whitespace-nowrap${isActive ? 'bg-blue-500 text-white' : 'bg-gray-200 text-black'} `}
     >
+      {imgSrc && <img src={imgSrc} alt="" className="inline-block mr-2" />}
       {text}
     </button>
   );
