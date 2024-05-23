@@ -6,7 +6,7 @@ const NaverLogin = () => {
     const [isHover, setIsHover] = useState(false);
 
     const loginNaver = () => {
-        window.location.href = 'http://223.130.153.50:8080/oauth2/authorization/naver';
+        window.location.href = 'http://223.130.153.50:8080/login';
     }
 
     return (
