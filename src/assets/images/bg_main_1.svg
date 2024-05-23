@@ -1,0 +1,57 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_153_372" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="1920" height="1080">
+<rect width="1920" height="1080" fill="white"/>
+</mask>
+<g mask="url(#mask0_153_372)">
+<g opacity="0.4" filter="url(#filter0_f_153_372)">
+<path d="M923.51 752.032C766.394 911.4 276.643 1110.38 117.275 953.262C49.5506 833.166 251.658 771.865 352.569 424.049C443.04 144.215 800.287 101.457 959.655 258.573C1119.02 415.688 1080.63 592.664 923.51 752.032Z" fill="url(#paint0_linear_153_372)"/>
+</g>
+<g opacity="0.4" filter="url(#filter1_f_153_372)">
+<path d="M1099.86 767.369C1209.66 866.66 1540.63 979.502 1639.92 869.703C1739.21 759.904 1553.45 613.988 1481.73 511.792C1408.19 373.435 1156.58 333.061 1057.28 442.86C957.993 552.659 990.058 668.077 1099.86 767.369Z" fill="url(#paint1_linear_153_372)"/>
+</g>
+<g opacity="0.15" filter="url(#filter2_f_153_372)">
+<path d="M-48.2522 243.347C-35.3346 291.373 71.8292 403.991 135 387C198.171 370.009 150.5 271.142 151.694 228.467C161.579 174.548 83.6947 121.151 20.5239 138.142C-42.6469 155.133 -61.1698 195.321 -48.2522 243.347Z" fill="url(#paint2_radial_153_372)"/>
+</g>
+<g opacity="0.7" filter="url(#filter3_f_153_372)">
+<path d="M671.585 637.972C721.232 635.043 861.953 701.106 865.806 766.408C869.658 831.711 783.209 859.608 743.101 874.233C654.24 884.345 597.372 801.784 593.52 736.482C589.668 671.179 621.938 640.901 671.585 637.972Z" fill="url(#paint3_radial_153_372)"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_f_153_372" x="-240.322" y="-175.913" width="1646.22" height="1530.47" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="172" result="effect1_foregroundBlur_153_372"/>
+</filter>
+<filter id="filter1_f_153_372" x="703.701" y="85.8207" width="1258.79" height="1123" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="147" result="effect1_foregroundBlur_153_372"/>
+</filter>
+<filter id="filter2_f_153_372" x="-156.125" y="30.9306" width="427.947" height="461.799" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="52" result="effect1_foregroundBlur_153_372"/>
+</filter>
+<filter id="filter3_f_153_372" x="423.209" y="467.878" width="612.721" height="577.201" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="85" result="effect1_foregroundBlur_153_372"/>
+</filter>
+<linearGradient id="paint0_linear_153_372" x1="365.533" y1="315.647" x2="723.095" y2="1023.27" gradientUnits="userSpaceOnUse">
+<stop offset="0.19" stop-color="#FF6ED6"/>
+<stop offset="1" stop-color="#B398FF"/>
+</linearGradient>
+<linearGradient id="paint1_linear_153_372" x1="1191.73" y1="960.09" x2="1584.86" y2="909.958" gradientUnits="userSpaceOnUse">
+<stop stop-color="#81D9FF"/>
+<stop offset="1" stop-color="#FFD66B"/>
+</linearGradient>
+<radialGradient id="paint2_radial_153_372" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(9.71957 341.301) rotate(18.0437) scale(79.3512 115.405)">
+<stop stop-color="#6BCAFF"/>
+<stop offset="0.965" stop-color="#C2FF74"/>
+</radialGradient>
+<radialGradient id="paint3_radial_153_372" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(711.647 741.889) rotate(-58.1255) scale(99.4208 144.594)">
+<stop stop-color="#B56BFF"/>
+<stop offset="1" stop-color="#FBF5FE"/>
+</radialGradient>
+</defs>
+</svg>

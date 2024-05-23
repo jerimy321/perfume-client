@@ -68,6 +68,12 @@ module.exports = {
         'mainbutton-bg':
           'linear-gradient(162deg, rgba(255, 255, 255, 0.30) 0%, rgba(255, 255, 255, 0.60) 100%)',
       },
+      'main-1': "url('/assets/images/bg_main_1.svg')",
+      'main-2': "url('/assets/images/bg_main_2.svg')",
+      'main-3': "url('/assets/images/bg_main_3.svg')",
+      'main-4': "url('/assets/images/bg_main_4.svg')",
+      'main-5': "url('/assets/images/bg_main_5.svg')",
+      'main-6': "url('/assets/images/bg_main_6.svg')",
       boxShadow: {
         'home-button': '0px 0px 30px 4px rgba(219, 212, 223, 0.50)',
         'home-button-hover': '0px 0px 30px 6px rgba(0, 0, 0, 0.50)',
