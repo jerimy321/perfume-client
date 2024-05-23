@@ -1,11 +1,7 @@
-import {useRecoilValue} from 'recoil';
-import {naverTokenState} from '../recoil/recoilState';
 import {useNavigate} from 'react-router-dom';
-import {useState} from 'react';
 import LoginModal from './loginModal';
 
 const GoToMain = () => {
-    const naverToken = useRecoilValue(naverTokenState);
     const navigate = useNavigate();
 
     const toMain = () => {
@@ -27,14 +23,15 @@ const GoToMain = () => {
             >
                 추천 받으러 가기
             </button>
-            <LoginModal/>
+            <LoginModal />
         </>
 
     );
 
     return (
         <>
-            {naverToken ? isLogin : isNotLogin}
+            {/*{naverToken ? isLogin : isNotLogin}*/}
+            {isNotLogin}
         </>
     );
 };
