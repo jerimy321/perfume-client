@@ -13,7 +13,7 @@ const Header = () => {
               로고
             </Link>
           </li>
-          <li className="flex flex-row gap-4">
+          <ul className="flex flex-row gap-4">
             <li>
               <Link
                 to="/mypage"
@@ -30,7 +30,7 @@ const Header = () => {
                 LOGOUT
               </Link>
             </li>
-          </li>
+          </ul>
         </ul>
       </nav>
     </header>

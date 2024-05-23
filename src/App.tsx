@@ -6,6 +6,7 @@ import NaverCallback from './pages/naverCallback';
 import NotFound from './pages/notfound';
 import Layout from './layouts/layout';
 import NoHeaderLayout from './layouts/noHeaderLayout';
+import MatchingPage from './pages/matchingpage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="main" element={<Main />} />
           <Route path="mypage" element={<Mypage />} />
           <Route path="callback" element={<NaverCallback />} />
+          <Route path="match" element={<MatchingPage />} />
         </Route>
         <Route path="*" element={<NoHeaderLayout />}>
           <Route path="*" element={<NotFound />} />
