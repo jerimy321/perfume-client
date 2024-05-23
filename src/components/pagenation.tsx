@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface PaginationProps {
   currentPage: number;
   totalPages: number;
@@ -18,7 +16,7 @@ const Pagination: React.FC<PaginationProps> = ({
   }
 
   return (
-    <nav className="flex justify-center mt-4">
+    <nav className="flex justify-center mt-10">
       <ul className="flex gap-2">
         {pageNumbers.map((number) => (
           <li

@@ -86,6 +86,7 @@ module.exports = {
         gray80: 'rgba(0, 0, 0, 0.80)',
         gray176: 'rgba(176, 176, 176, 1)',
         gray150: 'rgba(150, 150, 150, 1)',
+        gray229: 'rgba(229, 229, 229, 1)',
         'album-card': 'rgba(255, 255, 255, 0.70)',
         'main-button': '0px 0px 20px rgba(0, 0, 0, 0.10)',
         'mainbutton-default': 'rgba(59,59,59)',

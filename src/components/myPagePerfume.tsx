@@ -1,4 +1,5 @@
 import perfumImg from '../assets/images/perfumeIMG.png';
+import CheckIcon from '../assets/icons/icon_check.svg';
 
 interface Perfume {
   myPerfumeId: number;
@@ -9,16 +10,32 @@ interface Perfume {
 }
 interface MyPagePerfumeProps {
   perfume: Perfume;
+  isEditing: boolean;
+  onCheckboxChange: (id: number) => void;
+  checked: boolean;
 }
 
-const MyPagePerfume: React.FC<MyPagePerfumeProps> = ({ perfume }) => {
+const MyPagePerfume: React.FC<MyPagePerfumeProps> = ({
+  perfume,
+  isEditing,
+  onCheckboxChange,
+  checked,
+}) => {
   return (
-    <div className="flex flex-col items-start bg-white w-[282px] h-[382px] shadow-perfume-card p-4 border border-white rounded-[30px]">
-      <div className="flex flex-col items-center w-full">
-        <input type="checkbox" className="content-start mb-2" />
+    <div className="relative flex flex-col items-center bg-white w-[282px] h-[382px] shadow-perfume-card border border-white rounded-[30px]">
+      {isEditing && (
+        <input
+          type="checkbox"
+          className="absolute w-6 h-6 border-2 rounded-full appearance-none top-2 left-2 border-gray229 checked:bg-black checked:bg-no-repeat checked:bg-center"
+          style={{ backgroundImage: `url(${CheckIcon})` }}
+          onChange={() => onCheckboxChange(perfume.myPerfumeId)}
+          checked={checked}
+        />
+      )}
+      <div className="flex flex-col items-center mt-5">
         <img
           src={perfumImg}
-          className="h-[200px] w-[85px] pt-3"
+          className="h-[200px] w-[85px]"
           alt={perfume.name}
         />
         <ul className="flex flex-col p-0 m-0 text-center">

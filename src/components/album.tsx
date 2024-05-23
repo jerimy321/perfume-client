@@ -7,6 +7,7 @@ import Pagination from './pagenation';
 
 export default function Album() {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [perfumes, setPerfumes] = useState<
     {
@@ -17,11 +18,18 @@ export default function Album() {
       imageURL: string;
     }[]
   >([]);
+  const [selectedPerfumes, setSelectedPerfumes] = useState<number[]>([]);
   const perfumesPerPage = 6;
 
   useEffect(() => {
     setPerfumes(sampleData.content);
   }, []);
+
+  const handleEditClick = () => {
+    setIsEditing(!isEditing);
+    setSelectedPerfumes([]); // 편집 모드를 변경할 때 선택 항목 초기화
+  };
+
   const handleDeleteClick = () => {
     setIsModalVisible(true);
   };
@@ -31,8 +39,22 @@ export default function Album() {
   };
 
   const handleConfirmDelete = () => {
-    // 삭제 로직 추가 필요
+    setPerfumes(
+      perfumes.filter(
+        (perfume) => !selectedPerfumes.includes(perfume.myPerfumeId),
+      ),
+    );
+    setSelectedPerfumes([]);
     setIsModalVisible(false);
+    setIsEditing(false);
+  };
+
+  const handleCheckboxChange = (id: number) => {
+    setSelectedPerfumes((prevState) =>
+      prevState.includes(id)
+        ? prevState.filter((perfumeId) => perfumeId !== id)
+        : [...prevState, id],
+    );
   };
 
   const indexOfLastPerfume = currentPage * perfumesPerPage;
@@ -47,12 +69,12 @@ export default function Album() {
   };
 
   return (
-    <div className="flex flex-col bg-album-card bg-opacity-70 shadow-album-card rounded-30 border min-w-[61.4%] max-w-[1180px] h-screen border-white backdrop-blur-sm">
+    <div className="flex flex-col bg-album-card bg-opacity-70 shadow-album-card rounded-30 border w-[1180px] h-screen border-white backdrop-blur-sm">
       <button
         className="flex justify-end mx-5 mt-5 mb-10 cursor-pointer"
-        onClick={handleDeleteClick}
+        onClick={isEditing ? handleDeleteClick : handleEditClick}
       >
-        삭제하기
+        {isEditing ? '삭제' : '편집'}
       </button>
       <Modal
         title={
@@ -73,7 +95,13 @@ export default function Album() {
       />
       <div className="flex flex-row flex-wrap justify-center gap-8">
         {currentPerfumes.map((perfume) => (
-          <MyPagePerfume key={perfume.myPerfumeId} perfume={perfume} />
+          <MyPagePerfume
+            key={perfume.myPerfumeId}
+            perfume={perfume}
+            isEditing={isEditing}
+            onCheckboxChange={handleCheckboxChange}
+            checked={selectedPerfumes.includes(perfume.myPerfumeId)}
+          />
         ))}
       </div>
       <Pagination
