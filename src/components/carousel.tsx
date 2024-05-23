@@ -1,76 +1,46 @@
+import React from 'react';
+import { perfumeCategory } from '../data/perfumeData';
+import '../index.css';
+import Button from './button';
+import CarouselButtons from './carouselButtons';
+import getCategoryMessage from '../data/useCategoryMessage';
+
 const Carousel: React.FC = () => {
+  const categories = Object.keys(
+    perfumeCategory,
+  ) as (keyof typeof perfumeCategory)[];
+
   return (
     <div
       id="carouselExampleIndicators"
-      className="carousel slide"
+      className="carousel"
+      data-interval="false"
       data-ride="carousel"
     >
-      <ol className="carousel-indicators">
-        <li
-          data-target="#carouselExampleIndicators"
-          data-slide-to="0"
-          className="active"
-        ></li>
-        <li
-          data-target="#carouselExampleIndicators"
-          data-slide-to="1"
-          className="bg-black w-[170px]"
-        ></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      </ol>
       <div className="carousel-inner">
-        <div className="carousel-item active">
-          <img
-            src="https://via.placeholder.com/800x400"
-            className="d-block w-100"
-            alt="..."
-          />
-          <div className="carousel-caption d-none d-md-block">
-            <h5 className="text-2xl">First Slide</h5>
-            <p>Some representative placeholder content for the first slide.</p>
+        {categories.map((category, index) => (
+          <div
+            key={category}
+            className={`carousel-item ${index === 0 ? 'active' : ''}`}
+          >
+            <div className="flex flex-col items-center justify-center text-center d-block w-dvw h-dvh">
+              <h5 className="mb-4 text-subtitle1">
+                {getCategoryMessage(category)}
+              </h5>
+              <div className="flex flex-wrap justify-center gap-2">
+                {perfumeCategory[category].map((item) => (
+                  <Button
+                    key={item}
+                    text={item}
+                    type="h-[90px] w-[300px] text-main-button font-medium border border-white border-2 rounded-[15px] shadow-main-button"
+                  />
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="carousel-item">
-          <img
-            src="https://via.placeholder.com/800x400"
-            className="d-block w-100"
-            alt="..."
-          />
-          <div className="carousel-caption d-none d-md-block">
-            <h5 className="text-2xl">Second Slide</h5>
-            <p>Some representative placeholder content for the second slide.</p>
-          </div>
-        </div>
-        <div className="carousel-item">
-          <img
-            src="https://via.placeholder.com/800x400"
-            className="d-block w-100"
-            alt="..."
-          />
-          <div className="carousel-caption d-none d-md-block">
-            <h5 className="text-2xl">Third Slide</h5>
-            <p>Some representative placeholder content for the third slide.</p>
-          </div>
-        </div>
+        ))}
       </div>
-      <a
-        className="carousel-control-prev"
-        href="#carouselExampleIndicators"
-        role="button"
-        data-slide="prev"
-      >
-        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span className="sr-only">Previous</span>
-      </a>
-      <a
-        className="carousel-control-next"
-        href="#carouselExampleIndicators"
-        role="button"
-        data-slide="next"
-      >
-        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-        <span className="sr-only">Next</span>
-      </a>
+      <CarouselButtons />
     </div>
   );
 };

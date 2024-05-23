@@ -18,4 +18,8 @@ html {
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 13px;
+
+    .carousel-item {
+        transition: none;
+    }
 }
