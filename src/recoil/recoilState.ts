@@ -1,20 +1,23 @@
-import { atom } from 'recoil';
+import { atom, selector } from 'recoil';
+import { perfumeCategory, PerfumeCategory } from '../data/perfumeData';
 
-export const selectedItemsState = atom<Record<string, string | null>>({
+export const selectedItemsState = atom<Map<keyof PerfumeCategory, string>>({
   key: 'selectedItemsState',
-  default: {
-    age: null,
-    scent: null,
-    weather: null,
-    brand: null,
-    times: null,
+  default: new Map(),
+});
+
+export const hashtagListState = selector({
+  key: 'hashtagListState',
+  get: ({ get }) => {
+    const selectedItems = get(selectedItemsState);
+    return Array.from(selectedItems.values());
   },
 });
 
 const getNaverTokenFromLocalStorage = () => {
   const naverToken = localStorage.getItem('naverToken');
   return naverToken ? naverToken : null;
-}
+};
 
 export const naverTokenState = atom({
   key: 'naverTokenState',
