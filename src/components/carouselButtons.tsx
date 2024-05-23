@@ -1,3 +1,4 @@
+import React from 'react';
 import Button from './button';
 import NextIcon from '../assets/icons/icon_next.svg';
 
@@ -24,11 +25,11 @@ const CarouselButtons: React.FC<CarouselButtonsProps> = ({
       />
 
       <Button
-        type="gap-2 flex flex-row-reverse text-modal-button items-center justify-center w-[190px] h-[62px] rounded-30 bg-black text-white "
+        type="gap-2 flex flex-row-reverse text-modal-button items-center justify-center w-[190px] h-[62px] rounded-30 bg-black text-white"
         onClick={isLastPage ? onSubmit : onNext}
         text={isLastPage ? 'Submit' : 'Next'}
         imgSrc={NextIcon}
-        imgClassName={'rotate-180'}
+        imgClassName="rotate-180"
       />
       <Button
         type="flex items-center text-modal-button justify-center w-[190px] h-[62px] rounded-30 text-gray176"

@@ -8,12 +8,8 @@ import PickHashtagSentence from './pickHashtagSentence';
 import { hashtagListState } from '../recoil/recoilState';
 import { postHashtags } from '../api/perfumeMatching';
 
-const Carousel: React.FC = () => {
-  const categories = Object.keys(
-    perfumeCategory,
-  ) as (keyof typeof perfumeCategory)[];
+const useCarousel = (categories: (keyof typeof perfumeCategory)[]) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const hashtagList = useRecoilValue(hashtagListState);
 
   const handlePrev = () => {
     setActiveIndex((prevIndex) =>
@@ -27,6 +23,26 @@ const Carousel: React.FC = () => {
     );
   };
 
+  const handleIndicatorClick = (index: number) => {
+    setActiveIndex(index);
+  };
+
+  return {
+    activeIndex,
+    handlePrev,
+    handleNext,
+    handleIndicatorClick,
+  };
+};
+
+const Carousel: React.FC = () => {
+  const categories = Object.keys(
+    perfumeCategory,
+  ) as (keyof typeof perfumeCategory)[];
+  const { activeIndex, handlePrev, handleNext, handleIndicatorClick } =
+    useCarousel(categories);
+  const hashtagList = useRecoilValue(hashtagListState);
+
   const handleSubmit = async () => {
     try {
       const response = await postHashtags(hashtagList);
@@ -34,10 +50,6 @@ const Carousel: React.FC = () => {
     } catch (error) {
       console.error('Error submitting hashtags:', error);
     }
-  };
-
-  const handleIndicatorClick = (index: number) => {
-    setActiveIndex(index);
   };
 
   return (
