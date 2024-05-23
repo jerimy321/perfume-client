@@ -58,7 +58,8 @@ module.exports = {
       },
       backgroundImage: {
         'home-bg': "url('./assets/images/bg_main.svg')",
-        'mypage-bg': "url('./assets/images/bg_mypage_1.png')",
+        'myinfo-bg': "url('./assets/images/bg_myinfo.png')",
+        'album-bg': "url('./assets/images/bg_album.png')",
         'home-button':
           'linear-gradient(92deg, rgba(255, 255, 255, 0.30) 0.48%, rgba(255, 255, 255, 0.60) 99.34%)',
         'modal-bg':
@@ -75,6 +76,7 @@ module.exports = {
         'album-card': '0px 0px 40px rgba(88.69, 0, 143.05, 0.10)',
         'info-card': '0px 0px 40px 1px rgba(88.69, 0, 143.05, 0.10)',
         'modal-border': '0px 0px 50px rgba(0, 0, 0, 0.15)',
+        'mypage-tap': '0px 0px 20px rgba(0, 0, 0, 0.05)',
       },
       colors: {
         white06: 'rgba(0, 0, 0, 0.06)',
@@ -83,6 +85,7 @@ module.exports = {
         gray40: 'rgba(0, 0, 0, 0.40)',
         gray80: 'rgba(0, 0, 0, 0.80)',
         gray176: 'rgba(176, 176, 176, 1)',
+        gray150: 'rgba(150, 150, 150, 1)',
         'album-card': 'rgba(255, 255, 255, 0.70)',
         'main-button': '0px 0px 20px rgba(0, 0, 0, 0.10)',
         'mainbutton-default': 'rgba(59,59,59)',

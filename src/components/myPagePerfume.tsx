@@ -1,20 +1,40 @@
-import perfumImg from '../assets/images/perfumeIMG.jpg';
+import perfumImg from '../assets/images/perfumeIMG.png';
 
-export default function MyPagePerfume() {
+interface Perfume {
+  myPerfumeId: number;
+  name: string;
+  engName: string;
+  brand: string;
+  imageURL: string;
+}
+interface MyPagePerfumeProps {
+  perfume: Perfume;
+}
+
+const MyPagePerfume: React.FC<MyPagePerfumeProps> = ({ perfume }) => {
   return (
-    <div className="flex flex-row items-start gap-2">
-      <div className="flex flex-col items-start bg-white w-[280px] h-[400px] shadow-perfume-card p-4 border border-white rounded-[30px]">
-        <input type="checkbox" className="mb-2" />
-        <div className="flex flex-col items-center w-full">
-          <img
-            src={perfumImg}
-            className="h-[200px] w-[85px] pt-3"
-            alt="perfume"
-          />
-          <div className="border-t border-solid border-white20 w-[194px] my-7"></div>
-          <span className="text-xl w-[145px] mx-auto text-center">제품명</span>
-        </div>
+    <div className="flex flex-col items-start bg-white w-[282px] h-[382px] shadow-perfume-card p-4 border border-white rounded-[30px]">
+      <div className="flex flex-col items-center w-full">
+        <input type="checkbox" className="content-start mb-2" />
+        <img
+          src={perfumImg}
+          className="h-[200px] w-[85px] pt-3"
+          alt={perfume.name}
+        />
+        <ul className="flex flex-col p-0 m-0 text-center">
+          <li className="text-[14px] my-2 text-header-default font-medium">
+            {perfume.brand}
+          </li>
+          <li className="text-[18px] text-center text-nowrap">
+            {perfume.name}
+          </li>
+          <li className="text-[18px] text-gray150 font-normal text-center text-nowrap">
+            {perfume.engName}
+          </li>
+        </ul>
       </div>
     </div>
   );
-}
+};
+
+export default MyPagePerfume;

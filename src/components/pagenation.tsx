@@ -1,3 +1,5 @@
+import React from 'react';
+
 interface PaginationProps {
   currentPage: number;
   totalPages: number;
@@ -16,36 +18,22 @@ const Pagination: React.FC<PaginationProps> = ({
   }
 
   return (
-    <nav>
-      <ul className="pagination">
-        <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
-          <button
-            className="page-link"
-            onClick={() => onPageChange(currentPage - 1)}
-          >
-            Previous
-          </button>
-        </li>
+    <nav className="flex justify-center mt-4">
+      <ul className="flex gap-2">
         {pageNumbers.map((number) => (
           <li
             key={number}
-            className={`page-item ${currentPage === number ? 'active' : ''}`}
+            className={`${
+              currentPage === number
+                ? ' text-black font-medium'
+                : ' text-gray150 font-normal'
+            }  text-[18px] cursor-pointer`}
           >
             <button onClick={() => onPageChange(number)} className="page-link">
               {number}
             </button>
           </li>
         ))}
-        <li
-          className={`page-item ${currentPage === totalPages ? 'disabled' : ''}`}
-        >
-          <button
-            className="page-link"
-            onClick={() => onPageChange(currentPage + 1)}
-          >
-            Next
-          </button>
-        </li>
       </ul>
     </nav>
   );
