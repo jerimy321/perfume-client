@@ -87,6 +87,7 @@ module.exports = {
         'main-button': '0px 0px 20px rgba(0, 0, 0, 0.10)',
         'mainbutton-default': 'rgba(59,59,59)',
         'naver-default': '#00C73C',
+        'header-default': 'rgba(92, 92, 92, 1)',
       },
       borderRadius: {
         15: '15px',
