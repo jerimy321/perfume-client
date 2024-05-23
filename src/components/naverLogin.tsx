@@ -1,12 +1,25 @@
 import {useState} from 'react';
 import naverDefault from '../assets/images/logo_green.png'
 import naverHover from '../assets/images/logo_white.png'
+import axios from 'axios';
 
 const NaverLogin = () => {
     const [isHover, setIsHover] = useState(false);
 
-    const loginNaver = () => {
-        window.location.href = 'http://223.130.153.50:8080/login';
+    const loginNaver = async () => {
+        try {
+            const response = await axios.post('http://223.130.153.50:8080/login', {
+                // 필요한 데이터를 여기에 추가합니다.
+                provider: 'naver'
+            });
+
+            // 백엔드가 리디렉션 URL을 응답으로 제공하는 경우
+            if (response.data.redirectUrl) {
+                window.location.href = response.data.redirectUrl;
+            }
+        } catch (error) {
+            console.error('로그인 요청 실패:', error);
+        }
     }
 
     return (
