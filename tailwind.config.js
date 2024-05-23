@@ -65,7 +65,7 @@ module.exports = {
           'linear-gradient(178deg, white 0%, rgba(255, 255, 255, 0.96) 100%)',
         'login-bg': "url('./assets/images/bg_login.png')",
         'mainbutton-bg':
-          'linear-gradient(124deg, rgba(255, 255, 255, 0.30) 0%, rgba(255, 255, 255, 0.60) 100%)',
+          'linear-gradient(162deg, rgba(255, 255, 255, 0.30) 0%, rgba(255, 255, 255, 0.60) 100%)',
       },
       boxShadow: {
         'home-button': '0px 0px 30px 4px rgba(219, 212, 223, 0.50)',

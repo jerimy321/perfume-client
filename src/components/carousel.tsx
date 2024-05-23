@@ -34,7 +34,7 @@ const Carousel: React.FC = () => {
           <button
             key={index}
             type="button"
-            className={`w-3 h-3 rounded-full mx-1 ${index === activeIndex ? 'bg-white' : 'bg-gray-400'}`}
+            className={`w-3 h-3 rounded-full mx-1 ${index === activeIndex ? 'bg-black' : 'bg-gray-400'}`}
             onClick={() => handleIndicatorClick(index)}
           ></button>
         ))}
