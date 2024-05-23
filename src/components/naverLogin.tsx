@@ -5,13 +5,8 @@ import naverHover from '../assets/images/logo_white.png'
 const NaverLogin = () => {
     const [isHover, setIsHover] = useState(false);
 
-    const client_id = process.env.REACT_APP_NAVER_CLIENT_ID;
-    const redirect_uri = 'https://perfume-client.vercel.app/callback';
-    const state = 'jfsdkhjfjklsdhgjkl';
-    const url = `https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=${client_id}&state=${state}&redirect_uri=${redirect_uri}`;
-
     const loginNaver = () => {
-        window.location.href = url;
+        window.location.href = 'http://223.130.153.50:8080/oauth2/authorization/naver';
     }
 
     return (
