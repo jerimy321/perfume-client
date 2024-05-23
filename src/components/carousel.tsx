@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { perfumeCategory } from '../data/perfumeData';
-import Button from './button';
 import CarouselButtons from './carouselButtons';
 import getCategoryMessage from '../data/useCategoryMessage';
+import CarouselItems from './carouselItems';
+import PickHashtagSentence from './pickHashtagSentence';
 
 const Carousel: React.FC = () => {
   const categories = Object.keys(
@@ -27,32 +28,8 @@ const Carousel: React.FC = () => {
   };
 
   return (
-    <div id="carouselIndicators" className="relative overflow-hidden">
-      <div className="carousel-inner">
-        {categories.map((category, index) => (
-          <div
-            key={category}
-            className={`carousel-item ${index === activeIndex ? 'active' : 'hidden'} w-full h-screen flex items-center justify-center`}
-          >
-            <div className="flex flex-col items-center justify-center text-center">
-              <h5 className="mb-4 text-subtitle1">
-                {getCategoryMessage(category)}
-              </h5>
-              <div className="flex flex-wrap justify-center gap-2">
-                {perfumeCategory[category].map((item) => (
-                  <Button
-                    key={item}
-                    text={item}
-                    type="h-[90px] w-[300px] text-main-button font-medium border border-white border-2 rounded-[15px] shadow-main-button"
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-      <CarouselButtons onPrev={handlePrev} onNext={handleNext} />
-      <div className="absolute bottom-0 flex justify-center w-full pb-2">
+    <div className="relative flex flex-col items-center h-full overflow-auto">
+      <div className="flex justify-center w-full mt-10">
         {categories.map((_, index) => (
           <button
             key={index}
@@ -62,6 +39,21 @@ const Carousel: React.FC = () => {
           ></button>
         ))}
       </div>
+      <PickHashtagSentence />
+      {categories.map((category, index) =>
+        index === activeIndex ? (
+          <div
+            key={category}
+            className="flex flex-col items-center justify-center h-full text-center w-dvw text-subtitle1"
+          >
+            <div className="my-[50px] text-subtitle1">
+              {getCategoryMessage(category)}
+            </div>
+            <CarouselItems category={category} />
+          </div>
+        ) : null,
+      )}
+      <CarouselButtons onPrev={handlePrev} onNext={handleNext} />
     </div>
   );
 };

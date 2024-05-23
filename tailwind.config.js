@@ -82,6 +82,7 @@ module.exports = {
         gray60: 'rgba(0, 0, 0, 0.60)',
         gray40: 'rgba(0, 0, 0, 0.40)',
         gray80: 'rgba(0, 0, 0, 0.80)',
+        gray176: 'rgba(176, 176, 176, 1)',
         'album-card': 'rgba(255, 255, 255, 0.70)',
         'main-button': '0px 0px 20px rgba(0, 0, 0, 0.10)',
         'mainbutton-default': 'rgba(59,59,59)',
@@ -90,6 +91,9 @@ module.exports = {
       borderRadius: {
         15: '15px',
         30: '30px',
+      },
+      rotate: {
+        180: '180deg',
       },
     },
   },

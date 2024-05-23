@@ -1,3 +1,6 @@
+import Button from './button';
+import NextIcon from '../assets/icons/icon_next.svg';
+
 interface CarouselButtonsProps {
   onPrev: () => void;
   onNext: () => void;
@@ -8,27 +11,26 @@ const CarouselButtons: React.FC<CarouselButtonsProps> = ({
   onNext,
 }) => {
   return (
-    <div className="absolute flex justify-center w-full gap-4 bottom-5">
-      <button
-        className="flex items-center justify-center w-12 h-12 bg-black bg-opacity-50 rounded-full"
+    <div className="fixed flex justify-center w-full gap-4 bottom-4">
+      <Button
+        type="gap-2 flex items-center text-modal-button justify-center w-[190px] h-[62px] rounded-30 text-gray176"
+        text="Back"
         onClick={onPrev}
-      >
-        <span
-          className="block w-5 h-5 custom-prev-icon"
-          aria-hidden="true"
-        ></span>
-        <span className="sr-only">Previous</span>
-      </button>
-      <button
-        className="flex items-center justify-center w-12 h-12 bg-black bg-opacity-50 rounded-full"
+        imgSrc={NextIcon}
+      />
+
+      <Button
+        type="gap-2 flex flex-row-reverse text-modal-button items-center justify-center w-[190px] h-[62px] rounded-30 bg-black text-white "
         onClick={onNext}
-      >
-        <span
-          className="block w-5 h-5 custom-next-icon"
-          aria-hidden="true"
-        ></span>
-        <span className="sr-only">Next</span>
-      </button>
+        text="Next"
+        imgSrc={NextIcon}
+        imgClassName="rotate-180"
+      />
+      <Button
+        type="flex items-center text-modal-button justify-center w-[190px] h-[62px] rounded-30 text-gray176"
+        text="Skip"
+        onClick={onNext}
+      />
     </div>
   );
 };
