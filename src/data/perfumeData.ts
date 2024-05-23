@@ -1,50 +1,28 @@
-export interface Perfume {
-  id: number;
-  name: string;
-  brand: string;
+export interface PerfumeCategory {
   scent: string[];
+  gender: string[];
   weather: string[];
   times: string[];
   age: string[];
+  brand: string[];
 }
 
-export const perfumes: Perfume[] = [
-  {
-    id: 1,
-    name: 'Eau de Parfum',
-    brand: 'Brand A',
-    scent: ['floral', 'fresh'],
-    weather: ['spring', 'summer'],
-    times: ['daytime'],
-    age: ['20s'],
-  },
-  {
-    id: 2,
-    name: 'Citrus Cologne',
-    brand: 'Brand B',
-    scent: ['citrus', 'zesty'],
-    weather: ['summer'],
-    times: ['evening'],
-    age: ['30s'],
-  },
-  // ... 추가 향수 데이터
-];
-
-export const categories: Record<string, string[]> = {
-  age: ['teen', '20s', '30s', '40s', '50s', 'none'],
+export const perfumeCategory: PerfumeCategory = {
   scent: [
-    'floral',
-    'fresh',
-    'citrus',
-    'woody',
-    'spicy',
-    'oriental',
-    'feminine',
-    'masculine',
-    'neutral',
-    'none',
+    '상큼한 향',
+    '꽃 향',
+    '따뜻/달콤한 향',
+    '달콤 과일 향',
+    '상쾌/시원한 향',
+    '푸른 풀잎 향',
+    '나무 향',
+    '흙/이끼 향',
+    '강렬/짜릿한 향',
+    '스모키 향',
   ],
-  weather: ['spring', 'summer', 'autumn', 'winter', 'none'],
-  times: ['evening', 'daytime', 'none'],
-  brand: ['Brand A', 'Brand B', 'Brand C', 'Brand D', 'none'],
+  gender: ['여성향', '남성향', '중성향'],
+  weather: ['봄', '여름', '가을', '겨울'],
+  times: ['낮', '밤'],
+  age: ['10대', '20대', '30대', '40대', '50대 이상'],
+  brand: ['샤넬', '디올', '르라보', '조말론', '딥디크', '톰포드'],
 };

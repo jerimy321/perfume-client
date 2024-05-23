@@ -1,11 +1,38 @@
+import { Link } from 'react-router-dom';
+
 const Header = () => {
   return (
-    <header className="fixed top-0 z-10 flex justify-between p-4 bg-white shadow-md w-dvw">
-      <div className="flex-1">향수러버</div>
-      <div className="flex space-x-4">
-        <div>MY PAGE</div>
-        <div>LOGOUT</div>
-      </div>
+    <header className="fixed top-0 z-10 px-10 py-3 w-dvw font-pretendard h-[100px]">
+      <nav>
+        <ul className="flex justify-between px-10">
+          <li>
+            <Link
+              to="/"
+              className="no-underline text-header-default text-[24px]"
+            >
+              로고
+            </Link>
+          </li>
+          <ul className="flex flex-row gap-4">
+            <li>
+              <Link
+                to="/mypage"
+                className="no-underline text-header-default text-[24px] font-normal"
+              >
+                MY PAGE
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/"
+                className="no-underline text-header-default text-[24px] font-normal"
+              >
+                LOGOUT
+              </Link>
+            </li>
+          </ul>
+        </ul>
+      </nav>
     </header>
   );
 };

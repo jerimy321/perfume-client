@@ -1,76 +1,77 @@
+import { useState } from 'react';
+import { useRecoilValue } from 'recoil';
+import { perfumeCategory } from '../data/perfumeData';
+import CarouselButtons from './carouselButtons';
+import getCategoryMessage from '../data/useCategoryMessage';
+import CarouselItems from './carouselItems';
+import PickHashtagSentence from './pickHashtagSentence';
+import { hashtagListState } from '../recoil/recoilState';
+import { postHashtags } from '../api/perfumeMatching';
+
 const Carousel: React.FC = () => {
+  const categories = Object.keys(
+    perfumeCategory,
+  ) as (keyof typeof perfumeCategory)[];
+  const [activeIndex, setActiveIndex] = useState(0);
+  const hashtagList = useRecoilValue(hashtagListState);
+
+  const handlePrev = () => {
+    setActiveIndex((prevIndex) =>
+      prevIndex === 0 ? categories.length - 1 : prevIndex - 1,
+    );
+  };
+
+  const handleNext = () => {
+    setActiveIndex((prevIndex) =>
+      prevIndex === categories.length - 1 ? 0 : prevIndex + 1,
+    );
+  };
+
+  const handleSubmit = async () => {
+    try {
+      const response = await postHashtags(hashtagList);
+      console.log('Submission successful:', response);
+    } catch (error) {
+      console.error('Error submitting hashtags:', error);
+    }
+  };
+
+  const handleIndicatorClick = (index: number) => {
+    setActiveIndex(index);
+  };
+
   return (
-    <div
-      id="carouselExampleIndicators"
-      className="carousel slide"
-      data-ride="carousel"
-    >
-      <ol className="carousel-indicators">
-        <li
-          data-target="#carouselExampleIndicators"
-          data-slide-to="0"
-          className="active"
-        ></li>
-        <li
-          data-target="#carouselExampleIndicators"
-          data-slide-to="1"
-          className="bg-black w-[170px]"
-        ></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      </ol>
-      <div className="carousel-inner">
-        <div className="carousel-item active">
-          <img
-            src="https://via.placeholder.com/800x400"
-            className="d-block w-100"
-            alt="..."
-          />
-          <div className="carousel-caption d-none d-md-block">
-            <h5 className="text-2xl">First Slide</h5>
-            <p>Some representative placeholder content for the first slide.</p>
-          </div>
-        </div>
-        <div className="carousel-item">
-          <img
-            src="https://via.placeholder.com/800x400"
-            className="d-block w-100"
-            alt="..."
-          />
-          <div className="carousel-caption d-none d-md-block">
-            <h5 className="text-2xl">Second Slide</h5>
-            <p>Some representative placeholder content for the second slide.</p>
-          </div>
-        </div>
-        <div className="carousel-item">
-          <img
-            src="https://via.placeholder.com/800x400"
-            className="d-block w-100"
-            alt="..."
-          />
-          <div className="carousel-caption d-none d-md-block">
-            <h5 className="text-2xl">Third Slide</h5>
-            <p>Some representative placeholder content for the third slide.</p>
-          </div>
-        </div>
+    <div className="relative flex flex-col items-center h-full overflow-auto">
+      <div className="flex justify-center w-full mt-10">
+        {categories.map((_, index) => (
+          <button
+            key={index}
+            type="button"
+            className={`w-3 h-3 rounded-full mx-1 ${index === activeIndex ? 'bg-black' : 'bg-gray-400'}`}
+            onClick={() => handleIndicatorClick(index)}
+          ></button>
+        ))}
       </div>
-      <a
-        className="carousel-control-prev"
-        href="#carouselExampleIndicators"
-        role="button"
-        data-slide="prev"
-      >
-        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span className="sr-only">Previous</span>
-      </a>
-      <a
-        className="carousel-control-next"
-        href="#carouselExampleIndicators"
-        role="button"
-        data-slide="next"
-      >
-        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-        <span className="sr-only">Next</span>
-      </a>
+      <PickHashtagSentence />
+      {categories.map((category, index) =>
+        index === activeIndex ? (
+          <div
+            key={category}
+            className="flex flex-col items-center justify-center h-full text-center w-dvw text-subtitle1"
+          >
+            <div className="my-[50px] text-subtitle1">
+              {getCategoryMessage(category)}
+            </div>
+            <CarouselItems category={category} />
+          </div>
+        ) : null,
+      )}
+      <CarouselButtons
+        onPrev={handlePrev}
+        onNext={handleNext}
+        isLastPage={activeIndex === categories.length - 1}
+        onSubmit={handleSubmit}
+      />
     </div>
   );
 };

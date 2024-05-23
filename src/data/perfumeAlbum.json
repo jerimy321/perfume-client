@@ -1,0 +1,25 @@
+{
+  "content": [
+    {
+      "myPerfumeId": 102,
+      "name": "섬머 와인드",
+      "engName": "Summer Wind",
+      "brand": "NatureEssence",
+      "imageURL": "http://example.com/images/summerwind.jpg"
+    },
+    {
+      "myPerfumeId": 103,
+      "name": "오션 미스트",
+      "engName": "Ocean Mist",
+      "brand": "AquaFresh",
+      "imageURL": "http://example.com/images/oceanmist.jpg"
+    },
+    {
+      "myPerfumeId": 104,
+      "name": "시트러스 스플래쉬",
+      "engName": "Citrus Splash",
+      "brand": "Zesty",
+      "imageURL": "http://example.com/images/citrussplash.jpg"
+    }
+  ]
+}
