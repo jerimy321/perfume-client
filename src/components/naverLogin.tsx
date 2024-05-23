@@ -8,10 +8,9 @@ const NaverLogin = () => {
 
     const loginNaver = async () => {
         try {
-            const response = await axios.post('http://223.130.153.50:8080/login', {
-                // 필요한 데이터를 여기에 추가합니다.
-                provider: 'naver'
+            const response = await axios.post(process.env.REACT_APP_API_URL + 'login', {
             });
+            console.log(response);
 
             // 백엔드가 리디렉션 URL을 응답으로 제공하는 경우
             if (response.data.redirectUrl) {
