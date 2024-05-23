@@ -1,43 +1,18 @@
-import {useEffect, useRef, useState} from 'react';
+import {useState} from 'react';
 import naverDefault from '../assets/images/logo_green.png'
 import naverHover from '../assets/images/logo_white.png'
 
 const NaverLogin = () => {
     const [isHover, setIsHover] = useState(false);
 
-    const naverRef = useRef(null);
-    const {naver}: any = window;
+    const client_id = process.env.REACT_APP_NAVER_CLIENT_ID;
+    const redirect_uri = 'https://perfume-client.vercel.app/callback';
+    const state = 'jfsdkhjfjklsdhgjkl';
+    const url = `https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=${client_id}&state=${state}&redirect_uri=${redirect_uri}`;
 
-    const clientId = process.env.REACT_APP_NAVER_CLIENT_ID;
-    const clientURL = 'http://localhost:3000/callback'
-
-    useEffect(() => {
-        console.log('REACT_APP_NAVER_CLIENT_ID:', clientId);
-
-        if (!clientId) {
-            console.error('Missing REACT_APP_NAVER_CLIENT_ID');
-            return;
-        }
-        // DOM 요소가 렌더링된 후에 네이버 로그인 버튼을 초기화합니다.
-        const naverLogin = new naver.LoginWithNaverId({
-            clientId: clientId,
-            callbackUrl: clientURL,
-            isPopup: false,
-            loginButton: {color: 'green', type: 3, height: '75'},
-        });
-        naverLogin.init();
-    }, []);
-
-    const handleNaverLogin = () => {
-        if (
-            document &&
-            document?.querySelector("#naverIdLogin")?.firstChild &&
-            window !== undefined
-        ) {
-            const loginBtn: any = document.getElementById("naverIdLogin")?.firstChild;
-            loginBtn.click();
-        }
-    };
+    const loginNaver = () => {
+        window.location.href = url;
+    }
 
     return (
         <div className={'flex justify-center items-center '}>
@@ -50,7 +25,7 @@ const NaverLogin = () => {
                 {isHover ? (
                     <div
                         className='cursor-pointer inline-flex flex-col w-[460px] h-[94px] px-[103px] py-[27px] items-start gap-2.5 rounded-[15px] bg-naver-default border-2 border-naver-default'
-                        onClick={handleNaverLogin}
+                        onClick={loginNaver}
                     >
                         <div className='flex flex-row w-full h-full justify-between'>
                             <img className='flex-shrink-0 mr-1' src={naverHover}/>
