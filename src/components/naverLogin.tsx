@@ -5,14 +5,12 @@ import axios from 'axios';
 
 const NaverLogin = () => {
     const [isHover, setIsHover] = useState(false);
-
+    const naverLoginUrl = process.env.REACT_APP_API_URL;
     const loginNaver = async () => {
         try {
-            const response = await axios.post('http://223.130.153.50:8080/login', {
-                // 필요한 데이터를 여기에 추가합니다.
-                provider: 'naver'
+            console.log(naverLoginUrl)
+            const response = await axios.post(naverLoginUrl + 'login', {
             });
-
             // 백엔드가 리디렉션 URL을 응답으로 제공하는 경우
             if (response.data.redirectUrl) {
                 window.location.href = response.data.redirectUrl;
@@ -21,7 +19,6 @@ const NaverLogin = () => {
             console.error('로그인 요청 실패:', error);
         }
     }
-
     return (
         <div className={'flex justify-center items-center '}>
             <div id="naverIdLogin" className="hidden">
