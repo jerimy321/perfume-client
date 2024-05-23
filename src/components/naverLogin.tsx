@@ -8,7 +8,7 @@ const NaverLogin = () => {
 
     const loginNaver = async () => {
         try {
-            const response = await axios.post(process.env.REACT_APP_API_URL + 'login', {
+            const response = await axios.post(process.env.REACT_APP_API_URL+'login', {
             });
             console.log(response);
 
