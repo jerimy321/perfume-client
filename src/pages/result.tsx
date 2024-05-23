@@ -1,12 +1,14 @@
 import save from '../assets/images/ic_round-save-alt.png';
 import {useState} from 'react';
-import {mainPerMockData, subPerMockData} from '../data/resultPerfumeData';
+import {mainPerMockData, resultPerfumeData, subPerMockData} from '../data/resultPerfumeData';
 import SaveAlert from '../components/saveAlert';
+import {useNavigate} from 'react-router-dom';
 
 const subPerfumePerPage = 3;
 export default function Result() {
     const [saveComplete, setSaveComplete] = useState(false);
     const [currentPage, setCurrentPage] = useState(0);
+    const navigate = useNavigate();
 
     const prevClick = () => {
         setCurrentPage((prevPage) => Math.max(prevPage - 1, 0));
@@ -23,6 +25,10 @@ export default function Result() {
         }, 2000);
     };
 
+    const clickSubPerfume = (data: resultPerfumeData) => () => {
+        navigate(`/perfumeInfo/${data.id}`, { state: { perfume: data } });
+    }
+
     return (
         <div className='w-screen h-screen'>
 
@@ -32,12 +38,12 @@ export default function Result() {
                 <div className='flex justify-between w-full'>
                     <div>
                         <div>{mainPerMockData.brand}</div>
-                        <div>{mainPerMockData.korName}</div>
+                        <div>{mainPerMockData.name}</div>
                         <div>{mainPerMockData.engName}</div>
                         <div className='flex' onClick={SaveClick}><img src={save}/>내 향수 저장하기</div>
                     </div>
                     <div>
-                        <img src={mainPerMockData.img}/>
+                        <img src={mainPerMockData.imageURL}/>
                     </div>
                 </div>
             </div>
@@ -50,9 +56,9 @@ export default function Result() {
                         <button onClick={prevClick} disabled={currentPage === 0}>{'<'}</button>
                         {subPerMockData
                             .slice(currentPage, currentPage + subPerfumePerPage)
-                            .map((v) => (
-                                <div key={v.id}>
-                                    <img src={v.img} alt={v.kr_name}/>
+                            .map((data) => (
+                                <div key={data.id} onClick={clickSubPerfume(data)}>
+                                    <img src={data.imageURL} alt={data.name}/>
                                 </div>
                             ))}
                         <button onClick={nextClick} disabled={currentPage >= subPerMockData.length - 3}>{'>'}</button>
