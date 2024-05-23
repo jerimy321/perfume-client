@@ -3,24 +3,21 @@ import axios from 'axios';
 
 export default function NaverCallback() {
     useEffect(() => {
-        const code = new URL(window.location.href).searchParams.get("code");
-        const state = new URL(window.location.href).searchParams.get("state");
-        console.log(code);
-        console.log(state);
-
-        axios.post('http://223.130.153.50:8080/login', {
-            authorizationCode: code,
-            state: state
-        }).then((response) => {
-            //spring에서 발급된 jwt 반환 localStorage 저장
-            localStorage.setItem("accessToken", response.headers.accesstoken);
-            //메인 페이지로 이동
-            window.location.href = "/";
-        }).catch((err) => {
-            //에러발생 시 경고처리 후 login 페이지로 전환
-            alert(err.response.data.detail);
-            window.location.href = "/login";
-        })
+        const fetchUser = async () => {
+            const params = new URLSearchParams(window.location.search);
+            const code = params.get('code');
+            console.log(code)
+            if (code) {
+                try {
+                    const response = await axios.get(`http://223.130.153.50:8080/login/oauth2/code/callback?code=${code}`);
+                    console.log(response.data);  // 여기서 사용자를 저장하거나 세션을 설정하는 로직 추가
+                    window.location.href = "/";
+                } catch (error) {
+                    console.error('OAuth2 로그인 실패:', error);
+                }
+            }
+        };
+        fetchUser();
     }, []);
 
     return (
