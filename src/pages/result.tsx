@@ -1,9 +1,18 @@
 import save from '../assets/images/ic_round-save-alt.png';
 import {useState} from 'react';
 import {mainPerMockData, subPerMockData} from '../data/resultPerfumeData';
+import SaveAlert from '../components/saveAlert';
 
 const subPerfumePerPage = 3;
 export default function Result() {
+    const [saveComplete, setSaveComplete] = useState(false);
+
+    const SaveClick = () => {
+        setSaveComplete(true);
+        setTimeout(() => {
+            setSaveComplete(false);
+        }, 2000);
+    };
 
     return (
         <div className='w-screen h-screen'>
@@ -16,7 +25,7 @@ export default function Result() {
                         <div>{mainPerMockData.brand}</div>
                         <div>{mainPerMockData.korName}</div>
                         <div>{mainPerMockData.engName}</div>
-                        <div className='flex'><img src={save} />내 향수 저장하기</div>
+                        <div className='flex' onClick={SaveClick}><img src={save} />내 향수 저장하기</div>
                     </div>
                     <div>
                         <img src={mainPerMockData.img} />
@@ -38,6 +47,10 @@ export default function Result() {
                     </div>
                 </div>
             </div>
+            {/* 저장 알림 모달 */}
+            {saveComplete && (
+                <SaveAlert />
+            )}
         </div>
     )
 };
