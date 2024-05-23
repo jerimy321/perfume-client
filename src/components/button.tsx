@@ -4,6 +4,7 @@ export interface ButtonProps {
   onClick?: () => void;
   isActive?: boolean;
   imgSrc?: string;
+  key?: string;
 }
 
 const Button = ({ text, type, onClick, isActive, imgSrc }: ButtonProps) => {

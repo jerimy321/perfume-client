@@ -19,6 +19,7 @@ module.exports = {
         'login-simple': ['24px', { lineHeight: '140%', letterSpacing: '-2px' }],
         headline2: ['52px', { lineHeight: '65.68px' }],
         'main-button': ['26px', { lineHeight: '35.62px' }],
+        subtitle1: ['36px', { lineHeight: '36px' }],
       },
       width: {
         972: '972px',
