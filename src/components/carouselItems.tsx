@@ -27,7 +27,7 @@ const CarouselItems: React.FC<CarouselItemsProps> = ({ category }) => {
     <div className="flex flex-wrap items-center justify-center gap-10">
       {items.map((item) => {
         const isActive = selectedItems.get(category) === item;
-        const buttonClass = `h-[90px] w-[300px] text-main-button font-medium border border-white border-2 rounded-[15px] shadow-main-button ${isActive ? 'bg-white text-black' : 'bg-mainbutton-bg text-mainbutton-default'}`;
+        const buttonClass = `h-[90px] w-[300px] px-50 py-27 text-main-button font-medium border border-white border-2 rounded-[15px] shadow-main-button ${isActive ? 'bg-white text-black' : 'shadow-mypage-tap bg-mainbutton-bg text-mainbutton-default'}`;
         return (
           <Button
             key={item}
