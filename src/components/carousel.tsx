@@ -70,7 +70,7 @@ const Carousel: React.FC<{ onSlideChange: (index: number) => void }> = ({
             <button
               key={categories[index]}
               type="button"
-              className={`w-[50px] h-1 mx-1 ${index <= activeIndex ? 'bg-black' : 'bg-gray150'}`}
+              className={`w-[50px] h-1 mx-[5px] ${index <= activeIndex ? 'bg-black' : 'bg-gray150'}`}
               onClick={() => handleIndicatorClick(index)}
             ></button>
           ))}
