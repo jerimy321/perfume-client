@@ -13,7 +13,7 @@ export default function Mypage() {
     <div
       className={`flex flex-col items-center min-h-screen bg-cover ${getBackgroundClass()} font-pretendard`}
     >
-      <div className="flex flex-col items-center my-4">
+      <div className="flex flex-col items-center mb-4 mt-[161px]">
         <h1 className="p-4 font-medium text-mypage-title">MY PAGE</h1>
         <div className="flex flex-row gap-10 mb-4 bg-white items-center justify-center bg-opaycit-50 h-[80px] shadow-mypage-tap border-2 border-white w-[390px] rounded-[100px]">
           <h2

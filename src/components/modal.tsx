@@ -26,7 +26,7 @@ const Modal: React.FC<ModalProps> = ({
       aria-labelledby="modalLabel"
       aria-hidden={!isVisible}
     >
-      <div className="p-6 bg-white rounded-[30px] shadow-modal-border bg-modal-bg w-[780px] min-h-[340px] py-10 flex flex-col items-center">
+      <div className="p-6 bg-white rounded-[30px] shadow-modal-border bg-modal-bg w-[710px] min-h-[340px] py-10 flex flex-col items-center">
         <div className="flex items-center justify-center pb-10">
           {typeof title === 'string' ? (
             <h5 className="text-lg font-medium" id="modalLabel">
@@ -36,20 +36,20 @@ const Modal: React.FC<ModalProps> = ({
             title
           )}
         </div>
-        <div className="flex items-center justify-center mb-4 text-center whitespace-pre-line text-modal-button">
+        <div className="flex items-center justify-center mb-4 text-center whitespace-pre-line text-mainbutton-default text-[24px]">
           {typeof content === 'string' ? <p>{content}</p> : content}
         </div>
-        <div className="flex items-center justify-center gap-4">
+        <div className="flex items-center justify-center gap-2 mt-4">
           <button
             type="button"
-            className="text-modal-button text-gray80 rounded-[10px] border border-gray40 w-[172px] h-[62px]"
+            className="text-modal-button text-gray80 rounded-[10px] border border-gray229 bg-gray229 w-[260px] h-[80px]"
             onClick={onClose}
           >
             {negativeAnswer}
           </button>
           <button
             type="button"
-            className="text-white bg-gray80 text-modal-button w-[300px] h-[62px] rounded-[10px]"
+            className="text-white bg-gray80 text-modal-button w-[260px] h-[80px] rounded-[10px]"
             onClick={onConfirm}
           >
             {positiveAnswer}
