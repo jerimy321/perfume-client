@@ -1,4 +1,3 @@
-import React from 'react';
 import Button from './button';
 import NextIcon from '../assets/icons/icon_next.svg';
 
@@ -18,7 +17,7 @@ const CarouselButtons: React.FC<CarouselButtonsProps> = ({
   onSubmit,
 }) => {
   return (
-    <div className="fixed flex justify-center w-full gap-4 bottom-4">
+    <div className="flex justify-center gap-4">
       <div style={{ visibility: isFirstPage ? 'hidden' : 'visible' }}>
         <Button
           type="gap-2 flex items-center text-modal-button justify-center w-[190px] h-[62px] rounded-30 text-gray176"
