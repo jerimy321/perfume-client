@@ -25,18 +25,20 @@ const Carousel: React.FC = () => {
 
   return (
     <div className="relative flex flex-col items-center h-full overflow-auto">
-      <div className="flex justify-center w-full mt-10">
-        <span>
-          {activeIndex + 1}/{categories.length}
+      <div className="flex flex-col items-center justify-center w-full mt-10">
+        <span className="text-[20px] text-gray150">
+          {activeIndex + 1} / {categories.length}
         </span>
-        {categories.map((_, index) => (
-          <button
-            key={index}
-            type="button"
-            className={`w-3 h-3 rounded-full mx-1 ${index <= activeIndex ? 'bg-black' : 'bg-gray-400'}`}
-            onClick={() => handleIndicatorClick(index)}
-          ></button>
-        ))}
+        <div>
+          {categories.map((_, index) => (
+            <button
+              key={categories[index]}
+              type="button"
+              className={`w-[50px] h-1 mx-1 ${index <= activeIndex ? 'bg-black' : 'bg-gray150'}`}
+              onClick={() => handleIndicatorClick(index)}
+            ></button>
+          ))}
+        </div>
       </div>
       <PickHashtagSentence />
       {categories.map((category, index) =>
