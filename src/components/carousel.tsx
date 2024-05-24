@@ -1,31 +1,18 @@
-import { useState } from 'react';
+import React from 'react';
 import { useRecoilValue } from 'recoil';
-import { perfumeCategory } from '../data/perfumeData';
+import { perfumeCategories } from '../data/perfumeData';
 import CarouselButtons from './carouselButtons';
-import getCategoryMessage from '../data/useCategoryMessage';
 import CarouselItems from './carouselItems';
 import PickHashtagSentence from './pickHashtagSentence';
 import { hashtagListState } from '../recoil/recoilState';
 import { postHashtags } from '../api/perfumeMatching';
+import useCarousel from '../hooks/useCarousel';
 
 const Carousel: React.FC = () => {
-  const categories = Object.keys(
-    perfumeCategory,
-  ) as (keyof typeof perfumeCategory)[];
-  const [activeIndex, setActiveIndex] = useState(0);
+  const categories = perfumeCategories.map((cat) => cat.category);
+  const { activeIndex, handlePrev, handleNext, handleIndicatorClick } =
+    useCarousel(categories);
   const hashtagList = useRecoilValue(hashtagListState);
-
-  const handlePrev = () => {
-    setActiveIndex((prevIndex) =>
-      prevIndex === 0 ? categories.length - 1 : prevIndex - 1,
-    );
-  };
-
-  const handleNext = () => {
-    setActiveIndex((prevIndex) =>
-      prevIndex === categories.length - 1 ? 0 : prevIndex + 1,
-    );
-  };
 
   const handleSubmit = async () => {
     try {
@@ -36,21 +23,22 @@ const Carousel: React.FC = () => {
     }
   };
 
-  const handleIndicatorClick = (index: number) => {
-    setActiveIndex(index);
-  };
-
   return (
     <div className="relative flex flex-col items-center h-full overflow-auto">
-      <div className="flex justify-center w-full mt-10">
-        {categories.map((_, index) => (
-          <button
-            key={index}
-            type="button"
-            className={`w-3 h-3 rounded-full mx-1 ${index === activeIndex ? 'bg-black' : 'bg-gray-400'}`}
-            onClick={() => handleIndicatorClick(index)}
-          ></button>
-        ))}
+      <div className="flex flex-col items-center justify-center w-full mt-10">
+        <span className="text-[20px] text-gray150">
+          {activeIndex + 1} / {categories.length}
+        </span>
+        <div>
+          {categories.map((_, index) => (
+            <button
+              key={categories[index]}
+              type="button"
+              className={`w-[50px] h-1 mx-1 ${index <= activeIndex ? 'bg-black' : 'bg-gray150'}`}
+              onClick={() => handleIndicatorClick(index)}
+            ></button>
+          ))}
+        </div>
       </div>
       <PickHashtagSentence />
       {categories.map((category, index) =>
@@ -60,7 +48,10 @@ const Carousel: React.FC = () => {
             className="flex flex-col items-center justify-center h-full text-center w-dvw text-subtitle1"
           >
             <div className="my-[50px] text-subtitle1">
-              {getCategoryMessage(category)}
+              {
+                perfumeCategories.find((cat) => cat.category === category)
+                  ?.message
+              }
             </div>
             <CarouselItems category={category} />
           </div>
@@ -69,6 +60,7 @@ const Carousel: React.FC = () => {
       <CarouselButtons
         onPrev={handlePrev}
         onNext={handleNext}
+        isFirstPage={activeIndex === 0}
         isLastPage={activeIndex === categories.length - 1}
         onSubmit={handleSubmit}
       />

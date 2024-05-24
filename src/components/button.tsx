@@ -1,25 +1,26 @@
-export interface ButtonProps {
-  text?: string;
-  type?: string;
+import React from 'react';
+
+interface ButtonProps {
+  text: string;
+  type: string;
+
   onClick?: () => void;
-  isActive?: boolean;
   imgSrc?: string;
   imgClassName?: string;
-  key?: string;
 }
 
-const Button = ({
+const Button: React.FC<ButtonProps> = ({
   text,
   type,
-  onClick,
-  isActive,
+
+  onClick = () => {},
   imgSrc,
   imgClassName,
-}: ButtonProps) => {
+}) => {
   return (
     <button
       onClick={onClick}
-      className={`${type} flex items-center justify-center cursor-pointer whitespace-nowrap${isActive ? 'bg-white text-black' : 'bg-mainbutton-bg text-mainbutton-default'} `}
+      className={`${type} flex items-center justify-center cursor-pointer whitespace-nowrap`}
     >
       {imgSrc && (
         <img
@@ -32,4 +33,5 @@ const Button = ({
     </button>
   );
 };
+
 export default Button;
