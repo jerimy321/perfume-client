@@ -7,8 +7,10 @@ import PickHashtagSentence from './pickHashtagSentence';
 import { hashtagListState } from '../recoil/recoilState';
 import { postHashtags } from '../api/perfumeMatching';
 import useCarousel from '../hooks/useCarousel';
+import { useNavigate } from 'react-router-dom';
 
 const Carousel: React.FC = () => {
+  const nav = useNavigate();
   const categories = perfumeCategories.map((cat) => cat.category);
   const { activeIndex, handlePrev, handleNext, handleIndicatorClick } =
     useCarousel(categories);
@@ -20,6 +22,8 @@ const Carousel: React.FC = () => {
       console.log('Submission successful:', response);
     } catch (error) {
       console.error('Error submitting hashtags:', error);
+    } finally {
+      nav('/match');
     }
   };
 
