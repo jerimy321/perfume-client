@@ -49,9 +49,9 @@ export const perfumeCategories: PerfumeCategory[] = [
   },
   {
     category: 'brand',
-    items: ['샤넬', '디올', '르라보', '조말론', '딥디크', '톰포드'],
+    items: ['샤넬', '디올', '르라보', '조말론', '딥티크', '톰포드'],
     message: '이런 브랜드를 선호해요.',
-    highlights: ['브랜드'],
+    highlights: ['브랜드', '선호'],
   },
 ];
 

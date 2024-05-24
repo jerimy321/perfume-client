@@ -22,9 +22,9 @@ module.exports = {
         'mypage-tap': ['26px', { lineHeight: '32.85px' }],
         'mypage-title': ['60px', { lineHeight: '75.78px' }],
         'modal-button': ['26px', { lineHeight: '26px' }],
-        headline2: ['52px', { lineHeight: '65.68px' }],
+        headline2: ['52px', { lineHeight: '52px' }],
         'main-button': ['26px', { lineHeight: '35.62px' }],
-        subtitle1: ['36px', { lineHeight: '36px' }],
+        subtitle1: ['36px', { lineHeight: '37.89px' }],
         'text-button': ['24px', { lineHeight: '24px' }],
       },
       width: {
