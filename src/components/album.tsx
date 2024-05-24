@@ -72,7 +72,7 @@ export default function Album() {
   };
 
   return (
-    <div className="flex flex-col bg-album-card bg-opacity-70 shadow-album-card rounded-30 border w-[1180px] min-h-[622px] max-h-[1023px] border-white backdrop-blur-sm">
+    <div className="flex flex-col bg-album-card mt-5 bg-opacity-70 shadow-album-card rounded-30 border w-[1180px] min-h-[622px] max-h-[1023px] border-white backdrop-blur-sm">
       <div className="flex justify-between mx-5 mt-5 mb-10 cursor-pointer">
         <div>
           {isEditing && (
@@ -92,7 +92,7 @@ export default function Album() {
           {isEditing && (
             <button
               onClick={handleEditClick}
-              className="ml-3 text-[20px] text-gray-500"
+              className="ml-3 text-[20px] text-mainbutton-default"
             >
               취소
             </button>
