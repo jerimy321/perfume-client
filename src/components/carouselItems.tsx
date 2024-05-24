@@ -3,6 +3,7 @@ import { useRecoilState } from 'recoil';
 import { perfumeCategories } from '../data/perfumeData';
 import Button from './button';
 import { selectedItemsState } from '../recoil/recoilState';
+import './css/CarouselItems.css';
 
 interface CarouselItemsProps {
   category: string;
@@ -24,10 +25,12 @@ const CarouselItems: React.FC<CarouselItemsProps> = ({ category }) => {
   };
 
   const renderButtons = (items: string[]) => (
-    <div className="flex flex-wrap items-center justify-center gap-10">
+    <div
+      className={`flex flex-wrap items-center justify-center ${category}-container`}
+    >
       {items.map((item) => {
         const isActive = selectedItems.get(category) === item;
-        const buttonClass = `h-[90px] w-[300px] px-50 py-27 text-main-button font-medium border border-white border-2 rounded-[15px] shadow-main-button ${isActive ? 'bg-white text-black' : 'shadow-mypage-tap bg-mainbutton-bg text-mainbutton-default'}`;
+        const buttonClass = `h-[90px] w-[300px] text-main-button font-medium border border-white border-2 rounded-[15px] shadow-main-button ${isActive ? 'bg-white text-black' : 'shadow-mypage-tap bg-mainbutton-bg text-mainbutton-default'} ${category}-button`;
         return (
           <Button
             key={item}
@@ -41,10 +44,10 @@ const CarouselItems: React.FC<CarouselItemsProps> = ({ category }) => {
   );
 
   const renderGrid = (items: string[]) => (
-    <div className="grid grid-cols-2 gap-5">
+    <div className={`grid grid-cols-2 ${category}-grid`}>
       {items.map((item) => {
         const isActive = selectedItems.get(category) === item;
-        const buttonClass = `h-[90px] w-[300px] text-main-button font-medium border border-white border-2 rounded-[15px] shadow-main-button ${isActive ? 'bg-white text-black' : 'bg-mainbutton-bg text-mainbutton-default'}`;
+        const buttonClass = `h-[90px] w-[300px] text-main-button font-medium border border-white border-2 rounded-[15px] shadow-main-button ${isActive ? 'bg-white text-black' : 'bg-mainbutton-bg text-mainbutton-default'} ${category}-button`;
         return (
           <Button
             key={item}
@@ -58,21 +61,17 @@ const CarouselItems: React.FC<CarouselItemsProps> = ({ category }) => {
   );
 
   return (
-    <div>
+    <div className={`${category}-container-wrapper`}>
       {items.length > 4 ? (
         <>
-          {renderButtons(items.slice(0, 3))}
-          <div className="m-4">{renderButtons(items.slice(3, 7))}</div>
-          {items.length > 7 && renderButtons(items.slice(7))}
+          <div>{renderButtons(items.slice(0, 3))}</div>
+          <div>{renderButtons(items.slice(3, 7))}</div>
+          <div>{items.length > 7 && renderButtons(items.slice(7))}</div>
         </>
       ) : items.length === 4 ? (
-        <div className="flex items-center justify-center">
-          {renderGrid(items)}
-        </div>
+        <>{renderGrid(items)}</>
       ) : (
-        <div className="flex items-center justify-center mt-8">
-          {renderButtons(items)}
-        </div>
+        <>{renderButtons(items)}</>
       )}
     </div>
   );

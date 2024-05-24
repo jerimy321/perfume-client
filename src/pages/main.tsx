@@ -32,7 +32,7 @@ export default function Main() {
 
   return (
     <div
-      className="flex flex-col flex-1 w-screen h-screen bg-center bg-cover font-pretendard"
+      className="flex flex-col flex-1 w-[1920px] h-[1080px] bg-center bg-cover font-pretendard"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <Carousel onCategoryChange={handleCategoryChange} />

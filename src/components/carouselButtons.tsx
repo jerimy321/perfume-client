@@ -17,10 +17,10 @@ const CarouselButtons: React.FC<CarouselButtonsProps> = ({
   onSubmit,
 }) => {
   return (
-    <div className="flex justify-center gap-4">
+    <div className="flex justify-center mb-[111px]">
       <div style={{ visibility: isFirstPage ? 'hidden' : 'visible' }}>
         <Button
-          type="gap-2 flex items-center text-modal-button justify-center w-[190px] h-[62px] rounded-30 text-gray176"
+          type="flex items-center text-modal-button justify-center w-[190px] h-[62px] rounded-30 text-gray176"
           text="Back"
           onClick={onPrev}
           imgSrc={NextIcon}
@@ -28,7 +28,7 @@ const CarouselButtons: React.FC<CarouselButtonsProps> = ({
       </div>
 
       <Button
-        type="gap-2 flex flex-row-reverse text-modal-button items-center justify-center w-[190px] h-[62px] rounded-30 bg-black text-white"
+        type="flex flex-row-reverse text-modal-button items-center justify-center w-[190px] h-[62px] rounded-30 bg-black text-white"
         onClick={isLastPage ? onSubmit : onNext}
         text={isLastPage ? 'Submit' : 'Next'}
         imgSrc={NextIcon}
