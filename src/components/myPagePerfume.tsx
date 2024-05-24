@@ -26,7 +26,7 @@ const MyPagePerfume: React.FC<MyPagePerfumeProps> = ({
       {isEditing && (
         <input
           type="checkbox"
-          className="absolute w-6 h-6 border-2 rounded-full appearance-none top-2 left-2 border-gray229 checked:bg-black checked:bg-no-repeat checked:bg-center"
+          className="absolute w-6 h-6 border-2 rounded-full appearance-none top-4 left-6 border-gray229 checked:bg-black checked:bg-no-repeat checked:bg-center"
           style={{ backgroundImage: `url(${CheckIcon})` }}
           onChange={() => onCheckboxChange(perfume.myPerfumeId)}
           checked={checked}

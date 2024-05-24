@@ -20,6 +20,7 @@ export default function Album() {
   >([]);
   const [selectedPerfumes, setSelectedPerfumes] = useState<number[]>([]);
   const perfumesPerPage = 6;
+  const maxDeletableItems = 8; // 최대 삭제 가능한 개수
 
   useEffect(() => {
     setPerfumes(sampleData.content);
@@ -53,7 +54,9 @@ export default function Album() {
     setSelectedPerfumes((prevState) =>
       prevState.includes(id)
         ? prevState.filter((perfumeId) => perfumeId !== id)
-        : [...prevState, id],
+        : prevState.length < maxDeletableItems
+          ? [...prevState, id]
+          : prevState,
     );
   };
 
@@ -69,13 +72,33 @@ export default function Album() {
   };
 
   return (
-    <div className="flex flex-col bg-album-card bg-opacity-70 shadow-album-card rounded-30 border w-[1180px] h-screen border-white backdrop-blur-sm">
-      <button
-        className="flex justify-end mx-5 mt-5 mb-10 cursor-pointer"
-        onClick={isEditing ? handleDeleteClick : handleEditClick}
-      >
-        {isEditing ? '삭제' : '편집'}
-      </button>
+    <div className="flex flex-col bg-album-card bg-opacity-70 shadow-album-card rounded-30 border w-[1180px] min-h-[622px] max-h-[1023px] border-white backdrop-blur-sm">
+      <div className="flex justify-between mx-5 mt-5 mb-10 cursor-pointer">
+        <div>
+          {isEditing && (
+            <span className="ml-4 text-[20px]">
+              <span className="text-black">{selectedPerfumes.length}</span>
+              <span className="text-gray-500"> / {maxDeletableItems}</span>
+            </span>
+          )}
+        </div>
+        <div>
+          <button
+            className="text-gray-500 text-[20px]"
+            onClick={isEditing ? handleDeleteClick : handleEditClick}
+          >
+            {isEditing ? '삭제' : '편집'}
+          </button>
+          {isEditing && (
+            <button
+              onClick={handleEditClick}
+              className="ml-3 text-[20px] text-gray-500"
+            >
+              취소
+            </button>
+          )}
+        </div>
+      </div>
       <Modal
         title={
           <img src={DeleteLogo} alt="삭제 로고" className="w-[60px] h-[60px]" />
@@ -94,15 +117,23 @@ export default function Album() {
         onConfirm={handleConfirmDelete}
       />
       <div className="flex flex-row flex-wrap justify-center gap-8">
-        {currentPerfumes.map((perfume) => (
-          <MyPagePerfume
-            key={perfume.myPerfumeId}
-            perfume={perfume}
-            isEditing={isEditing}
-            onCheckboxChange={handleCheckboxChange}
-            checked={selectedPerfumes.includes(perfume.myPerfumeId)}
-          />
-        ))}
+        {currentPerfumes.length > 0 ? (
+          currentPerfumes.map((perfume) => (
+            <MyPagePerfume
+              key={perfume.myPerfumeId}
+              perfume={perfume}
+              isEditing={isEditing}
+              onCheckboxChange={handleCheckboxChange}
+              checked={selectedPerfumes.includes(perfume.myPerfumeId)}
+            />
+          ))
+        ) : (
+          <div className="flex items-center justify-center h-[624px]">
+            <span className="text-gray150 text-[32px] font-normal">
+              내 향수를 <strong>저장</strong>해보세요!
+            </span>
+          </div>
+        )}
       </div>
       <Pagination
         currentPage={currentPage}
