@@ -1,7 +1,6 @@
 import { atom, selector } from 'recoil';
-import { perfumeCategory, PerfumeCategory } from '../data/perfumeData';
 
-export const selectedItemsState = atom<Map<keyof PerfumeCategory, string>>({
+export const selectedItemsState = atom<Map<string, string>>({
   key: 'selectedItemsState',
   default: new Map(),
 });

@@ -2,13 +2,13 @@ import React from 'react';
 import Button from './button';
 import NextIcon from '../assets/icons/icon_next.svg';
 
-interface CarouselButtonsProps {
+type CarouselButtonsProps = {
   onPrev: () => void;
   onNext: () => void;
   isFirstPage: boolean;
   isLastPage?: boolean;
   onSubmit?: () => void;
-}
+};
 
 const CarouselButtons: React.FC<CarouselButtonsProps> = ({
   onPrev,

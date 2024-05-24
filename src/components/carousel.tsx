@@ -1,14 +1,13 @@
 import { useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import { perfumeCategory } from '../data/perfumeData';
+import { perfumeCategories } from '../data/perfumeData';
 import CarouselButtons from './carouselButtons';
-import getCategoryMessage from '../data/useCategoryMessage';
 import CarouselItems from './carouselItems';
 import PickHashtagSentence from './pickHashtagSentence';
 import { hashtagListState } from '../recoil/recoilState';
 import { postHashtags } from '../api/perfumeMatching';
 
-const useCarousel = (categories: (keyof typeof perfumeCategory)[]) => {
+const useCarousel = (categories: string[]) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handlePrev = () => {
@@ -36,9 +35,7 @@ const useCarousel = (categories: (keyof typeof perfumeCategory)[]) => {
 };
 
 const Carousel: React.FC = () => {
-  const categories = Object.keys(
-    perfumeCategory,
-  ) as (keyof typeof perfumeCategory)[];
+  const categories = perfumeCategories.map((cat) => cat.category);
   const { activeIndex, handlePrev, handleNext, handleIndicatorClick } =
     useCarousel(categories);
   const hashtagList = useRecoilValue(hashtagListState);
@@ -72,7 +69,10 @@ const Carousel: React.FC = () => {
             className="flex flex-col items-center justify-center h-full text-center w-dvw text-subtitle1"
           >
             <div className="my-[50px] text-subtitle1">
-              {getCategoryMessage(category)}
+              {
+                perfumeCategories.find((cat) => cat.category === category)
+                  ?.message
+              }
             </div>
             <CarouselItems category={category} />
           </div>

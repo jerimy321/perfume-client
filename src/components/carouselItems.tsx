@@ -1,11 +1,11 @@
 import React from 'react';
 import { useRecoilState } from 'recoil';
-import { perfumeCategory } from '../data/perfumeData';
+import { perfumeCategories } from '../data/perfumeData';
 import Button from './button';
 import { selectedItemsState } from '../recoil/recoilState';
 
 interface CarouselItemsProps {
-  category: keyof typeof perfumeCategory;
+  category: string;
 }
 
 const getGridLayout = (length: number): string => {
@@ -15,8 +15,13 @@ const getGridLayout = (length: number): string => {
 };
 
 const CarouselItems: React.FC<CarouselItemsProps> = ({ category }) => {
-  const items = perfumeCategory[category];
+  const categoryData = perfumeCategories.find(
+    (cat) => cat.category === category,
+  );
   const [selectedItems, setSelectedItems] = useRecoilState(selectedItemsState);
+  if (!categoryData) return null;
+
+  const items = categoryData.items;
 
   const handleItemClick = (item: string) => {
     const newSelectedItems = new Map(selectedItems);
