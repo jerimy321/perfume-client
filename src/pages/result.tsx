@@ -98,7 +98,6 @@ export default function Result() {
                                             </div>
                                         </div>
                                 ))}
-
                             <button onClick={nextClick} disabled={currentPage >= subPerMockData.length - 3}><img src={right}/></button>
                         </div>
                     </div>
