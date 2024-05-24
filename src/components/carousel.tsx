@@ -81,6 +81,7 @@ const Carousel: React.FC = () => {
       <CarouselButtons
         onPrev={handlePrev}
         onNext={handleNext}
+        isFirstPage={activeIndex === 0}
         isLastPage={activeIndex === categories.length - 1}
         onSubmit={handleSubmit}
       />
