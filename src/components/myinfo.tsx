@@ -41,7 +41,7 @@ export default function Myinfo() {
   }, [logout]);
   return (
     <div className="flex flex-col justify-between h-screen">
-      <div className="flex flex-row items-center justify-around m-14 w-[1180px] h-[200px] backdrop-blur-sm bg-album-card shadow-info-card rounded-[30px]">
+      <div className="flex flex-row items-center justify-around mb-14 mt-[90px] w-[1180px] h-[200px] backdrop-blur-sm bg-album-card shadow-info-card rounded-[30px]">
         <img src={Logo} alt="네이버로고" />
         <div className="text-[28px] font-semibold">장원영</div>
         <div className="text-[26px] font-normal">abcdefg@naver.com</div>
