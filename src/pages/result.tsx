@@ -1,5 +1,6 @@
 import saveAfter from '../assets/images/save_complete.png';
 import saveDef from '../assets/images/save_default.png';
+import subDef from '../assets/icons/sub_def.png';
 import left from '../assets/icons/icon_left.png';
 import right from '../assets/icons/icon_right.png';
 import {useState} from 'react';
@@ -51,7 +52,7 @@ export default function Result() {
                             <div
                                 className='ml-1 mt-1.5 text-caption1 font-normal leading-tight text-[28px]'>{mainPerMockData.eName}</div>
                             <div
-                                className='ml-1 mt-10 text-caption1 font-normal text-[28px]'>{mainPerMockData.content}</div>
+                                className='ml-1 mt-10 text-caption1 font-normal text-sub-content max-w-[346px]'>{mainPerMockData.content}</div>
                             <div
                                 className='w-[300px] h-20 bg-white-50 cursor-pointer border border-white rounded-[100px] pl-10 pr-10 mt-11 mb-20 pt-6 pb-[26px] shadow-home-button-hover'
                                 onClick={SaveClick(mainPerMockData)}>
@@ -83,16 +84,18 @@ export default function Result() {
                                 .slice(currentPage, currentPage + subPerfumePerPage)
                                 .map((data) => (
                                         <div key={data.id} onClick={clickSubPerfume(data)}
-                                             className='relative group mx-2 w-[360px] h-[360px] flex-shrink-0 rounded-[20px]'>
-                                            <img src={data.imageURL} alt={data.name}/>
+                                             className='relative group mx-2 w-[360px] h-[360px] flex-shrink-0 rounded-[20px] bg-white shadow-subPerfume-div flex justify-center items-center'>
+                                            <img className='' src={data.imageURL} alt={data.name}/>
                                             <div
-                                                className='absolute inset-0 hidden justify-center group-hover:flex group-hover:bg-black group-hover:bg-opacity-40'>
-                                                <div className='flex flex-col text-white items-center justify-center'>
-                                                    <span>{data.brand}</span>
-                                                    <span>{data.name}</span>
-                                                    <span>{data.eName}</span>
-                                                    <div onClick={SaveClick(data)}>
-                                                        <img src={saveDef} className='cursor-pointer opacity-100'/>
+                                                className='absolute inset-0 hidden justify-center group-hover:flex group-hover:bg-black group-hover:bg-opacity-40 rounded-[20px] flex justify-center items-center'>
+                                                <div className='w-[290px] h-[290px]'>
+                                                    <div className='flex justify-end' onClick={SaveClick(data)}>
+                                                        <img src={subDef} />
+                                                    </div>
+                                                    <div className='flex flex-col text-white items-center justify-center mt-12'>
+                                                        <span className='text-sub-brand font-bold'>{data.brand}</span>
+                                                        <span className='text-sub-name font-bold mt-4'>{data.name}</span>
+                                                        <span className='text-sub-eName font-medium'>{data.eName}</span>
                                                     </div>
                                                 </div>
                                             </div>

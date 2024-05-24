@@ -30,7 +30,12 @@ module.exports = {
         subtitle1: ['36px', { lineHeight: '37.89px' }],
         'save-button': ['24px', {lineHeight: '126.3%', letterSpacing: '-0.48px', fontWeight: '500px' }],
         28: '28px',
+        20: '20px',
         'text-button': ['24px', { lineHeight: '24px' }],
+        'sub-brand': ['22px', { lineHeight: '126.3%', letterSpacing: '-0.44px' }],
+        'sub-name': ['28px', { lineHeight: '126.3%', letterSpacing: '-0.56px' }],
+        'sub-content': ['20px', { lineHeight: '136.3%',}],
+        'sub-eName': ['22px', { lineHeight: '126.3%'}],
       },
       width: {
         1920: '1920px',
@@ -44,7 +49,9 @@ module.exports = {
         390: '390px',
         384: '384px',
         360: '360px',
+        360: '350px',
         300: '300px',
+        290: '390px',
         260: '260px',
         242: '242px',
         191: '191px',
@@ -52,6 +59,7 @@ module.exports = {
       },
       maxWidth: {
         242: '242px',
+        346: '346px',
       },
       maxHeight: {
         36: '36px',
@@ -62,6 +70,8 @@ module.exports = {
         532: '532px',
         433: '433px',
         360: '360px',
+        360: '350px',
+        290: '390px',
         94: '94px',
         90: '90px',
         80: '80px',
@@ -75,7 +85,7 @@ module.exports = {
         100: '100px',
         103: '103px',
         187: '187px',
-        10: '5px',
+        225: '225px',
       },
       padding: {
         13: '13px',
@@ -127,6 +137,7 @@ module.exports = {
         'modal-border': '0px 0px 50px rgba(0, 0, 0, 0.15)',
         'mypage-tap': '0px 0px 20px rgba(0, 0, 0, 0.05)',
         'main-div': '0px 0px 20px rgba(0, 0, 0, 0.05)',
+        'subPerfume-div': '0px 0px 30px 0px rgba(0, 0, 0, 0.10)',
       },
       colors: {
         white06: 'rgba(0, 0, 0, 0.06)',
@@ -145,6 +156,7 @@ module.exports = {
         'header-default': 'rgba(92, 92, 92, 1)',
         caption1: '#5C5C5C',
         subtitle1: '#3B3B3B',
+        body1: '#969696',
       },
       borderRadius: {
         15: '15px',
