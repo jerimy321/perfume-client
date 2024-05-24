@@ -60,7 +60,7 @@ const Carousel: React.FC<{ onCategoryChange: (category: string) => void }> = ({
   };
 
   return (
-    <div className="flex flex-col items-center justify-between flex-1 w-full h-full gap-20">
+    <div className="flex flex-col items-center flex-1 w-full h-full">
       <div className="flex flex-col items-center justify-center mt-[150px]">
         <span className="text-[20px] text-gray150">
           {activeIndex + 1} / {categories.length}
@@ -70,7 +70,7 @@ const Carousel: React.FC<{ onCategoryChange: (category: string) => void }> = ({
             <button
               key={categories[index]}
               type="button"
-              className={`w-[50px] h-1 mx-[5px] ${
+              className={`w-[50px] h-1 mx-[5px] mt-[25px] ${
                 index <= activeIndex ? 'bg-black' : 'bg-gray150'
               }`}
               onClick={() => handleIndicatorClick(index)}
@@ -83,7 +83,7 @@ const Carousel: React.FC<{ onCategoryChange: (category: string) => void }> = ({
           index === activeIndex ? (
             <div
               key={category}
-              className="flex flex-col flex-1 w-full text-subtitle1"
+              className="flex flex-col flex-1 w-full text-subtitle1 mt-[63px]"
             >
               <div className="text-center text-headline2">
                 {renderMessage(category)}
