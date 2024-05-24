@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import Button from './button';
 import LogoutIcon from '../assets/icons/icon_logout.svg';
 import Logo from '../assets/icons/naver_circle.svg';
@@ -6,30 +6,39 @@ import Modal from './modal';
 import DeleteLogo from '../assets/icons/icon_delete.svg';
 import { useNavigate } from 'react-router-dom';
 import useLogout from '../hooks/useLogout';
+import Spinner from '../util/spinner';
+import { deleteAccount } from '../api/deleteAccount';
 
 export default function Myinfo() {
   const logout = useLogout();
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
   const navigate = useNavigate();
 
-  const handleDeleteClick = () => {
+  const handleDeleteClick = useCallback(() => {
     setIsModalVisible(true);
-  };
+  }, []);
 
-  const handleCloseModal = () => {
+  const handleCloseModal = useCallback(() => {
     setIsModalVisible(false);
-  };
+  }, []);
+  const handleConfirmDelete = useCallback(async () => {
+    setIsDeleting(true);
+    try {
+      await deleteAccount();
+      setIsModalVisible(false);
+      logout();
+      navigate('/');
+    } catch (error) {
+      console.error('Account deletion failed:', error);
+    } finally {
+      setIsDeleting(false);
+    }
+  }, [logout, navigate]);
 
-  const handleConfirmDelete = () => {
-    // 탈퇴 로직 추가 필요
-    setIsModalVisible(false);
-    navigate('/');
-  };
-
-  const handleLogoutButtonClick = () => {
+  const handleLogoutButtonClick = useCallback(() => {
     logout();
-  };
-
+  }, [logout]);
   return (
     <div className="flex flex-col justify-between h-screen">
       <div className="flex flex-row items-center justify-around m-14 w-[1180px] h-[200px] backdrop-blur-sm bg-album-card shadow-info-card rounded-[30px]">
@@ -72,6 +81,11 @@ export default function Myinfo() {
         onClose={handleCloseModal}
         onConfirm={handleConfirmDelete}
       />
+      {isDeleting && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <Spinner loading />
+        </div>
+      )}
     </div>
   );
 }
