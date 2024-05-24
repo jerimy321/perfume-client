@@ -5,20 +5,19 @@ import axios from 'axios';
 
 const NaverLogin = () => {
     const [isHover, setIsHover] = useState(false);
-    const client_id = process.env.REACT_APP_NAVER_CLIENT_ID;
-    const redirect_uri = 'https://perfume-client.vercel.app/callback';
-    const state = 'jfsdkhjfjklsdhgjkl';
-    const url = `https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=${client_id}&state=${state}&redirect_uri=${redirect_uri}`;
-
     const loginNaver = async () => {
         try {
-            // 백엔드 서버로 POST 요청을 보냅니다.
-            window.location.href = url;
-            // 응답을 받아서 처리할 작업을 여기에 추가하세요.
+            // 백엔드로 POST 요청 보내기
+            const response = await axios.post('https://perfume-bside.site/login');
+
+            // 백엔드가 리디렉션 URL을 응답으로 제공하는 경우
+            if (response.data.redirectUrl) {
+                window.location.href = response.data.redirectUrl;
+            }
         } catch (error) {
             console.error('간편로그인 요청 실패:', error);
         }
-    }
+    };
 
     return (
         <div className={'flex justify-center items-center '}>
