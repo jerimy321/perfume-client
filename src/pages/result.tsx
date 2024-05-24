@@ -52,7 +52,7 @@ export default function Result() {
                             <div
                                 className='ml-1 mt-1.5 text-caption1 font-normal leading-tight text-[28px]'>{mainPerMockData.eName}</div>
                             <div
-                                className='ml-1 mt-10 text-caption1 font-normal text-[28px]'>{mainPerMockData.content}</div>
+                                className='ml-1 mt-10 text-caption1 font-normal text-sub-content max-w-[346px]'>{mainPerMockData.content}</div>
                             <div
                                 className='w-[300px] h-20 bg-white-50 cursor-pointer border border-white rounded-[100px] pl-10 pr-10 mt-11 mb-20 pt-6 pb-[26px] shadow-home-button-hover'
                                 onClick={SaveClick(mainPerMockData)}>

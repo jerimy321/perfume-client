@@ -30,9 +30,11 @@ module.exports = {
         subtitle1: ['36px', { lineHeight: '37.89px' }],
         'save-button': ['24px', {lineHeight: '126.3%', letterSpacing: '-0.48px', fontWeight: '500px' }],
         28: '28px',
+        20: '20px',
         'text-button': ['24px', { lineHeight: '24px' }],
         'sub-brand': ['22px', { lineHeight: '126.3%', letterSpacing: '-0.44px' }],
         'sub-name': ['28px', { lineHeight: '126.3%', letterSpacing: '-0.56px' }],
+        'sub-content': ['20px', { lineHeight: '136.3%',}],
         'sub-eName': ['22px', { lineHeight: '126.3%'}],
       },
       width: {
@@ -57,6 +59,7 @@ module.exports = {
       },
       maxWidth: {
         242: '242px',
+        346: '346px',
       },
       maxHeight: {
         36: '36px',
@@ -82,7 +85,7 @@ module.exports = {
         100: '100px',
         103: '103px',
         187: '187px',
-        10: '5px',
+        225: '225px',
       },
       padding: {
         13: '13px',
@@ -153,6 +156,7 @@ module.exports = {
         'header-default': 'rgba(92, 92, 92, 1)',
         caption1: '#5C5C5C',
         subtitle1: '#3B3B3B',
+        body1: '#969696',
       },
       borderRadius: {
         15: '15px',

@@ -33,7 +33,7 @@ export const mainPerMockData = {
     brand: '조말론',
     name: '라임 바질 만다린',
     eName: 'Lime Basil & Mandarin',
-    content: '아주 멋진 향수입니다.',
+    content: '아주 멋진 향수입니다. 진짜 그로테스크하고 최고인 향수입니다.',
     imageURL: mainPerfume,
 }
 
