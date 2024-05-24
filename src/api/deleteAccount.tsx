@@ -7,7 +7,7 @@ export const deleteAccount = async () => {
   }
 
   try {
-    const response = await axiosInstance.delete('/myPage/account', {
+    const response = await axiosInstance.delete('myPage/account', {
       headers: {
         Authorization: `Bearer ${token}`,
       },

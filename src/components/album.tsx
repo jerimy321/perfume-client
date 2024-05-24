@@ -106,12 +106,12 @@ export default function Album() {
         content={
           <div className="flex flex-col items-center gap-1 mb-3">
             <div>
-              선택한 향수 앨범을 <strong>삭제</strong>할까요?
+              선택한 향수를 향수 앨범에서 <strong>삭제</strong>하시겠습니까?
             </div>
           </div>
         }
-        negativeAnswer="아니요"
-        positiveAnswer="네, 삭제할게요"
+        negativeAnswer="취소"
+        positiveAnswer="삭제"
         isVisible={isModalVisible}
         onClose={handleCloseModal}
         onConfirm={handleConfirmDelete}

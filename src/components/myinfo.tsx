@@ -69,14 +69,16 @@ export default function Myinfo() {
         }
         content={
           <div className="flex flex-col items-center gap-1 mb-3">
-            <div>정말 탈퇴할까요?</div>
+            <div className="font-semibold text-[42px]">
+              정말 탈퇴하시겠어요?
+            </div>
             <div>
               탈퇴 시 저장된 정보들은 <strong>영구 삭제</strong> 됩니다.
             </div>
           </div>
         }
-        negativeAnswer="아니요"
-        positiveAnswer="네, 탈퇴할래요"
+        negativeAnswer="취소"
+        positiveAnswer="계정 삭제"
         isVisible={isModalVisible}
         onClose={handleCloseModal}
         onConfirm={handleConfirmDelete}
