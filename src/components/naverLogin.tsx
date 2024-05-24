@@ -8,20 +8,13 @@ const NaverLogin = () => {
 
     const loginNaver = async () => {
         try {
-            const response = await axios.post(
-                'https://perfume-bside.site/login',
-                {
-                },
-            );
-            console.log(response);
-            // 백엔드가 리디렉션 URL을 응답으로 제공하는 경우
-            if (response.data.redirectUrl) {
-                window.location.href = response.data.redirectUrl;
-            }
+            // 백엔드 서버로 POST 요청을 보냅니다.
+            const response = await axios.post('https://perfume-bside.site/login');
+            // 응답을 받아서 처리할 작업을 여기에 추가하세요.
         } catch (error) {
-            console.error('로그인 요청 실패:', error);
+            console.error('간편로그인 요청 실패:', error);
         }
-    };
+    }
 
   return (
     <div className={'flex justify-center items-center '}>
