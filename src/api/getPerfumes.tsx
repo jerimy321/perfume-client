@@ -10,7 +10,7 @@ export const getPerfumes = async (page: number, size: number) => {
       `myPage/perfumes?page=${page}&size=${size}`,
       {
         headers: {
-          Cookie: `JSESSIONID=JSESSIONID=FCD63CD4F2701D788FC4855804CE4252`,
+          Cookie: `JSESSIONID=FCD63CD4F2701D788FC4855804CE4252`,
         },
       },
     );
