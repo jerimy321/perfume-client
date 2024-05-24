@@ -2,8 +2,9 @@ import { SetStateAction, useEffect, useState } from 'react';
 import MyPagePerfume from './myPagePerfume';
 import Modal from './modal';
 import DeleteLogo from '../assets/icons/icon_delete.svg';
-import sampleData from '../data/perfumeAlbum.json';
 import Pagination from './pagenation';
+import { getPerfumes } from '../api/getPerfumes';
+import Spinner from '../util/spinner';
 
 export default function Album() {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -19,12 +20,27 @@ export default function Album() {
     }[]
   >([]);
   const [selectedPerfumes, setSelectedPerfumes] = useState<number[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const perfumesPerPage = 6;
   const maxDeletableItems = 8; // 최대 삭제 가능한 개수
 
   useEffect(() => {
-    setPerfumes(sampleData.content);
-  }, []);
+    const fetchPerfumes = async () => {
+      try {
+        setIsLoading(true);
+        const data = await getPerfumes(currentPage, perfumesPerPage);
+        setPerfumes(data.content);
+      } catch (error) {
+        setError('Failed to fetch perfumes');
+        console.error('Error fetching perfumes:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchPerfumes();
+  }, [currentPage]);
 
   const handleEditClick = () => {
     setIsEditing(!isEditing);
@@ -117,7 +133,15 @@ export default function Album() {
         onConfirm={handleConfirmDelete}
       />
       <div className="flex flex-row flex-wrap justify-center gap-8">
-        {currentPerfumes.length > 0 ? (
+        {isLoading ? (
+          <Spinner loading />
+        ) : error ? (
+          <div className="flex items-center justify-center h-[624px]">
+            <span className="text-gray150 text-[32px] font-normal">
+              {error}
+            </span>
+          </div>
+        ) : currentPerfumes.length > 0 ? (
           currentPerfumes.map((perfume) => (
             <MyPagePerfume
               key={perfume.myPerfumeId}
