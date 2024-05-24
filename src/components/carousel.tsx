@@ -9,8 +9,8 @@ import { postHashtags } from '../api/perfumeMatching';
 import useCarousel from '../hooks/useCarousel';
 import { useNavigate } from 'react-router-dom';
 
-const Carousel: React.FC<{ onSlideChange: (index: number) => void }> = ({
-  onSlideChange,
+const Carousel: React.FC<{ onCategoryChange: (category: string) => void }> = ({
+  onCategoryChange,
 }) => {
   const nav = useNavigate();
   const categories = perfumeCategories.map((cat) => cat.category);
@@ -19,8 +19,8 @@ const Carousel: React.FC<{ onSlideChange: (index: number) => void }> = ({
   const hashtagList = useRecoilValue(hashtagListState);
 
   useEffect(() => {
-    onSlideChange(activeIndex);
-  }, [activeIndex, onSlideChange]);
+    onCategoryChange(categories[activeIndex]);
+  }, [activeIndex, onCategoryChange, categories]);
 
   const handleSubmit = async () => {
     try {
@@ -70,7 +70,9 @@ const Carousel: React.FC<{ onSlideChange: (index: number) => void }> = ({
             <button
               key={categories[index]}
               type="button"
-              className={`w-[50px] h-1 mx-[5px] ${index <= activeIndex ? 'bg-black' : 'bg-gray150'}`}
+              className={`w-[50px] h-1 mx-[5px] ${
+                index <= activeIndex ? 'bg-black' : 'bg-gray150'
+              }`}
               onClick={() => handleIndicatorClick(index)}
             ></button>
           ))}
