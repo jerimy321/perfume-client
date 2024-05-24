@@ -9,11 +9,8 @@ const NaverLogin = () => {
     const loginNaver = async () => {
         try {
             const response = await axios.post(
-                process.env.REACT_APP_API_URL + 'login',
+                'https://perfume-bside.site/login',
                 {
-                    headers: {
-                        Cookie: `JSESSIONID=FCD63CD4F2701D788FC4855804CE4252`,
-                    },
                 },
             );
             console.log(response);
