@@ -10,7 +10,24 @@ export interface resultPerfumeData {
     imageURL: string,
 }
 
-
+export const myPerfumeData= [
+    {
+        id: '05',
+        brand: '딥 다크',
+        name: '로 드 타로코',
+        engName: 'L`EAU de Tarocco',
+        content: '아주 멋진 향수입니다.',
+        imageURL: subPerfume,
+    },
+    {
+        id: '03',
+        brand: '딥 다크',
+        name: '로 드 타로코',
+        engName: 'L`EAU de Tarocco',
+        content: '아주 멋진 향수입니다.',
+        imageURL: subPerfume,
+    },
+];
 export const mainPerMockData = {
     id: '01',
     brand: '조말론',
