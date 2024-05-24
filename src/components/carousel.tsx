@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useRecoilValue } from 'recoil';
 import { perfumeCategories, getCategoryMessage } from '../data/perfumeData';
 import CarouselButtons from './carouselButtons';
@@ -8,12 +9,18 @@ import { postHashtags } from '../api/perfumeMatching';
 import useCarousel from '../hooks/useCarousel';
 import { useNavigate } from 'react-router-dom';
 
-const Carousel: React.FC = () => {
+const Carousel: React.FC<{ onSlideChange: (index: number) => void }> = ({
+  onSlideChange,
+}) => {
   const nav = useNavigate();
   const categories = perfumeCategories.map((cat) => cat.category);
   const { activeIndex, handlePrev, handleNext, handleIndicatorClick } =
     useCarousel(categories);
   const hashtagList = useRecoilValue(hashtagListState);
+
+  useEffect(() => {
+    onSlideChange(activeIndex);
+  }, [activeIndex, onSlideChange]);
 
   const handleSubmit = async () => {
     try {
@@ -53,8 +60,8 @@ const Carousel: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-between flex-1 w-full h-full gap-16">
-      <div className="flex flex-col items-center justify-center mt-[130px]">
+    <div className="flex flex-col items-center justify-between flex-1 w-full h-full gap-20">
+      <div className="flex flex-col items-center justify-center mt-[150px]">
         <span className="text-[20px] text-gray150">
           {activeIndex + 1} / {categories.length}
         </span>

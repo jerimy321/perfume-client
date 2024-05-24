@@ -67,13 +67,6 @@ module.exports = {
         'login-bg': "url('./assets/images/bg_login.png')",
         'mainbutton-bg':
           'linear-gradient(162deg, rgba(255, 255, 255, 0.30) 0%, rgba(255, 255, 255, 0.60) 100%)',
-
-        'main-1-bg': "url('./assets/images/bg_main_1.svg')",
-        'main-2-bg': "url('./assets/images/bg_main_2.svg')",
-        'main-3-bg': "url('./assets/images/bg_main_3.svg')",
-        'main-4-bg': "url('./assets/images/bg_main_4.svg')",
-        'main-5-bg': "url('./assets/images/bg_main_5.svg')",
-        'main-6-bg': "url('./assets/images/bg_main_6.svg')",
         'matching-bg': "url('./assets/images/bg_matching.png')",
         'matching-none-bg': "url('./assets/images/bg_matching_none.png')",
       },
