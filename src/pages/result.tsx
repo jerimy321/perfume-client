@@ -1,12 +1,14 @@
-import save from '../assets/images/ic_round-save-alt.png';
+import saveAfter from '../assets/images/save_complete.png';
+import saveDef from '../assets/images/save_default.png';
 import {useState} from 'react';
-import {mainPerMockData, resultPerfumeData, subPerMockData} from '../data/resultPerfumeData';
+import {mainPerMockData, myPerfumeData, resultPerfumeData, subPerMockData} from '../data/resultPerfumeData';
 import SaveAlert from '../components/saveAlert';
 import {useNavigate} from 'react-router-dom';
 
 const subPerfumePerPage = 3;
 export default function Result() {
     const [saveComplete, setSaveComplete] = useState(false);
+    const [saveAlert, setSaveAlert] = useState(false);
     const [currentPage, setCurrentPage] = useState(0);
     const navigate = useNavigate();
 
@@ -18,10 +20,12 @@ export default function Result() {
         setCurrentPage((prevPage) => Math.min(prevPage + 1, subPerMockData.length - 3));
     };
 
-    const SaveClick = () => {
+    const SaveClick = (data: resultPerfumeData) => (event: React.MouseEvent<HTMLDivElement>) => {
+        event.stopPropagation();  // 이벤트 전파 중단
         setSaveComplete(true);
+        setSaveAlert(true);
         setTimeout(() => {
-            setSaveComplete(false);
+            setSaveAlert(false);
         }, 2000);
     };
 
@@ -29,20 +33,28 @@ export default function Result() {
         navigate(`/perfumeInfo/${data.id}`, {state: {perfume: data}});
     }
     return (
-        <div className='w-screen h-screen'>
-            <div className='h-full'>
+        <div className='w-[1920px] h-[1600px] flex flex-col bg-result-bg bg-center bg-cover'>
+            <div className='h-full w-[1225px] mx-auto mt-0'>
                 {/* 메인 제품 */}
-                <div className='w-1/2 mx-auto'>
-                    <div className='text-center'>당신의 취향을 저격할 향수</div>
-                    <div className='flex justify-between w-full'>
-                        <div>
-                            <div>{mainPerMockData.brand}</div>
-                            <div>{mainPerMockData.name}</div>
-                            <div>{mainPerMockData.engName}</div>
-                            <div className='flex' onClick={SaveClick}><img src={save}/>내 향수 저장하기</div>
+                <div className='mx-auto font-pretendard'>
+                    <div className='text-center mt-[187px] text-result-title font-normal not-italic'>이 <span className='font-bold'>향수</span>를 <span className='font-bold'>추천</span>드려요!</div>
+                    <div className='flex justify-between w-[1180px] h-[532px] mt-[52px] shadow-main-div boredr border-white rounded-[30px] bg-white-70'>
+                        <div className='ml-[100px]'>
+                            <div className='ml-1 mt-[85px] text-2xl font-medium text-caption1 tracking-caption1'>{mainPerMockData.brand}</div>
+                            <div className='ml-1 mt-4 text-5xl font-semibold leading-tight'>{mainPerMockData.name}</div>
+                            <div className='ml-1 mt-1.5 text-caption1 font-normal leading-tight text-[28px]'>{mainPerMockData.eName}</div>
+                            <div className='ml-1 mt-10 text-caption1 font-normal text-[28px]'>{mainPerMockData.content}</div>
+                            <div className='w-[300px] h-20 bg-white-50 cursor-pointer border border-white rounded-[100px] pl-10 pr-10 mt-11 mb-20 pt-6 pb-[26px] shadow-home-button-hover' onClick={SaveClick(mainPerMockData)}>
+                                <div className='flex items-center justify-between'>
+                                    {saveComplete ? (<img src={saveDef}/>) : (<img src={saveAfter}/>)}
+                                    <p className='mb-0 text-2xl text-save-button'>내 향수 저장하기</p>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <img src={mainPerMockData.imageURL}/>
+                        <div className='flex justify-center mt-16 w-[578px]'>
+                            <div>
+                                <img src={mainPerMockData.imageURL}/>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -57,17 +69,16 @@ export default function Result() {
                                 .slice(currentPage, currentPage + subPerfumePerPage)
                                 .map((data) => (
                                     <div key={data.id} onClick={clickSubPerfume(data)}
-                                         className='relative group mx-2 z-1'>
+                                         className='relative group mx-2'>
                                         <img src={data.imageURL} alt={data.name}/>
                                         <div
                                             className='absolute inset-0 hidden justify-center group-hover:flex group-hover:bg-black group-hover:bg-opacity-40'>
                                             <div className='flex flex-col text-white items-center justify-center'>
                                                 <span>{data.brand}</span>
                                                 <span>{data.name}</span>
-                                                <span>{data.engName}</span>
-                                                <div onClick={SaveClick} className='z-0'>
-                                                    <img src={save} className='cursor-pointer opacity-100'
-                                                         onClick={SaveClick} />
+                                                <span>{data.eName}</span>
+                                                <div onClick={SaveClick(data)}>
+                                                    <img src={saveDef} className='cursor-pointer opacity-100' />
                                                 </div>
                                             </div>
                                         </div>
@@ -80,7 +91,7 @@ export default function Result() {
                 </div>
             </div>
             {/* 저장 알림 모달 */}
-            {saveComplete && (
+            {saveAlert && (
                 <SaveAlert/>
             )}
         </div>
