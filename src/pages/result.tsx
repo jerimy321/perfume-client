@@ -7,6 +7,7 @@ import {useState} from 'react';
 import {mainPerMockData, myPerfumeData, resultPerfumeData, subPerMockData} from '../data/resultPerfumeData';
 import SaveAlert from '../components/saveAlert';
 import {useNavigate} from 'react-router-dom';
+import {saveMyPerfume} from '../api/saveMyPerfume';
 
 const subPerfumePerPage = 3;
 export default function Result() {
@@ -25,11 +26,13 @@ export default function Result() {
 
     const SaveClick = (data: resultPerfumeData) => (event: React.MouseEvent<HTMLDivElement>) => {
         event.stopPropagation();  // 이벤트 전파 중단
+        saveMyPerfume(data.id);
         setSaveComplete(true);
         setSaveAlert(true);
         setTimeout(() => {
             setSaveAlert(false);
         }, 2000);
+
     };
 
     const clickSubPerfume = (data: resultPerfumeData) => () => {
