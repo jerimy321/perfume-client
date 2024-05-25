@@ -12,8 +12,11 @@ module.exports = {
           '78px',
           { lineHeight: '126.3%', letterSpacing: '-1.56px' },
         ],
-        'home-button': ['24px', { lineHeight: '137%', letterSpacing: '-0.48px' },],
-        'home-sub': ['28px', { lineHeight: '146%', letterSpacing: '-0.56px' },],
+        'home-button': [
+          '24px',
+          { lineHeight: '137%', letterSpacing: '-0.48px' },
+        ],
+        'home-sub': ['28px', { lineHeight: '146%', letterSpacing: '-0.56px' }],
         'naver-button': ['26px', { lineHeight: '140%', letterSpacing: '-2px' }],
         main: ['26px', { lineHeight: '140%', letterSpacing: '-2px' }],
         'result-title': [
@@ -26,8 +29,11 @@ module.exports = {
         ],
         'login-need': ['42px', { lineHeight: '140%', letterSpacing: '-2px' }],
         'login-simple': ['24px', { lineHeight: '140%', letterSpacing: '-2px' }],
-        'mypage-tap': ['26px', { lineHeight: '32.85px' }],
-        'mypage-title': ['60px', { lineHeight: '75.78px' }],
+        'mypage-tap': [
+          '26px',
+          { lineHeight: '32.84px', letterSpacing: '-0.52px' },
+        ],
+        'mypage-title': ['32px', { lineHeight: '40.42px' }],
         'modal-button': ['26px', { lineHeight: '26px' }],
         headline2: ['52px', { lineHeight: '52px' }],
         'main-button': ['26px', { lineHeight: '35.62px' }],
