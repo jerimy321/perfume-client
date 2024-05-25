@@ -7,7 +7,7 @@ const NaverLogin = () => {
     const [isHover, setIsHover] = useState(false);
 
     const loginNaver = async () => {
-        const response = await axios.post(process.env.REACT_APP_API_URL + '/oauth2/authorization/naver');
+        const response = await axios.post(process.env.REACT_APP_API_URL + 'oauth2/authorization/naver');
         const url = response.data
         window.location.href = url;
     };
