@@ -1,6 +1,6 @@
 import axiosInstance from './axiosConfig';
 
-export const saveMyPerfume = async (id: string) => {
+export const saveMyPerfume = async (id: number) => {
     try {
       const response = await axiosInstance.post(`perfumes/${id}`, {
           headers: {

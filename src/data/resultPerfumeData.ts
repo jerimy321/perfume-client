@@ -2,7 +2,7 @@ import mainPerfume from '../assets/images/mainPerfume.png';
 import subPerfume from '../assets/images/subPerfume.png';
 
 export interface resultPerfumeData {
-    id: string,
+    id: number,
     brand: string,
     name: string,
     eName: string,
@@ -12,7 +12,7 @@ export interface resultPerfumeData {
 
 export const myPerfumeData= [
     {
-        id: '05',
+        id: 20,
         brand: '딥 다크',
         name: '로 드 타로코',
         eName: 'L`EAU de Tarocco',
@@ -20,7 +20,7 @@ export const myPerfumeData= [
         imageURL: subPerfume,
     },
     {
-        id: '03',
+        id: 101,
         brand: '딥 다크',
         name: '로 드 타로코',
         eName: 'L`EAU de Tarocco',
@@ -29,7 +29,7 @@ export const myPerfumeData= [
     },
 ];
 export const mainPerMockData = {
-    id: '01',
+    id: 76,
     brand: '조말론',
     name: '라임 바질 만다린',
     eName: 'Lime Basil & Mandarin',
@@ -39,7 +39,7 @@ export const mainPerMockData = {
 
 export const subPerMockData = [
     {
-        id: '01',
+        id: 34,
         brand: '딥 다크',
         name: '로 드 타로코',
         eName: 'L`EAU de Tarocco',
@@ -47,7 +47,7 @@ export const subPerMockData = [
         imageURL: subPerfume,
     },
     {
-        id: '02',
+        id: 99,
         brand: '딥 다크',
         name: '로 드 타로코',
         eName: 'L`EAU de Tarocco',
@@ -55,7 +55,7 @@ export const subPerMockData = [
         imageURL: subPerfume,
     },
     {
-        id: '03',
+        id: 22,
         brand: '딥 다크',
         name: '로 드 타로코',
         eName: 'L`EAU de Tarocco',
@@ -63,7 +63,7 @@ export const subPerMockData = [
         imageURL: subPerfume,
     },
     {
-        id: '04',
+        id: 39,
         brand: '딥 다크',
         name: '로 드 타로코',
         eName: 'L`EAU de Tarocco',
@@ -71,7 +71,7 @@ export const subPerMockData = [
         imageURL: subPerfume,
     },
     {
-        id: '05',
+        id: 44,
         brand: '딥 다크',
         name: '로 드 타로코',
         eName: 'L`EAU de Tarocco',
