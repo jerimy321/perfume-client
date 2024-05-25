@@ -29,14 +29,14 @@ export default function MatchingPage() {
   }, [isLoading, matchSuccess, navigate]);
 
   return (
-    <div className="flex flex-col items-center w-screen h-screen bg-center bg-cover bg-matching-bg font-pretendard">
-      <span className="text-header-default text-[33px] font-medium gap-4 mt-10">
+    <div className="flex flex-col items-center w-[1920px] h-[1080px] bg-center bg-cover bg-matching-bg font-pretendard">
+      <span className="text-header-default text-pick-subtitle2 mt-[196px] font-medium">
         탕탕탕!
       </span>
-      <span className="text-[68px] font-normal">
+      <span className="font-normal text-pick-title mt-[10px]">
         당신의 <span className="font-semibold">취향 저격 중</span>이에요
       </span>
-      <div className="p-20">
+      <div className="">
         <img src={perfumIMG} alt="향수이미지" className="w-[300px]" />
         <span>. . .</span>
       </div>

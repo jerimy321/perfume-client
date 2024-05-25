@@ -56,6 +56,18 @@ module.exports = {
         'sub-content': ['20px', { lineHeight: '136.3%' }],
         'sub-eName': ['22px', { lineHeight: '126.3%' }],
         'pick-modal': ['42px', { lineHeight: '58.80px' }],
+        'pick-title': [
+          '68px',
+          { lineHeight: '89.76px', letterSpacing: '-0.6px' },
+        ],
+        'pick-subtitle': [
+          '42px',
+          { lineHeight: '55.44px', letterSpacing: '-0.84px' },
+        ],
+        'pick-subtitle2': [
+          '33px',
+          { lineHeight: '43.56px', letterSpacing: '3px' },
+        ],
       },
       width: {
         1920: '1920px',
