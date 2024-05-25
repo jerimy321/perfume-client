@@ -24,7 +24,7 @@ const NaverLogin = () => {
         } catch (error) {
             console.error('로그인 요청 실패:', error);
         }*/
-        window.location.href = 'https://perfume-bside.site/oauth2/authorization/naver';
+        window.location.href = 'https://perfume-bside.site/login';
     };
 
   return (
