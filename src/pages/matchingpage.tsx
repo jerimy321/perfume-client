@@ -6,15 +6,14 @@ import perfumIMG from '../assets/images/perfumeIMG.png';
 
 export default function MatchingPage() {
   const [matchSuccess, setMatchSuccess] = useState<boolean | null>(null);
-  const [matchedPerfumes, setMatchedPerfumes] =
-    useRecoilState(matchedPerfumesState);
+  const [matchedPerfumes] = useRecoilState(matchedPerfumesState);
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log('Current matchedPerfumes state:', matchedPerfumes); // 상태가 변경될 때마다 로그에 출력
+    console.log('Current matchedPerfumes state:', matchedPerfumes);
 
     const timer = setTimeout(() => {
-      if (matchedPerfumes.mainPerfume !== null) {
+      if (Object.keys(matchedPerfumes.mainPerfume).length !== 0) {
         setMatchSuccess(true);
       } else {
         setMatchSuccess(false);
@@ -25,10 +24,16 @@ export default function MatchingPage() {
   }, [matchedPerfumes]);
 
   useEffect(() => {
-    if (matchSuccess === true) {
-      navigate('/result');
-    } else if (matchSuccess === false) {
-      navigate('/matchfail');
+    if (matchSuccess !== null) {
+      const timer = setTimeout(() => {
+        if (matchSuccess) {
+          navigate('/result');
+        } else {
+          navigate('/matchfail');
+        }
+      }, 3000);
+
+      return () => clearTimeout(timer);
     }
   }, [matchSuccess, navigate]);
 

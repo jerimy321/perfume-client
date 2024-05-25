@@ -16,7 +16,7 @@ export const hashtagListState = selector({
 export const matchedPerfumesState = atom({
   key: 'matchedPerfumesState',
   default: {
-    mainPerfume: null,
+    mainPerfume: {},
     subPerfumes: [],
   },
 });
