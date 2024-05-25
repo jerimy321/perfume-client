@@ -4,7 +4,7 @@ import subDef from '../assets/icons/sub_def.png';
 import left from '../assets/icons/icon_left.png';
 import right from '../assets/icons/icon_right.png';
 import {useState} from 'react';
-import {mainPerMockData, myPerfumeData, resultPerfumeData, subPerMockData} from '../data/resultPerfumeData';
+import {mainPerMockData, resultPerfumeData, subPerMockData} from '../data/resultPerfumeData';
 import SaveAlert from '../components/saveAlert';
 import {useNavigate} from 'react-router-dom';
 import {saveMyPerfume} from '../api/saveMyPerfume';

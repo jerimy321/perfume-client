@@ -3,22 +3,13 @@ import naverDefault from '../assets/images/logo_green.png';
 import naverHover from '../assets/images/logo_white.png';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
+import {postLogin} from '../api/postLogin';
 
 const NaverLogin = () => {
     const [isHover, setIsHover] = useState(false);
-    const navigate = useNavigate();
 
     const loginNaver = async () => {
-        try {
-            // 백엔드로 POST 요청 보내기
-            const response = await axios.post('https://perfume-bside.site/login');
-            // 백엔드가 리디렉션 URL을 응답으로 제공하는 경우
-            if (response.data.redirectUrl) {
-                window.location.href = response.data.redirectUrl;
-            }
-        } catch (error) {
-            console.error('간편로그인 요청 실패:', error);
-        }
+        postLogin();
     };
 
   return (
