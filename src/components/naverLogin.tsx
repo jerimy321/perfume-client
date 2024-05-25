@@ -2,14 +2,21 @@ import { useState } from 'react';
 import naverDefault from '../assets/images/logo_green.png';
 import naverHover from '../assets/images/logo_white.png';
 import axios from 'axios';
+import axiosInstance from '../api/axiosConfig';
 
 const NaverLogin = () => {
     const [isHover, setIsHover] = useState(false);
 
     const loginNaver = async () => {
-        const response = await axios.post(process.env.REACT_APP_API_URL + '/oauth2/authorization/naver');
-        const url = response.data
-        window.location.href = url;
+        try {
+            const response = await axiosInstance.post('/oauth2/authorization/naver');
+            console.log(response.data);
+            const url = response.data
+            window.location.href = url;
+        } catch (error) {
+            console.error('Error posting hashtags:', error);
+            throw error;
+        }
     };
 
   return (
