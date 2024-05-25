@@ -6,13 +6,12 @@ import perfumIMG from '../assets/images/perfumeIMG.png';
 
 export default function MatchingPage() {
   const [matchSuccess, setMatchSuccess] = useState<boolean | null>(null);
-  const [matchedPerfumes, setMatchedPerfumes] =
-    useRecoilState(matchedPerfumesState);
+  const [matchedPerfumes] = useRecoilState(matchedPerfumesState);
   const navigate = useNavigate();
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (matchedPerfumes.mainPerfume) {
+      if (matchedPerfumes.mainPerfume !== null) {
         setMatchSuccess(true);
       } else {
         setMatchSuccess(false);
