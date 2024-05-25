@@ -59,7 +59,7 @@ module.exports = {
           { lineHeight: '89.76px', letterSpacing: '-0.6px' },
         ],
         'pick-subtitle': [
-          '42px',
+          '40px',
           { lineHeight: '55.44px', letterSpacing: '-0.84px' },
         ],
         'pick-subtitle2': [
@@ -158,6 +158,7 @@ module.exports = {
         'matching-none-bg': "url('./assets/images/bg_matching_none.png')",
         'pick-modal-bg':
           'linear-gradient(178deg, rgba(255, 255, 255, 0.80) 0%, rgba(255, 255, 255, 0.50) 100%)',
+        'nochoice-bg': "url('./assets/images/bg_nochoice.png')",
       },
       backgroundColor: {
         'white-70': 'rgba(255, 255, 255, 0.70)',

@@ -7,8 +7,10 @@ export default function MatchFail() {
   };
   return (
     <div className="flex flex-col items-center w-[1920px] h-[1080px] bg-center bg-cover bg-matching-none-bg font-pretendard">
-      <span className="text-pick-title font-normal mt-[199px]">아쉬워요,</span>
-      <span className="font-normal text-pick-title">
+      <span className="text-pick-title font-normal mt-[199px] text-black">
+        아쉬워요,
+      </span>
+      <span className="font-normal text-black text-pick-title">
         <span className="font-semibold">취향 저격 향수</span>를 찾을 수 없어요.
       </span>
 
