@@ -6,10 +6,13 @@ import perfumIMG from '../assets/images/perfumeIMG.png';
 
 export default function MatchingPage() {
   const [matchSuccess, setMatchSuccess] = useState<boolean | null>(null);
-  const [matchedPerfumes] = useRecoilState(matchedPerfumesState);
+  const [matchedPerfumes, setMatchedPerfumes] =
+    useRecoilState(matchedPerfumesState);
   const navigate = useNavigate();
 
   useEffect(() => {
+    console.log('Current matchedPerfumes state:', matchedPerfumes); // 상태가 변경될 때마다 로그에 출력
+
     const timer = setTimeout(() => {
       if (matchedPerfumes.mainPerfume !== null) {
         setMatchSuccess(true);

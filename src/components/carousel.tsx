@@ -39,6 +39,7 @@ const Carousel: React.FC<CarouselProps> = ({
       const response = await postHashtags(hashtagList);
       console.log('Submission successful:', response);
       setMatchedPerfumes(response.data); // Assuming response.data contains the matched perfumes
+      console.log('Updated matchedPerfumes:', response.data); // 상태가 업데이트된 후의 값을 로그에 출력
     } catch (error) {
       console.error('Error submitting hashtags:', error);
     } finally {
