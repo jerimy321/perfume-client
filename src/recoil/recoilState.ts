@@ -13,6 +13,11 @@ export const hashtagListState = selector({
   },
 });
 
+export const matchedPerfumesState = atom({
+  key: 'matchedPerfumesState',
+  default: [],
+});
+
 const getNaverTokenFromLocalStorage = () => {
   const naverToken = localStorage.getItem('naverToken');
   return naverToken ? naverToken : null;

@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { perfumeCategories, getCategoryMessage } from '../data/perfumeData';
 import CarouselButtons from './carouselButtons';
 import CarouselItems from './carouselItems';
 import PickHashtagSentence from './pickHashtagSentence';
-import { hashtagListState } from '../recoil/recoilState';
+import { hashtagListState, matchedPerfumesState } from '../recoil/recoilState';
 import { postHashtags } from '../api/perfumeMatching';
 import useCarousel from '../hooks/useCarousel';
 import { useNavigate } from 'react-router-dom';
@@ -19,6 +19,7 @@ const Carousel: React.FC<CarouselProps> = ({
   onShowModal,
 }) => {
   const nav = useNavigate();
+  const setMatchedPerfumes = useSetRecoilState(matchedPerfumesState);
   const categories = perfumeCategories.map((cat) => cat.category);
   const { activeIndex, handlePrev, handleNext, handleIndicatorClick } =
     useCarousel(categories);
@@ -37,6 +38,7 @@ const Carousel: React.FC<CarouselProps> = ({
     try {
       const response = await postHashtags(hashtagList);
       console.log('Submission successful:', response);
+      setMatchedPerfumes(response.data); // Assuming response.data contains the matched perfumes
     } catch (error) {
       console.error('Error submitting hashtags:', error);
     } finally {
