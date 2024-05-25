@@ -23,9 +23,9 @@ export default function MatchingPage() {
   }, [matchedPerfumes]);
 
   useEffect(() => {
-    if (matchSuccess) {
+    if (matchSuccess === true) {
       navigate('/result');
-    } else {
+    } else if (matchSuccess === false) {
       navigate('/matchfail');
     }
   }, [matchSuccess, navigate]);
