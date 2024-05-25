@@ -15,7 +15,10 @@ export const hashtagListState = selector({
 
 export const matchedPerfumesState = atom({
   key: 'matchedPerfumesState',
-  default: [],
+  default: {
+    mainPerfume: null,
+    subPerfumes: [],
+  },
 });
 
 const getNaverTokenFromLocalStorage = () => {

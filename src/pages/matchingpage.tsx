@@ -12,7 +12,10 @@ export default function MatchingPage() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (matchedPerfumes.length > 0) {
+      if (
+        matchedPerfumes.subPerfumes &&
+        matchedPerfumes.subPerfumes.length > 0
+      ) {
         setMatchSuccess(true);
       } else {
         setMatchSuccess(false);
