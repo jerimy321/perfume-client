@@ -2,6 +2,7 @@ import { useState } from 'react';
 import naverDefault from '../assets/images/logo_green.png';
 import naverHover from '../assets/images/logo_white.png';
 import axios from 'axios';
+import axiosInstance from '../api/axiosConfig';
 
 const NaverLogin = () => {
     const [isHover, setIsHover] = useState(false);
