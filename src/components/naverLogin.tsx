@@ -7,7 +7,7 @@ const NaverLogin = () => {
     const [isHover, setIsHover] = useState(false);
 
     const loginNaver = async () => {
-        await  postLogin();
+        await postLogin();
     };
 
   return (
