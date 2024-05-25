@@ -11,7 +11,7 @@ export default function MatchingPage() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (matchedPerfumes !== null) {
+      if (matchedPerfumes.mainPerfume !== null) {
         setMatchSuccess(true);
       } else {
         setMatchSuccess(false);
