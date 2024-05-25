@@ -103,7 +103,7 @@ module.exports = {
         103: '103px',
       },
       backgroundImage: {
-        'home-bg': "url('./assets/images/bg_main.svg')",
+        'home-bg': "url('./assets/images/bg_home.png')",
         'myinfo-bg': "url('./assets/images/bg_myinfo.png')",
         'album-bg': "url('./assets/images/bg_album.png')",
         'home-button':
