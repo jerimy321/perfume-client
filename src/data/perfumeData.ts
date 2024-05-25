@@ -16,7 +16,7 @@ export const perfumeCategories: PerfumeCategory[] = [
       '상쾌/시원한 향',
       '푸른 풀잎 향',
       '나무 향',
-      '흙/이끼 향',
+      '흙,이끼 향',
       '강렬/짜릿한 향',
       '스모키 향',
     ],

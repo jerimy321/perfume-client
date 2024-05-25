@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useRecoilValue } from 'recoil';
 import { perfumeCategories, getCategoryMessage } from '../data/perfumeData';
 import CarouselButtons from './carouselButtons';
@@ -9,8 +9,14 @@ import { postHashtags } from '../api/perfumeMatching';
 import useCarousel from '../hooks/useCarousel';
 import { useNavigate } from 'react-router-dom';
 
-const Carousel: React.FC<{ onCategoryChange: (category: string) => void }> = ({
+interface CarouselProps {
+  onCategoryChange: (category: string) => void;
+  onShowModal: () => void;
+}
+
+const Carousel: React.FC<CarouselProps> = ({
   onCategoryChange,
+  onShowModal,
 }) => {
   const nav = useNavigate();
   const categories = perfumeCategories.map((cat) => cat.category);
@@ -23,6 +29,11 @@ const Carousel: React.FC<{ onCategoryChange: (category: string) => void }> = ({
   }, [activeIndex, onCategoryChange, categories]);
 
   const handleSubmit = async () => {
+    if (hashtagList.length === 0) {
+      onShowModal();
+      return;
+    }
+
     try {
       const response = await postHashtags(hashtagList);
       console.log('Submission successful:', response);

@@ -1,7 +1,7 @@
 interface ModalProps {
   title: string | React.ReactNode;
   content: string | React.ReactNode;
-  negativeAnswer: string;
+  negativeAnswer?: string;
   positiveAnswer: string;
   isVisible?: boolean;
   onClose?: () => void;

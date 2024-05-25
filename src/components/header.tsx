@@ -23,7 +23,7 @@ const Header = () => {
   }
 
   return (
-    <header className="fixed top-0 z-10 px-10 py-3 w-dvw font-pretendard h-[100px]">
+    <header className="fixed top-0 z-10 px-10 w-dvw font-pretendard h-[100px]">
       <nav>
         <ul className="flex items-center justify-between px-10">
           <li>
