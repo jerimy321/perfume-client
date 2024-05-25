@@ -32,14 +32,8 @@ module.exports = {
         headline2: ['52px', { lineHeight: '52px' }],
         'main-button': ['26px', { lineHeight: '35.62px' }],
         subtitle1: ['36px', { lineHeight: '37.89px' }],
-        'save-button': [
-          '24px',
-          {
-            lineHeight: '126.3%',
-            letterSpacing: '-0.48px',
-            fontWeight: '500px',
-          },
-        ],
+        'save-button': ['24px', {lineHeight: '126.3%', letterSpacing: '-0.48px', fontWeight: '500px',},],
+        'save-alert': ['26px', {lineHeight: '126.3%', letterSpacing: '-0.52px'},],
         28: '28px',
         20: '20px',
         'text-button': ['24px', { lineHeight: '24px' }],
@@ -73,6 +67,7 @@ module.exports = {
         1180: '1180px',
         972: '972px',
         710: '710px',
+        600: '600px',
         578: '578px',
         464: '464px',
         452: '452px',
@@ -102,6 +97,7 @@ module.exports = {
         360: '360px',
         350: '350px',
         290: '390px',
+        100: '100px',
         94: '94px',
         90: '90px',
         80: '80px',
@@ -110,6 +106,8 @@ module.exports = {
       },
       margin: {
         17: '17px',
+        21: '21px',
+        42: '42px',
         52: '52px',
         70: '70px',
         75: '75px',
@@ -120,6 +118,7 @@ module.exports = {
         144: '144px',
         187: '187px',
         225: '225px',
+        393: '393px',
       },
       padding: {
         13: '13px',
@@ -161,6 +160,7 @@ module.exports = {
       },
       backgroundColor: {
         'white-70': 'rgba(255, 255, 255, 0.70)',
+        gray50: 'rgba(0, 0, 0, 0.50)',
         'white-50': 'rgba(255, 255, 255, 0.50)',
       },
       boxShadow: {
@@ -179,6 +179,7 @@ module.exports = {
         white06: 'rgba(0, 0, 0, 0.06)',
         white20: 'rgba(0, 0, 0, 0.20)',
         gray60: 'rgba(0, 0, 0, 0.60)',
+        gray50: 'rgba(0, 0, 0, 0.50)',
         gray40: 'rgba(0, 0, 0, 0.40)',
         gray80: 'rgba(0, 0, 0, 0.80)',
         gray176: 'rgba(176, 176, 176, 1)',
@@ -198,6 +199,7 @@ module.exports = {
         15: '15px',
         20: '20px',
         30: '30px',
+        50: '50px',
         100: '100px',
       },
       rotate: {
