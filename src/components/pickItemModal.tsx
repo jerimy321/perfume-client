@@ -22,7 +22,7 @@ const Modal: React.FC<ModalProps> = ({
       aria-labelledby="modalLabel"
       aria-hidden={!isVisible}
     >
-      <div className="rounded-[30px] bg-pick-modal-bg border-2 border-white backdrop-blur-[17.8px] shadow-login-modal w-[710px] min-h-[340px] flex flex-col">
+      <div className="rounded-[30px] border-2 bg-nochoice-bg bg-center border-white backdrop-blur-[17.8px] shadow-login-modal w-[710px] min-h-[340px] flex flex-col">
         <div className="flex items-center justify-center">
           <h5
             className="font-semibold text-pick-modal mt-[60px]"
