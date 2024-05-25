@@ -26,20 +26,12 @@ const Modal: React.FC<ModalProps> = ({
       aria-labelledby="modalLabel"
       aria-hidden={!isVisible}
     >
-      <div className="p-6 bg-white rounded-[30px] shadow-modal-border bg-modal-bg w-[710px] min-h-[340px] py-10 flex flex-col items-center">
-        <div className="flex items-center justify-center pb-10">
-          {typeof title === 'string' ? (
-            <h5 className="text-lg font-medium" id="modalLabel">
-              {title}
-            </h5>
-          ) : (
-            title
-          )}
-        </div>
-        <div className="flex items-center justify-center mb-4 text-center whitespace-pre-line text-mainbutton-default text-[24px]">
+      <div className="bg-white rounded-[30px] shadow-modal-border bg-modal-bg w-[710px] min-h-[340px] flex flex-col items-center">
+        <>{title}</>
+        <div className="flex justify-center text-center text-mainbutton-default text-[24px]">
           {typeof content === 'string' ? <p>{content}</p> : content}
         </div>
-        <div className="flex items-center justify-center gap-2 mt-4">
+        <div className="flex gap-[10px] mt-[49px] mb-[72px]">
           <button
             type="button"
             className="text-modal-button text-gray80 rounded-[10px] border border-gray229 bg-gray229 w-[260px] h-[80px]"
@@ -49,7 +41,7 @@ const Modal: React.FC<ModalProps> = ({
           </button>
           <button
             type="button"
-            className="text-white bg-gray80 text-modal-button w-[260px] h-[80px] rounded-[10px]"
+            className="text-white bg-black text-modal-button w-[260px] h-[80px] rounded-[10px]"
             onClick={onConfirm}
           >
             {positiveAnswer}

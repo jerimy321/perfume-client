@@ -88,11 +88,12 @@ export default function Album() {
   };
 
   return (
-    <div className="flex flex-col bg-album-card mt-5 bg-opacity-70 shadow-album-card rounded-30 border w-[1180px] min-h-[622px] max-h-[1023px] border-white backdrop-blur-sm">
-      <div className="flex justify-between mx-5 mt-5 mb-10 cursor-pointer">
+    <div className="flex flex-col mt-[40px] mx-auto bg-album-card bg-opacity-70 shadow-album-card rounded-30 border w-[1180px] min-h-[622px] max-h-[1023px] border-white backdrop-blur-sm">
+      <div className="flex flex-row cursor-pointer justify-between mt-[42px]">
+        {''}
         <div>
           {isEditing && (
-            <span className="ml-4 text-[20px]">
+            <span className="text-[20px] pl-[56px]">
               <span className="text-black">{selectedPerfumes.length}</span>
               <span className="text-gray-500"> / {maxDeletableItems}</span>
             </span>
@@ -100,7 +101,7 @@ export default function Album() {
         </div>
         <div>
           <button
-            className="text-gray-500 text-[20px]"
+            className="text-gray-500 text-[20px] pr-[56px]"
             onClick={isEditing ? handleDeleteClick : handleEditClick}
           >
             {isEditing ? '삭제' : '편집'}
@@ -108,7 +109,7 @@ export default function Album() {
           {isEditing && (
             <button
               onClick={handleEditClick}
-              className="ml-3 text-[20px] text-mainbutton-default"
+              className="text-[20px] pr-[56px] text-mainbutton-default"
             >
               취소
             </button>
@@ -117,12 +118,17 @@ export default function Album() {
       </div>
       <Modal
         title={
-          <img src={DeleteLogo} alt="삭제 로고" className="w-[60px] h-[60px]" />
+          <img
+            src={DeleteLogo}
+            alt="삭제 로고"
+            className="w-[60px] h-[60px] mt-[43px]"
+          />
         }
         content={
-          <div className="flex flex-col items-center gap-1 mb-3">
+          <div className="flex flex-col items-center font-normal text-mainbutton-default mt-[30px]">
             <div>
-              선택한 향수를 향수 앨범에서 <strong>삭제</strong>하시겠습니까?
+              선택한 향수를 향수 앨범에서{' '}
+              <span className="font-semibold">삭제</span>하시겠습니까?
             </div>
           </div>
         }
@@ -132,7 +138,7 @@ export default function Album() {
         onClose={handleCloseModal}
         onConfirm={handleConfirmDelete}
       />
-      <div className="flex flex-row flex-wrap justify-center gap-8">
+      <div className="flex flex-row flex-wrap justify-center">
         {isLoading ? (
           <Spinner loading />
         ) : error ? (
@@ -152,9 +158,9 @@ export default function Album() {
             />
           ))
         ) : (
-          <div className="flex items-center justify-center h-[624px]">
+          <div className="flex items-center justify-center h-[622px]">
             <span className="text-gray150 text-[32px] font-normal">
-              내 향수를 <strong>저장</strong>해보세요!
+              내 향수를 <span className="font-semibold">저장</span>해보세요!
             </span>
           </div>
         )}
