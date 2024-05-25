@@ -12,7 +12,7 @@ export interface resultPerfumeData {
 
 export const myPerfumeData= [
     {
-        id: 20,
+        id: 22,
         brand: '딥 다크',
         name: '로 드 타로코',
         eName: 'L`EAU de Tarocco',
