@@ -1,15 +1,13 @@
 import { useState } from 'react';
 import naverDefault from '../assets/images/logo_green.png';
 import naverHover from '../assets/images/logo_white.png';
-import axios from 'axios';
-import {useNavigate} from 'react-router-dom';
 import {postLogin} from '../api/postLogin';
 
 const NaverLogin = () => {
     const [isHover, setIsHover] = useState(false);
 
     const loginNaver = async () => {
-        postLogin();
+        await  postLogin();
     };
 
   return (

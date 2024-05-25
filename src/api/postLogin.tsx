@@ -1,6 +1,6 @@
 import axiosInstance from './axiosConfig';
 
-export const postLogin = async (hashtagList: string[]) => {
+export const postLogin = async () => {
     try {
         const response = await axiosInstance.post('login');
         console.log(response.data);
