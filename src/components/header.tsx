@@ -23,18 +23,22 @@ const Header = () => {
   }
 
   return (
-    <header className="fixed top-0 z-10 px-10 w-dvw font-pretendard h-[100px]">
+    <header className="fixed top-0 z-10 w-[1920px] font-pretendard h-[100px]">
       <nav>
-        <ul className="flex items-center justify-between px-10">
+        <ul className="flex items-center justify-between p-0 m-0">
           <li>
             <Link
               to="/"
               className="no-underline text-header-default text-[20px]"
             >
-              <img src="/logo.png" alt="Logo" className="h-[67px]" />
+              <img
+                src="/logo.png"
+                alt="Logo"
+                className="h-auto w-[130px] py-[11.1px] ml-[78px]"
+              />
             </Link>
           </li>
-          <ul className="flex flex-row gap-4">
+          <ul className="mr-[90px] py-[20px]">
             {naverToken && (
               <li>
                 <Link
