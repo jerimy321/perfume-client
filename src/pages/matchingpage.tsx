@@ -1,32 +1,34 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
+import { matchedPerfumesState } from '../recoil/recoilState';
 import perfumIMG from '../assets/images/perfumeIMG.png';
 
 export default function MatchingPage() {
-  const [isLoading, setIsLoading] = useState(true);
   const [matchSuccess, setMatchSuccess] = useState<boolean | null>(null);
+  const [matchedPerfumes, setMatchedPerfumes] =
+    useRecoilState(matchedPerfumesState);
   const navigate = useNavigate();
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      // 임의로 성공 또는 실패를 결정
-      const success = Math.random() > 0.5;
-      setMatchSuccess(success);
-      setIsLoading(false);
+      if (matchedPerfumes.length > 0) {
+        setMatchSuccess(true);
+      } else {
+        setMatchSuccess(false);
+      }
     }, 3000);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [matchedPerfumes]);
 
   useEffect(() => {
-    if (!isLoading) {
-      if (matchSuccess) {
-        navigate('/result');
-      } else {
-        navigate('/matchfail');
-      }
+    if (matchSuccess) {
+      navigate('/result');
+    } else {
+      navigate('/matchfail');
     }
-  }, [isLoading, matchSuccess, navigate]);
+  }, [matchSuccess, navigate]);
 
   return (
     <div className="flex flex-col items-center w-[1920px] h-[1080px] bg-center bg-cover bg-matching-bg font-pretendard">
@@ -40,8 +42,6 @@ export default function MatchingPage() {
         <img src={perfumIMG} alt="향수이미지" className="w-[300px]" />
         <span>. . .</span>
       </div>
-      {isLoading && <span>로딩 중입니다...</span>}
-      {!isLoading && !matchSuccess}
     </div>
   );
 }
