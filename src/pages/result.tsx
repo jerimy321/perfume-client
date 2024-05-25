@@ -38,10 +38,6 @@ export default function Result() {
         }
     };
 
-    const clickSubPerfume = (data: resultPerfumeData) => () => {
-        navigate(`/perfumeInfo/${data.id}`, {state: {perfume: data}});
-    };
-
     return (
         <div className='w-screen h-[1600px] flex flex-col bg-result-bg bg-center bg-cover font-pretendard'>
             <div className='flex flex-col h-full w-full mx-auto px-auto mt-0 border'>
@@ -90,8 +86,7 @@ export default function Result() {
                             {subPerMockData
                                 .slice(currentPage, currentPage + subPerfumePerPage)
                                 .map((data) => (
-                                    <div key={data.id} onClick={clickSubPerfume(data)}
-                                         className='relative group mx-[21px] w-[360px] h-[360px] flex-shrink-0 rounded-[20px] bg-white shadow-subPerfume-div flex justify-center items-center'>
+                                    <div key={data.id} className='relative group mx-[21px] w-[360px] h-[360px] flex-shrink-0 rounded-[20px] bg-white shadow-subPerfume-div flex justify-center items-center'>
                                         <img className='' src={data.imageURL} alt={data.name}/>
                                         <div
                                             className='absolute inset-0 hidden justify-center group-hover:flex group-hover:bg-black group-hover:bg-opacity-40 rounded-[20px] flex justify-center items-center'>
