@@ -6,25 +6,16 @@ import axios from 'axios';
 const NaverLogin = () => {
     const [isHover, setIsHover] = useState(false);
     const loginNaver = async () => {
-/*        try {
-            const response = await fetch('https://perfume-bside.site/oauth2/authorization/naver', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
-            if (!response.ok) {
-                throw new Error('네트워크 응답이 올바르지 않습니다: ' + response.statusText);
-            }
-            const data = await response.json();
-            console.log('로그인 요청 성공:', data);
-            if (data.redirectUrl) {
-                window.location.href = data.redirectUrl;
+        try {
+            // 백엔드로 POST 요청 보내기
+            const response = await axios.post('https://perfume-bside.site/login');
+            // 백엔드가 리디렉션 URL을 응답으로 제공하는 경우
+            if (response.data.redirectUrl) {
+                window.location.href = response.data.redirectUrl;
             }
         } catch (error) {
-            console.error('로그인 요청 실패:', error);
-        }*/
-        window.location.href = 'https://perfume-bside.site/login';
+            console.error('간편로그인 요청 실패:', error);
+        }
     };
 
   return (
