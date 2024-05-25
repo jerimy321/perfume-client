@@ -7,7 +7,7 @@ const NaverLogin = () => {
     const [isHover, setIsHover] = useState(false);
     const loginNaver = async () => {
         try {
-            const response = await fetch('https://perfume-bside.site/login', {
+            const response = await fetch('https://perfume-bside.site/oauth2/authorization/naver', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
