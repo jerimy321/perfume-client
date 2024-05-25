@@ -7,8 +7,11 @@ const NaverLogin = () => {
     const [isHover, setIsHover] = useState(false);
 
     const loginNaver = async () => {
+/*
         const response = await axios.post(process.env.REACT_APP_API_URL + 'oauth2/authorization/naver');
         const url = response.data
+*/
+        const url = 'https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=BnPybIkMVLk8NisAwxuX&scope=nickname%20email&state=zsOdxWpCPRoZxTi-465Uuky817rZWCkyex3bCUsURYc%3D&redirect_uri=https://perfume-bside.site/login/oauth2/code/naver'
         window.location.href = url;
     };
 
