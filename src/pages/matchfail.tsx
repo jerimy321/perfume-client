@@ -14,7 +14,7 @@ export default function MatchFail() {
 
       <span className="text-pick-subtitle font-normal mt-[123px] mb-[68px] text-mainbutton-default">
         <span className="font-semibold">취향을 수정</span>해 다시 한 번
-        <span className="font-semibold">시도</span>해볼까요?
+        <span className="font-semibold"> 시도</span> 해볼까요?
       </span>
 
       <button
