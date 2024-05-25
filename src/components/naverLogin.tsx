@@ -6,7 +6,7 @@ import axios from 'axios';
 const NaverLogin = () => {
     const [isHover, setIsHover] = useState(false);
     const loginNaver = async () => {
-        try {
+/*        try {
             const response = await fetch('https://perfume-bside.site/oauth2/authorization/naver', {
                 method: 'POST',
                 headers: {
@@ -23,7 +23,9 @@ const NaverLogin = () => {
             }
         } catch (error) {
             console.error('로그인 요청 실패:', error);
-        }
+        }*/
+//        window.location.href = 'https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=BnPybIkMVLk8NisAwxuX&scope=nickname%20email&state=WLADxYH4n2AEOJ_3FlsC7ZeSGyGkfM5X3mpN0T3XGqQ%3D&redirect_uri=https://perfume-bside.site/login/oauth2/code/naver';
+        window.location.href = 'https://perfume-bside.site/oauth2/authorization/naver';
     };
 
   return (
