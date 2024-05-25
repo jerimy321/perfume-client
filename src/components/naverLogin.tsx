@@ -2,9 +2,12 @@ import { useState } from 'react';
 import naverDefault from '../assets/images/logo_green.png';
 import naverHover from '../assets/images/logo_white.png';
 import axios from 'axios';
+import {useNavigate} from 'react-router-dom';
 
 const NaverLogin = () => {
     const [isHover, setIsHover] = useState(false);
+    const navigate = useNavigate();
+
     const loginNaver = async () => {
         try {
             // 백엔드로 POST 요청 보내기
@@ -19,7 +22,7 @@ const NaverLogin = () => {
     };
 
   return (
-    <div className={'flex justify-center items-center '}>
+    <div className={'flex justify-center items-center mb-[70px]'}>
       <div id="naverIdLogin" className="hidden"></div>
       <div
         onMouseEnter={() => setIsHover(true)}
