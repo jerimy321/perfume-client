@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import naverDefault from '../assets/images/logo_green.png';
 import naverHover from '../assets/images/logo_white.png';
-import {postLogin} from '../api/postLogin';
+import axios from 'axios';
 
 const NaverLogin = () => {
     const [isHover, setIsHover] = useState(false);
 
     const loginNaver = async () => {
-        await postLogin();
+        const response = await axios.post(process.env.REACT_APP_API_URL + '/oauth2/authorization/naver');
+        const url = response.data
+        window.location.href = url;
     };
 
   return (
