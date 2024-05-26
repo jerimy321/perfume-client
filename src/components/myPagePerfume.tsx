@@ -4,7 +4,7 @@ import CheckIcon from '../assets/icons/icon_check.svg';
 interface Perfume {
   myPerfumeId: number;
   name: string;
-  engName: string;
+  eName: string;
   brand: string;
   imageURL: string;
 }
@@ -46,7 +46,7 @@ const MyPagePerfume: React.FC<MyPagePerfumeProps> = ({
             {perfume.name}
           </li>
           <li className="text-[18px] text-gray150 font-normal text-center text-nowrap">
-            {perfume.engName}
+            {perfume.eName}
           </li>
         </ul>
       </div>
