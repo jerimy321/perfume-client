@@ -4,6 +4,7 @@ import Modal from './modal';
 import DeleteLogo from '../assets/icons/icon_delete.svg';
 import Pagination from './pagenation';
 import { getPerfumes } from '../api/getPerfumes';
+import { deletePerfumes } from '../api/deletePerfumes';
 import Spinner from '../util/spinner';
 
 export default function Album() {
@@ -14,7 +15,7 @@ export default function Album() {
     {
       myPerfumeId: number;
       name: string;
-      engName: string;
+      eName: string;
       brand: string;
       imageURL: string;
     }[]
@@ -24,6 +25,7 @@ export default function Album() {
   const [error, setError] = useState<string | null>(null);
   const perfumesPerPage = 6;
   const maxDeletableItems = 8; // 최대 삭제 가능한 개수
+  const accessToken = 'YOUR_ACCESS_TOKEN'; // 실제 액세스 토큰으로 교체
 
   useEffect(() => {
     const fetchPerfumes = async () => {
@@ -44,7 +46,7 @@ export default function Album() {
 
   const handleEditClick = () => {
     setIsEditing(!isEditing);
-    setSelectedPerfumes([]); // 편집 모드를 변경할 때 선택 항목 초기화
+    setSelectedPerfumes([]);
   };
 
   const handleDeleteClick = () => {
@@ -55,15 +57,21 @@ export default function Album() {
     setIsModalVisible(false);
   };
 
-  const handleConfirmDelete = () => {
-    setPerfumes(
-      perfumes.filter(
-        (perfume) => !selectedPerfumes.includes(perfume.myPerfumeId),
-      ),
-    );
-    setSelectedPerfumes([]);
-    setIsModalVisible(false);
-    setIsEditing(false);
+  const handleConfirmDelete = async () => {
+    try {
+      await deletePerfumes(accessToken, selectedPerfumes);
+      setPerfumes(
+        perfumes.filter(
+          (perfume) => !selectedPerfumes.includes(perfume.myPerfumeId),
+        ),
+      );
+      setSelectedPerfumes([]);
+      setIsModalVisible(false);
+      setIsEditing(false);
+    } catch (error) {
+      setError('Failed to delete perfumes');
+      console.error('Error deleting perfumes:', error);
+    }
   };
 
   const handleCheckboxChange = (id: number) => {
