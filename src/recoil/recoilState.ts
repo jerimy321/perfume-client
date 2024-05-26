@@ -1,5 +1,17 @@
 import { atom, selector } from 'recoil';
+export interface Perfume {
+  id: number;
+  name: string;
+  ename: string;
+  brand: string;
+  imageURL: string;
+  content?: string;
+}
 
+export interface MatchedPerfumes {
+  mainPerfume: Perfume;
+  subPerfumes: Perfume[];
+}
 export const selectedItemsState = atom<Map<string, string>>({
   key: 'selectedItemsState',
   default: new Map(),
@@ -13,12 +25,19 @@ export const hashtagListState = selector({
   },
 });
 
-export const matchedPerfumesState = atom({
+export const matchedPerfumesState = atom<MatchedPerfumes>({
   key: 'matchedPerfumesState',
   default: {
-    mainPerfume: {},
-    subPerfumes: [],
-  },
+    mainPerfume: {
+      id: 0,
+      name: '',
+      ename: '',
+      brand: '',
+      imageURL: '',
+      content: ''
+    },
+    subPerfumes: []
+  }
 });
 
 const getNaverTokenFromLocalStorage = () => {
