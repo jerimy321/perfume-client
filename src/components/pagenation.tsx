@@ -16,8 +16,8 @@ const Pagination: React.FC<PaginationProps> = ({
   }
 
   return (
-    <nav className="flex justify-center mt-10">
-      <ul className="flex gap-2">
+    <nav className="flex justify-center">
+      <ul className="flex">
         {pageNumbers.map((number) => (
           <li
             key={number}
