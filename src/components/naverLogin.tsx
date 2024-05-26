@@ -17,7 +17,7 @@ const NaverLogin = () => {
   };
 
   return (
-    <div className={'flex justify-center items-center mb-[70px]'}>
+    <div className={'flex justify-center items-center mb-[15px]'}>
       <div id="naverIdLogin" className="hidden"></div>
       <div
         onMouseEnter={() => setIsHover(true)}
