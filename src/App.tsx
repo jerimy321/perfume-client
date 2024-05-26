@@ -23,7 +23,7 @@ function App() {
                     <Route path="callback" element={<NaverCallback/>}/>
                     <Route path="match" element={<MatchingPage/>}/>
                     <Route path="matchfail" element={<MatchFail/>}/>
-                    <Route path="/result" element={<ResultTest />}/>
+                    <Route path="/result" element={<Result />}/>
                     <Route path="/perfumeInfo/:id" element={<PerfumeInfo/>}/>
                 </Route>
                 <Route path="*" element={<NoHeaderLayout/>}>
