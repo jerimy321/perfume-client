@@ -2,22 +2,18 @@ import { useState } from 'react';
 import naverDefault from '../assets/images/logo_green.png';
 import naverHover from '../assets/images/logo_white.png';
 import axios from 'axios';
-import axiosInstance from '../api/axiosConfig';
+import {API_URL} from '../config';
 
 const NaverLogin = () => {
     const [isHover, setIsHover] = useState(false);
 
     const loginNaver = async () => {
         try {
-            const response = await axios.post(process.env.REACT_APP_API_URL + 'oauth2/authorization/naver');
+            const response = await axios.post(API_URL + 'oauth2/authorization/naver');
             console.log(response.data)
-            const url = response.data
-            window.location.href = url;
         } catch (error) {
             console.error('Error Posting Login')
         }
-//        const response = await axios.post(process.env.REACT_APP_API_URL + 'oauth2/authorization/naver');
-//        const url = 'https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=BnPybIkMVLk8NisAwxuX&scope=nickname%20email&state=zsOdxWpCPRoZxTi-465Uuky817rZWCkyex3bCUsURYc%3D&redirect_uri=https://perfume-bside.site/login/oauth2/code/naver'
     };
 
   return (
