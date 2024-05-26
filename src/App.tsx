@@ -10,7 +10,6 @@ import Layout from './layouts/layout';
 import NoHeaderLayout from './layouts/noHeaderLayout';
 import MatchingPage from './pages/matchingpage';
 import MatchFail from './pages/matchfail';
-import ResultTest from './pages/resultTest';
 
 function App() {
     return (
