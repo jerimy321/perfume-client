@@ -4,24 +4,24 @@ import subDef from '../assets/icons/sub_def.png';
 import left from '../assets/icons/icon_left.png';
 import right from '../assets/icons/icon_right.png';
 import {useState} from 'react';
+import {mainPerMockData, resultPerfumeData, subPerMockData} from '../data/resultPerfumeData';
 import SaveAlert from '../components/saveAlert';
-import {useRecoilValue} from 'recoil';
-import {matchedPerfumesState} from '../recoil/recoilState';
+import {useNavigate} from 'react-router-dom';
+import {saveMyPerfume} from '../api/saveMyPerfume';
 
 const subPerfumePerPage = 3;
-export default function Result() {
+export default function ResultTest() {
     const [saveComplete, setSaveComplete] = useState(false);
     const [saveAlert, setSaveAlert] = useState(false);
     const [currentPage, setCurrentPage] = useState(0);
-
-    const { mainPerfume, subPerfumes } = useRecoilValue(matchedPerfumesState);
+    const navigate = useNavigate();
 
     const prevClick = () => {
         setCurrentPage((prevPage) => Math.max(prevPage - 1, 0));
     };
 
     const nextClick = () => {
-        setCurrentPage((prevPage) => Math.min(prevPage + 1, subPerfumes.length - 3));
+        setCurrentPage((prevPage) => Math.min(prevPage + 1, subPerMockData.length - 3));
     };
 
     const SaveClick = (id: number) => async (event: React.MouseEvent<HTMLDivElement>) => {
@@ -49,22 +49,22 @@ export default function Result() {
                     className='flex mx-auto w-[1180px] h-[532px] mt-[52px] shadow-main-div boredr border-white rounded-[30px] bg-white-70'>
                     <div className='ml-[100px]'>
                         <div
-                            className='ml-1 mt-[85px] text-2xl font-medium text-caption1 tracking-caption1'>{mainPerfume.brand}</div>
-                        <div className='ml-1 mt-4 text-5xl font-semibold leading-tight'>{mainPerfume.name}</div>
+                            className='ml-1 mt-[85px] text-2xl font-medium text-caption1 tracking-caption1'>{mainPerMockData.brand}</div>
+                        <div className='ml-1 mt-4 text-5xl font-semibold leading-tight'>{mainPerMockData.name}</div>
                         <div
-                            className='ml-1 mt-1.5 text-caption1 font-normal leading-tight text-[28px]'>{mainPerfume.ename}</div>
+                            className='ml-1 mt-1.5 text-caption1 font-normal leading-tight text-[28px]'>{mainPerMockData.eName}</div>
                         <div
                             className='w-[300px] h-20 bg-white-50 cursor-pointer border border-white rounded-[100px] pl-10 pr-10 mt-[100px] mb-20 pt-6 pb-[26px] shadow-home-button-hover'
-                            onClick={SaveClick(mainPerfume.id)}>
+                            onClick={SaveClick(mainPerMockData.id)}>
                             <div className='flex items-center justify-between'>
                                 {saveComplete ? (<img src={saveDef}/>) : (<img src={saveAfter}/>)}
                                 <p className='mb-0 text-2xl text-save-button'>내 향수 저장하기</p>
                             </div>
                         </div>
                     </div>
-                    <div className='flex justify-end mt-16 w-[578px] border-white'>
+                    <div className='flex justify-end mt-16 w-[578px]'>
                         <div className='mr-20'>
-                            <img className='mx-auto' src={mainPerfume.imageURL}/>
+                            <img className='mx-auto' src={mainPerMockData.imageURL}/>
                         </div>
                     </div>
                 </div>
@@ -81,7 +81,7 @@ export default function Result() {
                             src={left}/>
                         </button>
                         <div className='flex justify-center w-[1180px]'>
-                            {subPerfumes
+                            {subPerMockData
                                 .slice(currentPage, currentPage + subPerfumePerPage)
                                 .map((data) => (
                                     <div key={data.id} className='relative group mx-[21px] w-[360px] h-[360px] flex-shrink-0 rounded-[20px] bg-white shadow-subPerfume-div flex justify-center items-center'>
@@ -97,7 +97,7 @@ export default function Result() {
                                                     <span className='text-sub-brand font-bold'>{data.brand}</span>
                                                     <span
                                                         className='text-sub-name font-bold mt-4'>{data.name}</span>
-                                                    <span className='text-sub-eName font-medium'>{data.ename}</span>
+                                                    <span className='text-sub-eName font-medium'>{data.eName}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -107,7 +107,7 @@ export default function Result() {
                         {/* 서브 향수 아이템 */}
 
                         <button className='ml-[42px]' onClick={nextClick}
-                                disabled={currentPage >= subPerfumes.length - 3}><img src={right}/></button>
+                                disabled={currentPage >= subPerMockData.length - 3}><img src={right}/></button>
                     </div>
                 </div>
             </div>

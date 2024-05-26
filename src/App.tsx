@@ -10,6 +10,7 @@ import Layout from './layouts/layout';
 import NoHeaderLayout from './layouts/noHeaderLayout';
 import MatchingPage from './pages/matchingpage';
 import MatchFail from './pages/matchfail';
+import ResultTest from './pages/resultTest';
 
 function App() {
     return (
@@ -22,7 +23,7 @@ function App() {
                     <Route path="callback" element={<NaverCallback/>}/>
                     <Route path="match" element={<MatchingPage/>}/>
                     <Route path="matchfail" element={<MatchFail/>}/>
-                    <Route path="/result" element={<Result/>}/>
+                    <Route path="/result" element={<ResultTest />}/>
                     <Route path="/perfumeInfo/:id" element={<PerfumeInfo/>}/>
                 </Route>
                 <Route path="*" element={<NoHeaderLayout/>}>
