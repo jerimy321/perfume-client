@@ -88,8 +88,8 @@ export default function Album() {
   };
 
   return (
-    <div className="flex flex-col mt-[40px] mx-auto bg-album-card bg-opacity-70 shadow-album-card rounded-30 border w-[1180px] min-h-[622px] max-h-[1023px] border-white backdrop-blur-sm">
-      <div className="flex flex-row cursor-pointer justify-between mt-[42px]">
+    <div className="flex flex-col mt-[40px] mx-auto bg-album-card bg-opacity-70 shadow-album-card rounded-30 border w-[1180px] h-[622px] max-h-[1023px] border-white backdrop-blur-sm">
+      <div className="flex flex-row cursor-pointer justify-between pt-[42px]">
         {''}
         <div>
           {isEditing && (
@@ -141,12 +141,6 @@ export default function Album() {
       <div className="flex flex-row flex-wrap justify-center">
         {isLoading ? (
           <Spinner loading />
-        ) : error ? (
-          <div className="flex items-center justify-center h-[624px]">
-            <span className="text-gray150 text-[32px] font-normal">
-              {error}
-            </span>
-          </div>
         ) : currentPerfumes.length > 0 ? (
           currentPerfumes.map((perfume) => (
             <MyPagePerfume
@@ -158,8 +152,8 @@ export default function Album() {
             />
           ))
         ) : (
-          <div className="flex items-center justify-center h-[622px]">
-            <span className="text-gray150 text-[32px] font-normal">
+          <div className="flex items-center h-[550px] text-center">
+            <span className="text-gray150 text-[32px] font-normal pb-[30px]">
               내 향수를 <span className="font-semibold">저장</span>해보세요!
             </span>
           </div>
