@@ -8,19 +8,19 @@ import LoginModal from './loginModal';
 const Header = () => {
   const naverToken = useRecoilValue(naverTokenState);
   const logout = useLogout();
-  const [redirect, setRedirect] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const handleLogout = () => {
     logout();
   };
 
   const handleLogin = () => {
-    setRedirect(true);
+    setIsModalVisible(true);
   };
 
-  if (redirect) {
-    return <LoginModal />;
-  }
+  const handleCloseModal = () => {
+    setIsModalVisible(false);
+  };
 
   return (
     <header className="fixed top-0 z-10 w-[1920px] font-pretendard h-[100px]">
@@ -61,8 +61,6 @@ const Header = () => {
             ) : (
               <li>
                 <button
-                  data-toggle="modal"
-                  data-target="#loginModal"
                   onClick={handleLogin}
                   className="no-underline text-header-default text-[20px] font-normal bg-transparent border-none cursor-pointer"
                 >
@@ -73,6 +71,7 @@ const Header = () => {
           </ul>
         </ul>
       </nav>
+      {isModalVisible && <LoginModal onClose={handleCloseModal} />}
     </header>
   );
 };
