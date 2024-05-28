@@ -1,29 +1,43 @@
-import { useState } from 'react';
+import {useEffect, useState} from 'react';
 import naverDefault from '../assets/images/logo_green.png';
 import naverHover from '../assets/images/logo_white.png';
-import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const NaverLogin = () => {
     const [isHover, setIsHover] = useState(false);
+    const navigate = useNavigate();
 
     const loginNaver = () => {
-        const oauth2Url = process.env.REACT_APP_API_URL + 'oauth2/authorization/naver';
-        window.open(oauth2Url, 'oauth2Window', 'width=800,height=600');
-    };
-// const NaverLogin = () => {
-//   const [isHover, setIsHover] = useState(false);
-//   const loginNaver = async () => {
-//     try {
-//       const response = await axios.get(
-//         process.env.REACT_APP_API_URL + '/oauth2/authorization/naver',
-//       );
-//       window.location.href = response.data;
-//     } catch (error) {
-//       console.error('Error Posting Login');
-//     }
-//   };
+        const oauth2Url = process.env.REACT_APP_API_URL + '/oauth2/authorization/naver';
+        const oauth2Window = window.open(oauth2Url, 'oauth2Window', 'width=800,height=600');
 
-  return (
+        if (oauth2Window) {
+            const checkPopup = setInterval(() => {
+                if (oauth2Window.closed) {
+                    clearInterval(checkPopup);
+                }
+            }, 1000);
+        } else {
+            console.error('Popup window could not be opened');
+        }
+    };
+
+    useEffect(() => {
+        const handleMessage = (event: MessageEvent) => {
+            if (event.data === 'authenticated') {
+                navigate('/main');  // /main 경로로 이동
+            }
+        };
+
+        window.addEventListener('message', handleMessage);
+
+        return () => {
+            window.removeEventListener('message', handleMessage);
+        };
+    }, [navigate]);
+
+
+    return (
     <div className={'flex justify-center items-center mb-[15px]'}>
       <div id="naverIdLogin" className="hidden"></div>
       <div
