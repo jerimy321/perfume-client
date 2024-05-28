@@ -7,7 +7,7 @@ export const getPerfumes = async (page: number, size: number) => {
     //   throw new Error('No token found');
     // }
     const response = await axiosInstance.get(
-      `myPage/perfumes?page=${page}&size=${size}`,
+      `/api/myPage/perfumes?page=${page}&size=${size}`,
       {
         headers: {
           /*
