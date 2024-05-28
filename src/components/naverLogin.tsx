@@ -1,15 +1,42 @@
-import { useState } from 'react';
+
 import naverDefault from '../assets/images/logo_green.png';
 import naverHover from '../assets/images/logo_white.png';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 
-const NaverLogin = () => {
+const NaverLogin: React.FC = () => {
     const [isHover, setIsHover] = useState(false);
 
     const loginNaver = () => {
         const oauth2Url = process.env.REACT_APP_API_URL + '/oauth2/authorization/naver';
-        window.open(oauth2Url, 'oauth2Window', 'width=800,height=600');
+        const oauth2Window = window.open(oauth2Url, 'oauth2Window', 'width=800,height=600');
+
+        if (oauth2Window) {
+            const checkPopup = setInterval(() => {
+                if (oauth2Window.closed) {
+                    clearInterval(checkPopup);
+                    // 여기에 부모 창으로 인증 정보를 전달하는 로직 추가
+                    window.location.reload();  // 예시로 페이지를 새로고침하여 인증 상태를 업데이트합니다.
+                }
+            }, 1000);
+        } else {
+            console.error('Popup window could not be opened');
+        }
     };
+
+    useEffect(() => {
+        const handleMessage = (event: MessageEvent) => {
+            if (event.data === 'authenticated') {
+                // 인증 성공 처리 로직
+                window.location.reload();
+            }
+        };
+
+        window.addEventListener('message', handleMessage);
+
+        return () => {
+            window.removeEventListener('message', handleMessage);
+        };
+    }, []);
 // const NaverLogin = () => {
 //   const [isHover, setIsHover] = useState(false);
 //   const loginNaver = async () => {
