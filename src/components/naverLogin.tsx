@@ -8,7 +8,7 @@ const NaverLogin = () => {
   const loginNaver = async () => {
     try {
       const response = await axios.get(
-        process.env.REACT_APP_API_URL + 'oauth2/authorization/naver',
+        process.env.REACT_APP_API_URL + 'api/oauth2/authorization/naver',
       );
       window.location.href = response.data;
     } catch (error) {
