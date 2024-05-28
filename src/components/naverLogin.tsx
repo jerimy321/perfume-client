@@ -7,7 +7,7 @@ const NaverLogin = () => {
     const [isHover, setIsHover] = useState(false);
 
     const loginNaver = () => {
-        const oauth2Url = process.env.REACT_APP_API_URL + '/oauth2/authorization/naver';
+        const oauth2Url = process.env.REACT_APP_API_URL + 'oauth2/authorization/naver';
         window.open(oauth2Url, 'oauth2Window', 'width=800,height=600');
     };
 // const NaverLogin = () => {
