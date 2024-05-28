@@ -8,7 +8,7 @@ const NaverLogin = () => {
     const navigate = useNavigate();
 
     const loginNaver = () => {
-        const oauth2Url = process.env.REACT_APP_API_URL + '/oauth2/authorization/naver';
+        const oauth2Url = process.env.REACT_APP_API_URL + 'oauth2/authorization/naver';
         const oauth2Window = window.open(oauth2Url, 'oauth2Window', 'width=800,height=600');
 
         if (oauth2Window) {
