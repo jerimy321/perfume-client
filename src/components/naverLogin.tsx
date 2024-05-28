@@ -4,17 +4,24 @@ import naverHover from '../assets/images/logo_white.png';
 import axios from 'axios';
 
 const NaverLogin = () => {
-  const [isHover, setIsHover] = useState(false);
-  const loginNaver = async () => {
-    try {
-      const response = await axios.get(
-        process.env.REACT_APP_API_URL + '/oauth2/authorization/naver',
-      );
-      window.location.href = response.data;
-    } catch (error) {
-      console.error('Error Posting Login');
-    }
-  };
+    const [isHover, setIsHover] = useState(false);
+
+    const loginNaver = () => {
+        const oauth2Url = process.env.REACT_APP_API_URL + '/oauth2/authorization/naver';
+        window.open(oauth2Url, 'oauth2Window', 'width=800,height=600');
+    };
+// const NaverLogin = () => {
+//   const [isHover, setIsHover] = useState(false);
+//   const loginNaver = async () => {
+//     try {
+//       const response = await axios.get(
+//         process.env.REACT_APP_API_URL + '/oauth2/authorization/naver',
+//       );
+//       window.location.href = response.data;
+//     } catch (error) {
+//       console.error('Error Posting Login');
+//     }
+//   };
 
   return (
     <div className={'flex justify-center items-center mb-[15px]'}>
