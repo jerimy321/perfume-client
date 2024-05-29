@@ -9,7 +9,12 @@ const NaverLogin = () => {
     try {
       const response = await axios.get(
         process.env.REACT_APP_API_URL + '/oauth2/authorization/naver',
+          {
+              maxRedirects: 0 // 리디렉션을 거부
+          }
       );
+        console.log("Redirec 거부")
+        console.log("Redirec 시작")
       window.location.href = response.data;
     } catch (error) {
       console.error('Error Posting Login');
