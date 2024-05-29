@@ -11,7 +11,6 @@ const NaverLogin = () => {
                 const response = await axios.get(
                     process.env.REACT_APP_API_URL + '/oauth2/authorization/naver',
                     {
-                        withCredentials: true,
                         maxRedirects: 0 // 리디렉션을 거부
                     }
                 );
