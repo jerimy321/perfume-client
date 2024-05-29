@@ -1,39 +1,13 @@
 import { useState } from 'react';
-import axios from 'axios';
 import naverDefault from '../assets/images/logo_green.png';
 import naverHover from '../assets/images/logo_white.png';
 
 const NaverLogin = () => {
     const [isHover, setIsHover] = useState(false);
 
-    // 동적 state 생성 함수
-    const generateState = () => {
-        const array = new Uint32Array(1);
-        window.crypto.getRandomValues(array);
-        return array[0].toString(16);
-    };
-
-    const loginNaver = async () => {
-        try {
-            // 동적 파라미터 생성
-            const state = generateState();
-            const params = {
-                response_type: 'code',
-                client_id: 'BnPybIkMVLk8NisAwxuX',
-                scope: 'nickname email',
-                state: state,
-                redirect_uri: 'https://perfume-bside.site/login/oauth2/code/naver'
-            };
-
-            // 네이버 로그인 URL 생성
-            const queryString = new URLSearchParams(params).toString();
-            const naverAuthUrl = `/naver-oauth-proxy?${queryString}`;
-
-            // 네이버 로그인 창으로 리디렉션
-            window.location.href = naverAuthUrl;
-        } catch (error) {
-            console.error('Error fetching login URL', error);
-        }
+    const loginNaver = () => {
+        const oauth2Url = process.env.REACT_APP_API_URL + '/oauth2/authorization/naver';
+        window.open(oauth2Url, 'oauth2Window', 'width=800,height=600');
     };
 
     return (
