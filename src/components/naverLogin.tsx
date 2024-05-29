@@ -29,18 +29,8 @@ const NaverLogin = () => {
             const queryString = new URLSearchParams(params).toString();
             const naverAuthUrl = `/naver-oauth-proxy?${queryString}`;
 
-            // 프록시를 통해 네이버 로그인 창 요청
-            const response = await axios.get(naverAuthUrl, {
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                withCredentials: true
-            });
-
-            // 네이버 로그인 창 HTML을 브라우저에 반환
-            document.open();
-            document.write(response.data);
-            document.close();
+            // 네이버 로그인 창으로 리디렉션
+            window.location.href = naverAuthUrl;
         } catch (error) {
             console.error('Error fetching login URL', error);
         }
