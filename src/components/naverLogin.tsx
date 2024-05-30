@@ -9,7 +9,7 @@ const NaverLogin = () => {
     const loginNaver = async () => {
         try {
             // 백엔드 서버의 네이버 로그인 엔드포인트로 리디렉션
-            window.location.href = process.env.REACT_APP_API_URL + '/oauth2/authorization/naver';
+            window.location.href = "https://perfume-bside.site/oauth2/authorization/naver";
         } catch (error) {
             console.error('Error during login');
         }
