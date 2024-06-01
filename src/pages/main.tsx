@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import {useEffect, useState} from 'react';
 import { useRecoilValue } from 'recoil';
 import { selectedItemsState, hashtagListState } from '../recoil/recoilState';
 import Carousel from '../components/carousel';
 import PickItemModal from '../components/pickItemModal';
+import {getCookie} from '../util/getCookie';
 
 export default function Main() {
   const selectedItems = useRecoilValue(selectedItemsState);
@@ -11,6 +12,13 @@ export default function Main() {
     '/assets/images/bg_main_6.png',
   );
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [sessionId, setSessionId] = useState<string | undefined>('');
+
+  useEffect(() => {
+    const cookieSessionId = getCookie('JSESSIONID');
+    setSessionId(cookieSessionId);
+    console.log('Session ID:', cookieSessionId);
+  }, []);
 
   const categoryImages: { [key: string]: string } = {
     scent: '/assets/images/bg_main_1.png',
