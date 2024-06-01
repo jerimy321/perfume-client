@@ -1,4 +1,5 @@
 import { atom, selector } from 'recoil';
+import {getCookie} from '../util/getCookie';
 export interface Perfume {
   id: number;
   name: string;
@@ -40,12 +41,12 @@ export const matchedPerfumesState = atom<MatchedPerfumes>({
   }
 });
 
-const getNaverTokenFromLocalStorage = () => {
-  const naverToken = localStorage.getItem('naverToken');
+const getNaverTokenFromCookie = () => {
+  const naverToken = getCookie('JSESSIONID');
   return naverToken ? naverToken : null;
 };
 
 export const naverTokenState = atom({
   key: 'naverTokenState',
-  default: getNaverTokenFromLocalStorage(),
+  default: getNaverTokenFromCookie(),
 });
