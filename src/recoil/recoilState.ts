@@ -41,7 +41,7 @@ export const matchedPerfumesState = atom<MatchedPerfumes>({
   }
 });
 
-const getNaverTokenFromCookie = () => {
+export const getNaverTokenFromCookie = () => {
   const naverToken = getCookie('JSESSIONID');
   return naverToken ? naverToken : null;
 };
