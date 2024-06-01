@@ -7,6 +7,7 @@ import {useState} from 'react';
 import SaveAlert from '../components/saveAlert';
 import {useRecoilValue} from 'recoil';
 import {matchedPerfumesState} from '../recoil/recoilState';
+import {saveMyPerfume} from '../api/saveMyPerfume';
 
 const subPerfumePerPage = 3;
 export default function Result() {
@@ -27,7 +28,7 @@ export default function Result() {
     const SaveClick = (id: number) => async (event: React.MouseEvent<HTMLDivElement>) => {
         event.stopPropagation(); // 이벤트 전파 중단
         try {
-            // await saveMyPerfume(id);
+            await saveMyPerfume(id);
             setSaveComplete(true);
             setSaveAlert(true);
             setTimeout(() => {
