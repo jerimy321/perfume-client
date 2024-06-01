@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 import { useRecoilValue } from 'recoil';
-import { selectedItemsState, hashtagListState } from '../recoil/recoilState';
+import {selectedItemsState, hashtagListState, naverTokenState} from '../recoil/recoilState';
 import Carousel from '../components/carousel';
 import PickItemModal from '../components/pickItemModal';
 import {getCookie} from '../util/getCookie';
@@ -12,13 +12,11 @@ export default function Main() {
     '/assets/images/bg_main_6.png',
   );
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [sessionId, setSessionId] = useState<string | undefined>('');
+  const naverToken = useRecoilValue(naverTokenState);
 
   useEffect(() => {
-    const cookieSessionId = getCookie('JSESSIONID');
-    setSessionId(cookieSessionId);
-    console.log('Session ID:', cookieSessionId);
-  }, []);
+    console.log('네이버 토큰 값: ' + naverToken);
+  }, [naverToken]);
 
   const categoryImages: { [key: string]: string } = {
     scent: '/assets/images/bg_main_1.png',
