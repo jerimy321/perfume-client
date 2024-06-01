@@ -14,9 +14,9 @@ export default function Main() {
   const [naverToken, setNaverToken] = useRecoilState(naverTokenState);
 
   useEffect(() => {
-    setNaverToken(getNaverTokenFromCookie);
+    setNaverToken(getNaverTokenFromCookie());
     console.log('네이버 토큰 : ', naverToken);
-  }, [naverToken]);
+  }, [setNaverToken]);
 
   const categoryImages: { [key: string]: string } = {
     scent: '/assets/images/bg_main_1.png',
